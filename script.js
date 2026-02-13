@@ -29,6 +29,18 @@ document.addEventListener('DOMContentLoaded', () => {
   // ROI Calculator Logic
   initROICalculator();
 
+  // Typewriter Effect
+  initTypewriter();
+
+  // Scroll Reveal
+  initScrollReveal();
+
+  // Animated Counters
+  initCounters();
+
+  // Sticky CTA Mobile
+  initStickyCTA();
+
 });
 
 // Infinite Animation Loop
@@ -106,7 +118,7 @@ function initROICalculator() {
     const yearlyInvestment = agentCost * 12;
     const roiPercentage = Math.round((yearlyRevenue / yearlyInvestment) * 100);
 
-    // Update results
+    // Update results with simplified animation for changes
     conversionIncrease.textContent = '+' + Math.round(improvementFactor * 100) + '%';
     additionalSales.textContent = additionalSalesCount;
     extraRevenue.textContent = 'R$ ' + monthlyExtraRevenue.toLocaleString('pt-BR');
@@ -121,4 +133,66 @@ function initROICalculator() {
 
   // Initial calculation
   calculateROI();
+}
+
+// Typewriter Effect
+function initTypewriter() {
+  const textElement = document.querySelector('.type-effect');
+  if (!textElement) return;
+
+  const phrases = ["Piloto Automático.", "WhatsApp.", "Instagram."];
+  let phraseIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+  let typeSpeed = 100;
+
+  function type() {
+    const currentPhrase = phrases[phraseIndex];
+
+    if (isDeleting) {
+      textElement.textContent = currentPhrase.substring(0, charIndex - 1);
+      charIndex--;
+      typeSpeed = 50;
+    } else {
+      textElement.textContent = currentPhrase.substring(0, charIndex + 1);
+      charIndex++;
+      typeSpeed = 100;
+    }
+
+    if (!isDeleting && charIndex === currentPhrase.length) {
+      isDeleting = true;
+      typeSpeed = 2000; // Pause at end
+    } else if (isDeleting && charIndex === 0) {
+      isDeleting = false;
+      phraseIndex = (phraseIndex + 1) % phrases.length;
+      typeSpeed = 500; // Pause before new word
+    }
+
+    setTimeout(type, typeSpeed);
+  }
+
+  type();
+}
+
+// Scroll Reveal
+function initScrollReveal() {
+  const reveals = document.querySelectorAll('.reveal');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+      }
+    });
+  }, {
+    threshold: 0.15
+  });
+
+  reveals.forEach(reveal => observer.observe(reveal));
+}
+
+// Animated Counters (Simple Implementation)
+function initCounters() {
+  // This could be expanded to animating numbers when they appear in viewport
+  // For now, simpler implementation is fine as ROI calculator is interactive
 }
