@@ -49,7 +49,7 @@ a {
 }
 
 .section {
-    padding: 74px 0
+    padding: 52px 0
 }
 
 /* Kicker Badge */
@@ -139,6 +139,54 @@ a {
 .nav-links a:hover {
     color: var(--text);
     background: rgba(255, 255, 255, .06)
+}
+
+.nav-links a.active {
+    color: var(--neonCyan);
+    background: rgba(37, 243, 255, .08);
+    border-bottom: 2px solid var(--neonCyan);
+    padding-bottom: 8px;
+}
+
+/* Hamburger Button */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    background: none;
+    border: 1px solid rgba(255, 255, 255, .12);
+    border-radius: 10px;
+    padding: 8px 10px;
+    cursor: pointer;
+    z-index: 60;
+    transition: background .15s ease;
+}
+
+.hamburger:hover {
+    background: rgba(255, 255, 255, .06);
+}
+
+.hamburger span {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: var(--text);
+    border-radius: 2px;
+    transition: transform .25s ease, opacity .25s ease;
+    transform-origin: center;
+}
+
+.hamburger.open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
 }
 
 .nav-cta {
@@ -1233,8 +1281,35 @@ footer {
         justify-content: flex-start
     }
 
+    .hamburger {
+        display: flex;
+    }
+
     .nav-links {
-        display: none
+        display: none;
+        position: fixed;
+        top: 60px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 28px;
+        background: rgba(4, 8, 20, .96);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        z-index: 55;
+        font-size: 1.3rem;
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    .nav-links a.active {
+        border-bottom: none;
+        padding-bottom: 10px;
     }
 
     .sticky-cta {
@@ -1324,4 +1399,91 @@ footer {
 
 .reveal.active .card:nth-child(4) {
     transition-delay: 0.4s;
+}
+
+/* ===========================
+   FAQ Accordion
+   =========================== */
+.faq-list {
+    max-width: 800px;
+    margin: 32px auto 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.faq-item {
+    border-radius: var(--radius);
+    border: 1px solid rgba(255, 255, 255, .10);
+    background: linear-gradient(180deg, rgba(255, 255, 255, .07), rgba(255, 255, 255, .03));
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    overflow: hidden;
+    transition: border-color .2s ease;
+}
+
+.faq-item[open] {
+    border-color: rgba(37, 243, 255, .25);
+}
+
+.faq-question {
+    list-style: none;
+    cursor: pointer;
+    padding: 18px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    user-select: none;
+    transition: color .15s ease;
+}
+
+.faq-question::-webkit-details-marker {
+    display: none;
+}
+
+.faq-question::after {
+    content: '+';
+    font-size: 1.4rem;
+    font-weight: 300;
+    color: var(--neonCyan);
+    flex-shrink: 0;
+    transition: transform .25s ease;
+    line-height: 1;
+}
+
+.faq-item[open] .faq-question::after {
+    transform: rotate(45deg);
+}
+
+.faq-question:hover {
+    color: var(--neonCyan);
+}
+
+.faq-answer {
+    padding: 0 20px 18px;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.65;
+    border-top: 1px solid rgba(255, 255, 255, .07);
+    animation: faqOpen .2s ease;
+}
+
+.faq-answer p {
+    margin: 12px 0 0;
+}
+
+@keyframes faqOpen {
+    from {
+        opacity: 0;
+        transform: translateY(-6px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

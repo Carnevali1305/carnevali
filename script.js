@@ -41,6 +41,12 @@ document.addEventListener('DOMContentLoaded', () => {
   // Sticky CTA Mobile
   initStickyCTA();
 
+  // Hamburger Menu
+  initHamburger();
+
+  // Active nav link on scroll
+  initActiveNavLink();
+
 });
 
 // Infinite Animation Loop
@@ -195,4 +201,82 @@ function initScrollReveal() {
 function initCounters() {
   // This could be expanded to animating numbers when they appear in viewport
   // For now, simpler implementation is fine as ROI calculator is interactive
+}
+
+// ============================================================
+// Hamburger Menu
+// ============================================================
+function initHamburger() {
+  const btn = document.getElementById('hamburger');
+  const nav = document.getElementById('nav-links');
+  if (!btn || !nav) return;
+
+  btn.addEventListener('click', () => {
+    const isOpen = nav.classList.toggle('open');
+    btn.classList.toggle('open', isOpen);
+    btn.setAttribute('aria-expanded', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+
+  // Close menu when a link is clicked
+  nav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      nav.classList.remove('open');
+      btn.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    });
+  });
+}
+
+// ============================================================
+// Active Nav Link on Scroll
+// ============================================================
+function initActiveNavLink() {
+  const sections = document.querySelectorAll('main section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+  if (!sections.length || !navLinks.length) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute('id');
+        navLinks.forEach(link => {
+          link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+        });
+      }
+    });
+  }, {
+    rootMargin: '-30% 0px -60% 0px',
+    threshold: 0
+  });
+
+  sections.forEach(section => observer.observe(section));
+}
+
+// ============================================================
+// Sticky CTA — Contextual: hide after the ROI section
+// ============================================================
+function initStickyCTA() {
+  const stickyCta = document.querySelector('.sticky-cta');
+  const roiSection = document.getElementById('roi-calculator');
+  if (!stickyCta || !roiSection) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      // Hide sticky CTA once ROI section has scrolled past (user already saw it)
+      if (!entry.isIntersecting && entry.boundingClientRect.top < 0) {
+        stickyCta.style.transform = 'translateY(120%)';
+        stickyCta.style.opacity = '0';
+      } else {
+        stickyCta.style.transform = '';
+        stickyCta.style.opacity = '';
+      }
+    });
+  }, { threshold: 0 });
+
+  observer.observe(roiSection);
+
+  // Add smooth transition to sticky CTA
+  stickyCta.style.transition = 'transform .35s ease, opacity .35s ease';
 }

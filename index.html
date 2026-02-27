@@ -21,7 +21,7 @@
                 </div>
             </div>
 
-            <nav class="nav-links" aria-label="Navegação">
+            <nav class="nav-links" aria-label="Navegação" id="nav-links">
                 <a href="#problema">Problema</a>
                 <a href="#solucao">Solução</a>
                 <a href="#como-funciona">Como funciona</a>
@@ -31,6 +31,12 @@
                 <a href="#sobre">Sobre</a>
             </nav>
 
+            <button class="hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false"
+                aria-controls="nav-links">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
 
         </div>
     </header>
@@ -58,7 +64,8 @@
 
                     <div class="hero-actions" id="demo">
                         <a class="btn btn-primary"
-                            href="mailto:carnevalisolutions@outlook.com.br?subject=Quero%20Automatizar%20Minha%20Opera%C3%A7%C3%A3o&body=Ol%C3%A1%2C%20tenho%20interesse%20em%20automatizar%20processos%20com%20IA.%20Gostaria%20de%20agendar%20uma%20reuni%C3%A3o.">
+                            href="https://wa.me/5511999999999?text=Ol%C3%A1%21%20Tenho%20interesse%20em%20automatizar%20minha%20opera%C3%A7%C3%A3o%20com%20IA.%20Gostaria%20de%20agendar%20uma%20reuni%C3%A3o."
+                            target="_blank" rel="noopener">
                             Quero Automatizar Minha Operação
                             <small>Consultoria de Automação Inteligente</small>
                         </a>
@@ -420,8 +427,8 @@
                         </div>
 
                         <div style="text-align: center; margin-top:24px;">
-                            <a href="mailto:carnevalisolutions@outlook.com.br?subject=Quero%20Implementar%20um%20Agente%20de%20IA&body=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20a%20implementa%C3%A7%C3%A3o%20de%20Agentes%20de%20IA%20no%20meu%20neg%C3%B3cio."
-                                class="btn btn-primary">Quero Implementar Agora</a>
+                            <a href="https://wa.me/5511999999999?text=Ol%C3%A1%21%20Gostaria%20de%20saber%20mais%20sobre%20a%20implementa%C3%A7%C3%A3o%20de%20Agentes%20de%20IA%20no%20meu%20neg%C3%B3cio."
+                                target="_blank" rel="noopener" class="btn btn-primary">Quero Implementar Agora</a>
                         </div>
                     </div>
                 </div>
@@ -457,7 +464,8 @@
 
                 <div style="margin-top:24px; display:flex; gap:12px; flex-wrap:wrap; justify-content:center;">
                     <a class="btn btn-primary"
-                        href="mailto:carnevalisolutions@outlook.com.br?subject=Solicita%C3%A7%C3%A3o%20de%20Diagn%C3%B3stico&body=Ol%C3%A1%2C%20gostaria%20de%20solicitar%20um%20diagn%C3%B3stico%20do%20meu%20funil%20de%20atendimento%20para%20identificar%20oportunidades%20de%20automa%C3%A7%C3%A3o.">
+                        href="https://wa.me/5511999999999?text=Ol%C3%A1%21%20Gostaria%20de%20solicitar%20um%20diagn%C3%B3stico%20do%20meu%20funil%20de%20atendimento%20para%20identificar%20oportunidades%20de%20automa%C3%A7%C3%A3o."
+                        target="_blank" rel="noopener">
                         Pedir Análise do Meu Negócio
                         <small>Mapeamento de Gargalos Gratuito</small>
                     </a>
@@ -471,56 +479,68 @@
                 <h2>Perguntas Frequentes</h2>
                 <p class="sub">Respostas para as dúvidas mais comuns sobre Agentes de IA.</p>
 
-                <div style="max-width:800px; margin:0 auto;">
-                    <div class="card" style="margin-bottom:16px; text-align:left;">
-                        <h3 style="font-size:1.1rem; margin-bottom:8px;">💰 Quanto custa implementar um Agente de IA?
-                        </h3>
-                        <p style="opacity:0.9;">O investimento varia conforme a complexidade do seu funil e integrações
-                            necessárias. Agende uma análise gratuita para receber uma proposta personalizada baseada nas
-                            suas necessidades específicas.</p>
-                    </div>
+                <div class="faq-list">
+                    <details class="faq-item">
+                        <summary class="faq-question">💰 Quanto custa implementar um Agente de IA?</summary>
+                        <div class="faq-answer">
+                            <p>O investimento varia conforme a complexidade do seu funil e integrações necessárias.
+                                Agende uma análise gratuita para receber uma proposta personalizada baseada nas suas
+                                necessidades específicas.</p>
+                        </div>
+                    </details>
 
-                    <div class="card" style="margin-bottom:16px; text-align:left;">
-                        <h3 style="font-size:1.1rem; margin-bottom:8px;">🛠️ Preciso ter conhecimento técnico?</h3>
-                        <p style="opacity:0.9;">Não. Cuidamos de toda a parte técnica: configuração, integração e
-                            treinamento do Agente. Você só precisa fornecer seus scripts de vendas e processos de
-                            atendimento.</p>
-                    </div>
+                    <details class="faq-item">
+                        <summary class="faq-question">🛠️ Preciso ter conhecimento técnico?</summary>
+                        <div class="faq-answer">
+                            <p>Não. Cuidamos de toda a parte técnica: configuração, integração e treinamento do Agente.
+                                Você só precisa fornecer seus scripts de vendas e processos de atendimento.</p>
+                        </div>
+                    </details>
 
-                    <div class="card" style="margin-bottom:16px; text-align:left;">
-                        <h3 style="font-size:1.1rem; margin-bottom:8px;">⚠️ E se o Agente responder errado?</h3>
-                        <p style="opacity:0.9;">Você aprova todas as respostas e fluxos antes do Go Live. Além disso,
-                            monitoramos continuamente e ajustamos o comportamento do Agente conforme necessário. Você
-                            tem controle total.</p>
-                    </div>
+                    <details class="faq-item">
+                        <summary class="faq-question">⚠️ E se o Agente responder errado?</summary>
+                        <div class="faq-answer">
+                            <p>Você aprova todas as respostas e fluxos antes do Go Live. Além disso, monitoramos
+                                continuamente e ajustamos o comportamento do Agente conforme necessário. Você tem
+                                controle total.</p>
+                        </div>
+                    </details>
 
-                    <div class="card" style="margin-bottom:16px; text-align:left;">
-                        <h3 style="font-size:1.1rem; margin-bottom:8px;">🏢 Funciona para qualquer nicho?</h3>
-                        <p style="opacity:0.9;">Sim. Já implementamos Agentes de IA em imobiliárias, clínicas,
-                            e-commerce, infoprodutos, consultorias e diversos outros segmentos. A tecnologia se adapta
-                            ao seu modelo de negócio.</p>
-                    </div>
+                    <details class="faq-item">
+                        <summary class="faq-question">🏢 Funciona para qualquer nicho?</summary>
+                        <div class="faq-answer">
+                            <p>Sim. Já implementamos Agentes de IA em imobiliárias, clínicas, e-commerce, infoprodutos,
+                                consultorias e diversos outros segmentos. A tecnologia se adapta ao seu modelo de
+                                negócio.</p>
+                        </div>
+                    </details>
 
-                    <div class="card" style="margin-bottom:16px; text-align:left;">
-                        <h3 style="font-size:1.1rem; margin-bottom:8px;">📱 Funciona em quais plataformas?</h3>
-                        <p style="opacity:0.9;">Integramos com WhatsApp, Instagram, Facebook Messenger, e-mail e outras
-                            plataformas que possuam API ou formas de comunicação disponíveis. Analisamos cada caso para
-                            identificar a melhor forma de integração.</p>
-                    </div>
+                    <details class="faq-item">
+                        <summary class="faq-question">📱 Funciona em quais plataformas?</summary>
+                        <div class="faq-answer">
+                            <p>Integramos com WhatsApp, Instagram, Facebook Messenger, e-mail e outras plataformas que
+                                possuam API ou formas de comunicação disponíveis. Analisamos cada caso para identificar
+                                a melhor forma de integração.</p>
+                        </div>
+                    </details>
 
-                    <div class="card" style="margin-bottom:16px; text-align:left;">
-                        <h3 style="font-size:1.1rem; margin-bottom:8px;">🔒 Meus dados estão seguros?</h3>
-                        <p style="opacity:0.9;">Sim. Utilizamos criptografia de ponta a ponta e seguimos as melhores
-                            práticas de segurança. Seus dados e os dados dos seus clientes são tratados com total
-                            confidencialidade e em conformidade com a LGPD.</p>
-                    </div>
+                    <details class="faq-item">
+                        <summary class="faq-question">🔒 Meus dados estão seguros?</summary>
+                        <div class="faq-answer">
+                            <p>Sim. Utilizamos criptografia de ponta a ponta e seguimos as melhores práticas de
+                                segurança. Seus dados e os dados dos seus clientes são tratados com total
+                                confidencialidade e em conformidade com a LGPD.</p>
+                        </div>
+                    </details>
 
-                    <div class="card" style="margin-bottom:16px; text-align:left;">
-                        <h3 style="font-size:1.1rem; margin-bottom:8px;">🤝 Terei suporte após a implementação?</h3>
-                        <p style="opacity:0.9;">Sim. Oferecemos suporte durante a implementação para solução de
-                            problemas e ajustes necessários. Após o Go Live, você pode contratar suporte contínuo para
-                            evoluções e melhorias.</p>
-                    </div>
+                    <details class="faq-item">
+                        <summary class="faq-question">🤝 Terei suporte após a implementação?</summary>
+                        <div class="faq-answer">
+                            <p>Sim. Oferecemos suporte durante a implementação para solução de problemas e ajustes
+                                necessários. Após o Go Live, você pode contratar suporte contínuo para evoluções e
+                                melhorias.</p>
+                        </div>
+                    </details>
                 </div>
             </div>
         </section>
@@ -569,7 +589,8 @@
                 </p>
 
                 <a class="btn btn-primary" style="margin-bottom:24px; display:inline-block;"
-                    href="mailto:carnevalisolutions@outlook.com.br?subject=Solicita%C3%A7%C3%A3o%20de%20Consultoria%20Gratuita&body=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consultoria%20gratuita%20para%20entender%20como%20Agentes%20de%20IA%20podem%20ajudar%20meu%20neg%C3%B3cio.">
+                    href="https://wa.me/5511999999999?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20uma%20consultoria%20gratuita%20para%20entender%20como%20Agentes%20de%20IA%20podem%20ajudar%20meu%20neg%C3%B3cio."
+                    target="_blank" rel="noopener">
                     Agendar Consultoria Gratuita
                     <small>Sem compromisso</small>
                 </a>
