@@ -49,7 +49,13 @@ a {
 }
 
 .section {
-    padding: 52px 0
+    padding: 52px 0;
+}
+
+@media (min-width: 768px) {
+    .section {
+        padding: 96px 0;
+    }
 }
 
 /* Kicker Badge */
@@ -128,7 +134,7 @@ a {
     align-items: center
 }
 
-.nav-links a {
+.nav-links a:not(.btn) {
     color: var(--muted);
     font-size: 14px;
     padding: 10px 10px;
@@ -136,12 +142,12 @@ a {
     transition: .15s ease;
 }
 
-.nav-links a:hover {
+.nav-links a:not(.btn):hover {
     color: var(--text);
     background: rgba(255, 255, 255, .06)
 }
 
-.nav-links a.active {
+.nav-links a.active:not(.btn) {
     color: var(--neonCyan);
     background: rgba(37, 243, 255, .08);
     border-bottom: 2px solid var(--neonCyan);
@@ -862,7 +868,6 @@ h2 {
     justify-content: center;
     border: 1px solid rgba(255, 255, 255, .16);
     background: rgba(0, 0, 0, .18);
-    box-shadow: 0 0 28px rgba(37, 243, 255, .10);
     margin-bottom: 12px;
 }
 
@@ -1295,11 +1300,17 @@ footer {
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 28px;
+        gap: 20px;
         background: rgba(4, 8, 20, .96);
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
         z-index: 55;
+    }
+
+    .nav-links a:not(.btn) {
+        padding: 16px 24px;
+        width: 100%;
+        text-align: center;
         font-size: 1.3rem;
     }
 
@@ -1307,9 +1318,9 @@ footer {
         display: flex;
     }
 
-    .nav-links a.active {
+    .nav-links a.active:not(.btn) {
         border-bottom: none;
-        padding-bottom: 10px;
+        padding-bottom: 16px;
     }
 
     .sticky-cta {
