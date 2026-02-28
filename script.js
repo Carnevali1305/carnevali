@@ -280,3 +280,90 @@ function initStickyCTA() {
   // Add smooth transition to sticky CTA
   stickyCta.style.transition = 'transform .35s ease, opacity .35s ease';
 }
+
+// ============================================================
+// ROI Simulação — Calculadora comparativa por inputs
+// ============================================================
+function calcularROI() {
+  const leads = parseFloat(document.getElementById('sim-leads').value);
+  const taxa = parseFloat(document.getElementById('sim-taxa').value);
+  const ticket = parseFloat(document.getElementById('sim-ticket').value);
+  const el = document.getElementById('roi-resultado');
+
+  // Validação
+  if (!leads || !taxa || !ticket || leads <= 0 || taxa <= 0 || ticket <= 0 || taxa > 100) {
+    el.innerHTML = `
+      <div class="roi-sim-placeholder">
+        <span>⚠️</span>
+        <p>Preencha os três campos com valores válidos.</p>
+      </div>`;
+    return;
+  }
+
+  // Cálculo
+  const taxaIA = Math.min(taxa * 1.30, 100);
+  const vendasHoje = Math.round(leads * (taxa / 100));
+  const vendasIA = Math.round(leads * (taxaIA / 100));
+  const recHoje = vendasHoje * ticket;
+  const recIA = vendasIA * ticket;
+  const ganhoMes = recIA - recHoje;
+  const ganhoAno = ganhoMes * 12;
+  const extra = vendasIA - vendasHoje;
+
+  const fmt = n => n.toLocaleString('pt-BR', { minimumFractionDigits: 2 });
+  const fmtN = n => n.toLocaleString('pt-BR');
+
+  el.innerHTML = `
+    <div class="roi-sim-cards">
+      <div class="roi-sim-card hoje">
+        <div class="roi-sim-card-title">📌 Situação Atual</div>
+        <div class="roi-sim-row">
+          <div class="roi-sim-metric">
+            <span class="roi-sim-metric-lbl">Leads / mês</span>
+            <span class="roi-sim-metric-val">${fmtN(leads)}</span>
+          </div>
+          <div class="roi-sim-metric">
+            <span class="roi-sim-metric-lbl">Taxa de conversão</span>
+            <span class="roi-sim-metric-val">${taxa.toFixed(1)}%</span>
+          </div>
+          <div class="roi-sim-metric">
+            <span class="roi-sim-metric-lbl">Vendas / mês</span>
+            <span class="roi-sim-metric-val">${fmtN(vendasHoje)}</span>
+          </div>
+          <div class="roi-sim-metric">
+            <span class="roi-sim-metric-lbl">Receita / mês</span>
+            <span class="roi-sim-metric-val">R$ ${fmt(recHoje)}</span>
+          </div>
+        </div>
+      </div>
+      <div class="roi-sim-card com-ia">
+        <div class="roi-sim-card-title">🤖 Com Agente de IA</div>
+        <div class="roi-sim-row">
+          <div class="roi-sim-metric">
+            <span class="roi-sim-metric-lbl">Leads / mês</span>
+            <span class="roi-sim-metric-val">${fmtN(leads)}</span>
+          </div>
+          <div class="roi-sim-metric">
+            <span class="roi-sim-metric-lbl">Taxa de conversão</span>
+            <span class="roi-sim-metric-val">${taxaIA.toFixed(1)}% <small style="font-size:0.6rem;opacity:.65">(+30%)</small></span>
+          </div>
+          <div class="roi-sim-metric">
+            <span class="roi-sim-metric-lbl">Vendas / mês</span>
+            <span class="roi-sim-metric-val">${fmtN(vendasIA)} <small style="font-size:0.6rem;opacity:.65">(+${extra})</small></span>
+          </div>
+          <div class="roi-sim-metric">
+            <span class="roi-sim-metric-lbl">Receita / mês</span>
+            <span class="roi-sim-metric-val">R$ ${fmt(recIA)}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="roi-sim-gain">
+      <div class="roi-sim-gain-title">🚀 Potencial adicional estimado</div>
+      <div class="roi-sim-gain-values">
+        <span class="roi-sim-gain-month">+ R$ ${fmt(ganhoMes)}/mês</span>
+        <span class="roi-sim-gain-year">→ R$ ${fmt(ganhoAno)}/ano</span>
+      </div>
+    </div>`;
+}
+

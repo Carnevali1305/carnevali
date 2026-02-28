@@ -364,87 +364,56 @@
         <!-- ROI CALCULATOR -->
         <section class="section roi-calculator-section" id="roi-calculator">
             <div class="wrap">
-                <h2>Calcule o ROI do Seu Agente de IA</h2>
-                <p class="sub">Descubra quanto você pode economizar e ganhar com automação inteligente</p>
+                <h2>Simulação de Impacto Financeiro</h2>
+                <p class="sub">Insira os números da sua operação e veja o que muda com um Agente de IA.</p>
 
-                <div class="roi-calculator">
+                <div class="roi-sim-wrap">
                     <!-- Inputs -->
-                    <div class="roi-inputs">
-                        <div class="roi-input-group">
-                            <label for="monthly-leads">Quantos leads você recebe por mês?</label>
-                            <input type="range" id="monthly-leads" min="50" max="5000" value="500" step="50">
-                            <span class="roi-value" id="leads-value">500</span>
+                    <div class="roi-sim-inputs">
+                        <div class="roi-sim-field">
+                            <label for="sim-leads">📥 Leads novos por mês</label>
+                            <input type="number" id="sim-leads" placeholder="Ex: 100" min="1">
                         </div>
 
-                        <div class="roi-input-group">
-                            <label for="conversion-rate">Taxa de conversão atual (%)</label>
-                            <input type="range" id="conversion-rate" min="1" max="50" value="10" step="1">
-                            <span class="roi-value" id="conversion-value">10%</span>
+                        <div class="roi-sim-field">
+                            <label for="sim-taxa">📊 Taxa de conversão atual (%)</label>
+                            <input type="number" id="sim-taxa" placeholder="Ex: 20" min="1" max="100">
+                            <span class="roi-sim-hint">De cada 100 leads, quantos você converte em vendas?</span>
                         </div>
 
-                        <div class="roi-input-group">
-                            <label for="ticket-value">Ticket médio (R$)</label>
-                            <input type="range" id="ticket-value" min="100" max="10000" value="1000" step="100">
-                            <span class="roi-value" id="ticket-display">R$ 1.000</span>
+                        <div class="roi-sim-field">
+                            <label for="sim-ticket">💰 Ticket médio por venda (R$)</label>
+                            <input type="number" id="sim-ticket" placeholder="Ex: 500" min="1">
                         </div>
 
-                        <div class="roi-input-group">
-                            <label for="response-time">Tempo médio de resposta atual (horas)</label>
-                            <input type="range" id="response-time" min="1" max="48" value="12" step="1">
-                            <span class="roi-value" id="time-value">12h</span>
-                        </div>
+                        <button onclick="calcularROI()" class="roi-sim-btn">▶ Calcular Simulação</button>
                     </div>
 
-                    <!-- Results -->
-                    <div class="roi-results">
-                        <h3>Com um Agente de IA:</h3>
-
-                        <div class="roi-metrics">
-                            <div class="roi-metric">
-                                <div class="roi-metric-label">Aumento de Conversão</div>
-                                <div class="roi-metric-value" id="conversion-increase">+30%</div>
-                                <div class="roi-metric-desc">Resposta instantânea 24/7</div>
-                            </div>
-
-                            <div class="roi-metric">
-                                <div class="roi-metric-label">Vendas Adicionais/Mês</div>
-                                <div class="roi-metric-value" id="additional-sales">15</div>
-                                <div class="roi-metric-desc">Leads que não seriam convertidos</div>
-                            </div>
-
-                            <div class="roi-metric">
-                                <div class="roi-metric-label">Receita Extra/Mês</div>
-                                <div class="roi-metric-value text-gradient" id="extra-revenue"
-                                    style="font-size: 2.5rem;">R$ 15.000</div>
-                                <div class="roi-metric-desc">Sem aumentar sua equipe</div>
-                            </div>
-
-                            <div class="roi-metric">
-                                <div class="roi-metric-label">ROI em 12 Meses</div>
-                                <div class="roi-metric-value" id="roi-12-months" style="color: var(--neonPurple);">
-                                    1.800%</div>
-                                <div class="roi-metric-desc">Retorno sobre investimento</div>
-                            </div>
-                        </div>
-
-                        <div class="roi-disclaimer"
-                            style="margin-top:24px; padding:16px; background:rgba(0,255,255,0.05); border-left:3px solid var(--neonCyan); border-radius:4px;">
-                            <small style="display:block; line-height:1.6; opacity:0.9;">
-                                💡 <strong>Como calculamos:</strong> Baseado em dados de mercado, leads com resposta em
-                                até 5 minutos têm 30% mais chance de conversão.
-                                O cálculo considera seu volume atual, taxa de conversão e ticket médio para estimar o
-                                impacto da automação.
-                            </small>
-                        </div>
-
-                        <div style="text-align: center; margin-top:24px;">
-                            <a href="https://wa.me/5513988091008?text=Ol%C3%A1%21%20Gostaria%20de%20saber%20mais%20sobre%20a%20implementa%C3%A7%C3%A3o%20de%20Agentes%20de%20IA%20no%20meu%20neg%C3%B3cio."
-                                target="_blank" rel="noopener" class="btn btn-primary">Quero Implementar Agora</a>
+                    <!-- Resultado -->
+                    <div id="roi-resultado" class="roi-sim-resultado">
+                        <div class="roi-sim-placeholder">
+                            <span>📈</span>
+                            <p>Preencha os campos ao lado e veja sua projeção personalizada.</p>
                         </div>
                     </div>
                 </div>
+
+                <!-- Disclaimer -->
+                <div class="roi-sim-disclaimer">
+                    💡 <strong>Como calculamos:</strong> Baseado em dados de mercado, leads respondidos em até
+                    5 minutos têm <strong>30% mais chance de conversão</strong> (Fonte: MIT / InsideSales.com).
+                    O cálculo considera seu volume atual, taxa de conversão e ticket médio para estimar o impacto
+                    da automação.<br>
+                    <em>* Simulação baseada em modelagem média de mercado. Resultados reais podem variar.</em>
+                </div>
+
+                <div style="text-align:center; margin-top:28px;">
+                    <a href="https://wa.me/5513988091008?text=Ol%C3%A1%21%20Gostaria%20de%20saber%20mais%20sobre%20a%20implementa%C3%A7%C3%A3o%20de%20Agentes%20de%20IA%20no%20meu%20neg%C3%B3cio."
+                        target="_blank" rel="noopener" class="btn btn-primary">Agendar Diagnóstico Gratuito</a>
+                </div>
             </div>
         </section>
+
 
         <!-- CENÁRIOS DE IMPLEMENTAÇÃO -->
         <section class="section reveal" id="casos">

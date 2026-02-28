@@ -6,7 +6,7 @@
 
 ## ✨ Visão Geral
 
-Este projeto é uma landing page estática desenvolvida com **HTML, CSS e JavaScript puro**, seguindo o modelo **AIDA** (Atenção → Interesse → Desejo → Ação) para maximizar a taxa de conversão.
+Este projeto é uma landing page estática desenvolvida com **HTML, CSS e JavaScript puro**, seguindo o modelo **AIDA** (Atenção → Interesse → Desejo → Ação) para maximizar a taxa de conversão. 
 
 O site apresenta os serviços da **Carnevali Soluções Digitais**, especialista em implementação de Agentes de IA focados em conversão de leads via WhatsApp e outras plataformas de mensagens.
 
@@ -25,102 +25,96 @@ Landing Page/
 
 ---
 
-## 🎯 Seções da Página
+## 🎯 Seções da Página (Fluxo Otimizado)
+
+A página foi estruturada para conduzir o usuário em uma jornada lógica de conversão:
 
 | Seção | Descrição |
 |---|---|
-| **Hero** | Headline com efeito typewriter, painel HUD animado (chat + CRM) e CTAs |
-| **Problema** | Inbox simulada com leads perdidos + estatística com fonte (MIT) |
-| **Solução** | 4 cards de benefícios com ícones SVG |
-| **Como Funciona** | 3 passos do processo de implementação |
-| **Calculadora de ROI** | Ferramenta interativa para estimar ganhos com automação |
-| **Casos de Uso** | Modelos de implementação documentados no mercado |
-| **Tecnologias** | Marcas parceiras: OpenAI, Gemini, Claude AI, Microsoft, Meta, Google |
-| **FAQ** | 7 perguntas frequentes com accordion interativo |
-| **Sobre** | Apresentação do especialista e diferenciais |
-| **Footer / CTA** | Call to action final com link para WhatsApp |
+| **Hero** | Headline com efeito typewriter, painel HUD animado (chat simulado e visão CRM) e CTAs primários. |
+| **Problema** | Simulação visual de uma caixa de entrada caótica com leads perdidos, evidenciando a dor da demora no atendimento. |
+| **Solução** | 4 cards de benefícios focados na resolução do problema (24/7, fluxos, inteligência e integração). |
+| **Como Funciona** | Explicação simplificada do processo em 3 passos lógicos. |
+| **Calculadora de ROI** | Ferramenta interativa e comparativa para projetar ganhos financeiros mensais e anuais com a IA. |
+| **Casos de Uso** | Cenários práticos de implementação (Imobiliária, Clínica, E-commerce). |
+| **Tecnologias** | Marcas das inteligências artificiais parceiras (OpenAI, Gemini, Claude, etc). |
+| **FAQ** | Accordion interativo com as objeções e dúvidas mais comuns. |
+| **Sobre** | Apresentação de autoridade do especialista, focando na exclusividade do serviço. |
+| **Footer / CTA** | Rodapé com links diretos para o WhatsApp e redes sociais. |
 
 ---
 
-## ⚙️ Funcionalidades JavaScript
+## ⚙️ Funcionalidades e UX (Atualizadas)
 
-- **Typewriter Effect** — alterna frases no título do hero
-- **Animação de Chat + CRM** — loop infinito de 20s com clonagem de nós DOM
-- **ROI Calculator** — cálculo dinâmico baseado em leads, ticket e taxa de conversão
-- **Scroll Reveal** — animação de entrada das seções via `IntersectionObserver`
-- **Active Nav Link** — destaque automático do link de navegação conforme a seção visível
-- **Hamburger Menu** — menu mobile com animação e bloqueio de scroll
-- **Sticky CTA** — barra fixa mobile que some após o usuário passar pela calculadora
+A página inclui diversas interações para melhorar a Experiência do Usuário (UX):
+
+- **Calculadora de ROI Comparativa:** Novo formulário onde o usuário insere Leads, Taxa de Conversão e Ticket Médio. O script gera um cenário comparativo dinâmico (Hoje vs. Com IA), projetando ganhos adicionais anuais e mensais.
+- **Menu Hamburger Mobile:** Navegação mobile amigável com botão hamburger animado e bloqueio de scroll quando aberto.
+- **Active Nav Link (Scroll Spy):** Destaque automático do link no menu de navegação baseando-se na seção que o usuário está visualizando.
+- **Sticky CTA Mobile:** Barra fixa de chamada de ação na versão mobile, desenhada de forma contextual (some automaticamente depois que o usuário passa da calculadora de ROI).
+- **FAQ Interativo (Accordion):** Perguntas frequentes utilizando as tags semânticas `<details>` e `<summary>` nativas do HTML.
+- **Links Otimizados:** Utilização de links diretos do WhatsApp (`wa.me`) com mensagens pré-formatadas para facilitar a conversão rápida, substituindo antigos links `mailto:`.
+- **Animações Contínuas (Loop de 20s):** Simulação de chat e CRM no Hero rodando em loop infinito via reflow do DOM no JS.
+- **Typewriter Effect:** Digitação animada alternando palavras-chave no Hero.
+- **Scroll Reveal:** Elementos surgem suavemente ao fazer scroll utilizando a API `IntersectionObserver`.
 
 ---
 
-## 🎨 Design System
+## 🎨 Design System e Identidade Visual
+
+O layout visual adota uma estética limpa, tecnológica e "premium", baseando-se em cores densas (dark mode) e detalhes em neon:
 
 **Paleta de cores:**
 
 ```css
---bg0: #040814          /* Fundo principal */
+--bg0: #040814          /* Fundo principal escuro */
 --bg1: #050b1a          /* Fundo secundário */
---neonBlue: #2d7dff     /* Azul neon */
---neonCyan: #25f3ff     /* Ciano neon */
---neonPurple: #9b5cff   /* Roxo neon */
---text: #eaf1ff         /* Texto principal */
---muted: rgba(234,241,255,.74)  /* Texto secundário */
+--neonBlue: #2d7dff     /* Azul vibrante principal */
+--neonCyan: #25f3ff     /* Ciano neon de destaque */
+--neonPurple: #9b5cff   /* Roxo neon para detalhes */
+--text: #eaf1ff         /* Texto principal claro */
+--muted: rgba(...)      /* Texto secundário/mutado */
 ```
 
 **Técnicas visuais:**
-- Dark mode com gradientes radiais no background
-- Glassmorphism (`backdrop-filter: blur`) em cards, nav e HUD
-- Animações CSS com `@keyframes` para chat, CRM e scroll reveal
-- Layout responsivo com CSS Grid e `clamp()` para tipografia fluida
+- Design focado em Dark mode com gradientes complexos.
+- Painéis HUD (Heads-Up Display) e UI simuladas via CSS (Chat, CRM, Caixa de Entrada).
+- Glassmorphism (`backdrop-filter: blur`) amplamente utilizado em barras de navegação, CTA mobile e HUD.
+- Design totalmente responsivo em coluna única para mobile, e estruturação robusta baseada em CSS Grid para Desktop.
 
 ---
 
-## 🚀 Como Usar
+## 🚀 Como Executar
 
-Por ser um projeto estático (sem servidor ou dependências), basta:
+O projeto é 100% estático, sem processos de build complexos ou dependências (Node/NPM).
 
 1. **Clonar o repositório:**
    ```bash
-   git clone https://github.com/seu-usuario/landing-page.git
+   git clone <url-do-repositorio>
    ```
 
 2. **Abrir no navegador:**
+   Você pode simplesmente abrir o arquivo `index.html` em qualquer navegador:
    ```bash
-   # Diretamente pelo sistema de arquivos
-   open index.html
-
-   # Ou com um servidor local (recomendado)
+   # Ou use um servidor local simples no terminal:
    npx serve .
    # ou
-   python3 -m http.server 8000
+   python -m http.server 8000
    ```
 
-3. **Nenhuma instalação de dependências necessária** — o projeto usa apenas HTML, CSS e JavaScript nativos.
-
 ---
 
-## 📱 Responsividade
+## 🔧 Personalização Direta
 
-A página é totalmente responsiva com breakpoints em:
-
-- **Mobile** — `< 480px`: layout em coluna única, hamburger menu ativo
-- **Tablet** — `480px – 768px`: grids ajustados para 2 colunas
-- **Desktop** — `> 768px`: layout completo com hero grid e HUD panel
-
----
-
-## 🔧 Personalização
-
-Para adaptar o projeto para outro negócio, os principais pontos a alterar são:
+Para adaptar o projeto ou trocar as informações, edite os arquivos listados abaixo:
 
 | Arquivo | O que alterar |
 |---|---|
-| `index.html` | Textos, número do WhatsApp nos links `wa.me/`, link do Instagram |
-| `index.html` | Logo (`logo.png`), nome da empresa no `<title>` e cabeçalho |
-| `script.js` | Frases do typewriter (array `phrases` na função `initTypewriter`) |
-| `script.js` | Custo estimado do agente (variável `agentCost` na calculadora ROI) |
-| `index.css` | Variáveis de cor em `:root` para mudar toda a identidade visual |
+| `index.html` | Trocar e-mails, telefone nos links `wa.me/` (verifique botões CTA), descrições de text e metadados SEO. |
+| `index.html` | Logo da empresa e links de mídias sociais no rodapé. |
+| `script.js` | Textos do efeito máquina de escrever (array `phrases` em `initTypewriter`). |
+| `script.js` | Constante ou fórmulas de expectativa de ganhos na função da `calcularROI()`. |
+| `index.css` | Cores, paletas no seletor `:root` e espaçamentos gerais. |
 
 ---
 
@@ -128,6 +122,4 @@ Para adaptar o projeto para outro negócio, os principais pontos a alterar são:
 
 Todos os direitos reservados © 2026 — **Carnevali Soluções Digitais**
 
----
-
-> Desenvolvido com foco em performance, acessibilidade e conversão. Sem frameworks, sem dependências externas.
+> Desenvolvido com foco absoluto em performance, responsividade avançada, design moderno e conversão de leads. Sem frameworks pesados, rodando puramente na web nativa.
