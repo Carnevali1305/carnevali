@@ -1498,3 +1498,76 @@ footer {
         transform: translateY(0);
     }
 }
+
+/* Stat Highlight (Seção Problema) */
+.stat-highlight {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin: 28px 0 8px;
+    padding: 20px 24px;
+    background: linear-gradient(135deg, rgba(37, 243, 255, .08), rgba(45, 125, 255, .06));
+    border: 1px solid rgba(37, 243, 255, .22);
+    border-radius: 14px;
+    max-width: 600px;
+}
+
+.stat-number {
+    font-size: clamp(2.8rem, 5vw, 3.8rem);
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--neonCyan), var(--neonBlue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+.stat-text {
+    font-size: 0.97rem;
+    color: var(--muted);
+    line-height: 1.55;
+}
+
+.stat-text em {
+    display: block;
+    margin-top: 6px;
+    font-size: 0.8rem;
+    color: rgba(234, 241, 255, .45);
+    font-style: normal;
+}
+
+/* Tech Logos Strip */
+.tech-label {
+    text-align: center;
+    font-size: 0.78rem;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: rgba(234, 241, 255, .38);
+    margin-bottom: 18px;
+}
+
+.tech-logos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.tech-item {
+    padding: 8px 16px;
+    border: 1px solid rgba(255, 255, 255, .10);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, .04);
+    font-size: 0.82rem;
+    color: rgba(234, 241, 255, .60);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: border-color .2s ease, color .2s ease;
+}
+
+.tech-item:hover {
+    border-color: rgba(37, 243, 255, .25);
+    color: var(--text);
+}
