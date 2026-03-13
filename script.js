@@ -47,6 +47,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // Active nav link on scroll
   initActiveNavLink();
 
+  // Diagnostic Wizard
+  initDiagnostico();
+
 });
 
 // Infinite Animation Loop
@@ -75,6 +78,213 @@ function initAnimationLoop() {
   setTimeout(restartAnimations, LOOP_DURATION);
 }
 
+
+// ============================================================
+// DIAGNÓSTICO INTERATIVO
+// ============================================================
+
+// Wizard state
+const diagState = {
+  step: 1,
+  totalSteps: 5,
+  segmento: null,
+  equipe: null,
+  leads: null,
+  taxa: null,
+  ticket: null,
+  desafio: null,
+  stepTitles: ['Seu negócio', 'Volume de leads', 'Ticket e desafio', 'ROI estimado', 'Seus dados'],
+  stepGroups: [
+    ['segmento', 'equipe'],
+    ['leads', 'taxa'],
+    ['ticket', 'desafio'],
+    [],
+    []
+  ]
+};
+
+function initDiagnostico() {
+  const section = document.getElementById('diagnostico');
+  if (!section) return;
+
+  document.querySelectorAll('.diag-option-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const group = card.dataset.group;
+      document.querySelectorAll('.diag-option-card[data-group="' + group + '"]').forEach(c => c.classList.remove('selected'));
+      card.classList.add('selected');
+      diagState[group] = card.dataset.value;
+    });
+  });
+
+  diagUpdateProgress();
+}
+
+function diagUpdateProgress() {
+  const pct = (diagState.step / diagState.totalSteps) * 100;
+  const bar = document.getElementById('diag-progress-bar');
+  const stepNum = document.getElementById('diag-current-step');
+  const stepTitle = document.getElementById('diag-step-title-label');
+  if (bar) bar.style.width = pct + '%';
+  if (stepNum) stepNum.textContent = diagState.step;
+  if (stepTitle) stepTitle.textContent = diagState.stepTitles[diagState.step - 1];
+}
+
+function diagShowStep(newStep, direction) {
+  const currentEl = document.getElementById('diag-step-' + diagState.step);
+  const nextEl = document.getElementById('diag-step-' + newStep);
+  if (!currentEl || !nextEl) return;
+
+  currentEl.classList.remove('active', 'back-active');
+  diagState.step = newStep;
+  diagUpdateProgress();
+
+  if (direction === 'forward') {
+    nextEl.classList.remove('back-active');
+    nextEl.classList.add('active');
+  } else {
+    nextEl.classList.remove('active');
+    nextEl.classList.add('back-active');
+  }
+
+  const backBtn = document.getElementById('diag-back-btn');
+  const nextBtn = document.getElementById('diag-next-btn');
+  if (backBtn) backBtn.style.display = newStep === 1 ? 'none' : 'inline-flex';
+  if (nextBtn) {
+    nextBtn.style.display = newStep === diagState.totalSteps ? 'none' : 'inline-flex';
+    if (nextBtn.style.display !== 'none') {
+      nextBtn.textContent = newStep === 4 ? 'Continuar \u2192' : 'Pr\u00f3ximo \u2192';
+    }
+  }
+
+  if (newStep === 4) diagCalcularROI();
+
+  const card = document.querySelector('.diag-card');
+  if (card) setTimeout(() => card.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+}
+
+function diagValidateStep() {
+  const groups = diagState.stepGroups[diagState.step - 1];
+  for (let i = 0; i < groups.length; i++) {
+    const group = groups[i];
+    if (!diagState[group]) {
+      const firstCard = document.querySelector('.diag-option-card[data-group="' + group + '"]');
+      const grid = firstCard ? firstCard.closest('.diag-options-grid') : null;
+      if (grid) {
+        grid.style.outline = '1.5px solid rgba(255,100,100,.55)';
+        grid.style.borderRadius = '16px';
+        setTimeout(() => { grid.style.outline = ''; }, 1800);
+      }
+      return false;
+    }
+  }
+  return true;
+}
+
+function diagNext() {
+  if (!diagValidateStep()) return;
+  if (diagState.step < diagState.totalSteps) {
+    diagShowStep(diagState.step + 1, 'forward');
+  }
+}
+
+function diagBack() {
+  if (diagState.step > 1) {
+    diagShowStep(diagState.step - 1, 'back');
+  }
+}
+
+function diagCalcularROI() {
+  const leads = parseFloat(diagState.leads) || 75;
+  const taxa = parseFloat(diagState.taxa) || 15;
+  const ticket = parseFloat(diagState.ticket) || 600;
+
+  // 30% conversion improvement with AI (instant response benchmark)
+  const taxaIA = Math.min(taxa * 1.30, 100);
+  const ganhoMes = Math.round(leads * ((taxaIA - taxa) / 100) * ticket);
+  const ganhoAno = ganhoMes * 12;
+
+  // ~60% leads get slow reply; 40% of those are recoverable
+  const leadsRecuperados = Math.round(leads * 0.60 * 0.40);
+  const receitaPerdida = Math.round(leadsRecuperados * ticket * (taxa / 100));
+
+  const fmt = function(n) { return 'R$\u00a0' + n.toLocaleString('pt-BR'); };
+
+  diagAnimateValue('diag-roi-loss', fmt(receitaPerdida));
+  diagAnimateValue('diag-roi-gain', fmt(ganhoMes));
+  diagAnimateValue('diag-roi-year', fmt(ganhoAno));
+  diagAnimateValue('diag-roi-leads', leadsRecuperados + ' leads');
+}
+
+function diagAnimateValue(id, value) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.textContent = '\u2026';
+  setTimeout(() => {
+    el.textContent = value;
+    el.style.animation = 'none';
+    el.offsetHeight; // reflow
+    el.style.animation = 'diagFadeUp 0.4s ease both';
+  }, 300);
+}
+
+function diagEnviar() {
+  const nome = document.getElementById('diag-nome').value.trim();
+  const empresa = document.getElementById('diag-empresa').value.trim();
+  const whatsapp = document.getElementById('diag-whatsapp').value.trim();
+  const cargo = document.getElementById('diag-cargo').value;
+  const errorEl = document.getElementById('diag-form-error');
+
+  if (!nome || !empresa || !whatsapp) {
+    if (errorEl) errorEl.style.display = 'block';
+    return;
+  }
+  if (errorEl) errorEl.style.display = 'none';
+
+  const segLabels = {
+    ecommerce: 'E-commerce', clinica: 'Sa\u00fade / Cl\u00ednica',
+    imobiliaria: 'Imobili\u00e1ria', consultoria: 'Consultoria / Servi\u00e7os',
+    educacao: 'Educa\u00e7\u00e3o / Cursos', outro: 'Outro segmento'
+  };
+  const seg = segLabels[diagState.segmento] || 'N/A';
+
+  function getLabel(group) {
+    var card = document.querySelector('.diag-option-card[data-group="' + group + '"].selected');
+    if (!card) return 'N/A';
+    return card.dataset.label || (card.querySelector('.diag-option-label') || {}).textContent || 'N/A';
+  }
+
+  const leads = parseFloat(diagState.leads) || 75;
+  const taxa = parseFloat(diagState.taxa) || 15;
+  const ticket = parseFloat(diagState.ticket) || 600;
+  const taxaIA = Math.min(taxa * 1.30, 100);
+  const ganhoMes = Math.round(leads * ((taxaIA - taxa) / 100) * ticket);
+  const ganhoAno = ganhoMes * 12;
+  const fmt = function(n) { return 'R$ ' + n.toLocaleString('pt-BR'); };
+
+  const lines = [
+    'Ol\u00e1! Fiz o Diagn\u00f3stico de IA da Carnevali Solu\u00e7\u00f5es Digitais e quero receber meu resultado detalhado.',
+    '',
+    '\ud83d\udccb *Meu Diagn\u00f3stico:*',
+    '\u2022 Nome: ' + nome,
+    '\u2022 Empresa: ' + empresa,
+    '\u2022 Cargo: ' + (cargo || 'N\u00e3o informado'),
+    '\u2022 Segmento: ' + seg,
+    '\u2022 Equipe de atendimento: ' + getLabel('equipe'),
+    '\u2022 Leads/m\u00eas: ' + getLabel('leads'),
+    '\u2022 Taxa de convers\u00e3o: ' + getLabel('taxa'),
+    '\u2022 Ticket m\u00e9dio: ' + getLabel('ticket'),
+    '\u2022 Principal desafio: ' + getLabel('desafio'),
+    '',
+    '\ud83d\udcca *ROI Estimado:*',
+    '\u2022 Potencial extra/m\u00eas: ' + fmt(ganhoMes),
+    '\u2022 Potencial extra/ano: ' + fmt(ganhoAno),
+    '',
+    'Aguardo o contato! \ud83d\ude80'
+  ];
+
+  const url = 'https://wa.me/5513988091008?text=' + encodeURIComponent(lines.join('\n'));
+  window.open(url, '_blank', 'noopener');
+}
 
 // ROI Calculator Functionality
 function initROICalculator() {

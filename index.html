@@ -25,6 +25,7 @@
                 <a href="#solucao">Soluções</a>
                 <a href="#como-funciona">Como Funciona</a>
                 <a href="#casos">Casos de Sucesso</a>
+                <a href="#diagnostico">Diagnóstico</a>
                 <a href="#faq">FAQ</a>
                 <a class="btn btn-primary"
                     href="https://wa.me/5513988091008?text=Ol%C3%A1%21%20Gostaria%20de%20falar%20com%20um%20consultor."
@@ -361,61 +362,247 @@
             </div>
         </section>
 
-        <!-- ROI CALCULATOR -->
-        <section class="section roi-calculator-section" id="roi-calculator">
+
+        <!-- DIAGNÓSTICO INTERATIVO -->
+        <section class="section diag-section reveal" id="diagnostico">
             <div class="wrap">
-                <h2>Simulação de Impacto Financeiro</h2>
-                <p class="sub">Insira os números da sua operação e veja o que muda com um Agente de IA.</p>
+                <div class="kicker" style="margin-bottom:20px;">
+                    <span class="dot" aria-hidden="true"></span> Gratuito · Resultado em 2 minutos
+                </div>
+                <h2>Descubra quanto sua empresa<br><span class="text-gradient">perde por mês</span> sem IA</h2>
+                <p class="sub">Responda 4 perguntas rápidas e receba um diagnóstico personalizado com o potencial de receita que você pode estar deixando na mesa.</p>
 
-                <div class="roi-sim-wrap">
-                    <!-- Inputs -->
-                    <div class="roi-sim-inputs">
-                        <div class="roi-sim-field">
-                            <label for="sim-leads">📥 Leads novos por mês</label>
-                            <input type="number" id="sim-leads" placeholder="Ex: 100" min="1">
+                <!-- WIZARD CARD -->
+                <div class="diag-card">
+
+                    <!-- PROGRESS BAR -->
+                    <div class="diag-progress-wrap">
+                        <div class="diag-progress-labels">
+                            <span id="diag-step-label">Etapa <span id="diag-current-step">1</span> de 5</span>
+                            <span id="diag-step-title-label">Seu negócio</span>
                         </div>
-
-                        <div class="roi-sim-field">
-                            <label for="sim-taxa">📊 Taxa de conversão atual (%)</label>
-                            <input type="number" id="sim-taxa" placeholder="Ex: 20" min="1" max="100">
-                            <span class="roi-sim-hint">De cada 100 leads, quantos você converte em vendas?</span>
+                        <div class="diag-progress-track">
+                            <div class="diag-progress-bar" id="diag-progress-bar" style="width: 20%"></div>
                         </div>
-
-                        <div class="roi-sim-field">
-                            <label for="sim-ticket">💰 Ticket médio por venda (R$)</label>
-                            <input type="number" id="sim-ticket" placeholder="Ex: 500" min="1">
-                        </div>
-
-                        <button onclick="calcularROI()" class="roi-sim-btn">▶ Calcular Simulação</button>
                     </div>
 
-                    <!-- Resultado -->
-                    <div id="roi-resultado" class="roi-sim-resultado">
-                        <div class="roi-sim-placeholder">
-                            <span>📈</span>
-                            <p>Preencha os campos ao lado e veja sua projeção personalizada.</p>
+                    <!-- STEPS CONTAINER -->
+                    <div class="diag-steps-container" id="diag-steps-container">
+
+                        <!-- STEP 1: Segmento + Equipe -->
+                        <div class="diag-step active" id="diag-step-1">
+                            <h3 class="diag-step-heading">Qual é o segmento do seu negócio?</h3>
+                            <div class="diag-options-grid" id="diag-segmento-grid">
+                                <button class="diag-option-card" data-group="segmento" data-value="ecommerce">
+                                    <span class="diag-option-icon">🛒</span>
+                                    <span class="diag-option-label">E-commerce</span>
+                                </button>
+                                <button class="diag-option-card" data-group="segmento" data-value="clinica">
+                                    <span class="diag-option-icon">⚕️</span>
+                                    <span class="diag-option-label">Saúde / Clínica</span>
+                                </button>
+                                <button class="diag-option-card" data-group="segmento" data-value="imobiliaria">
+                                    <span class="diag-option-icon">🏢</span>
+                                    <span class="diag-option-label">Imobiliária</span>
+                                </button>
+                                <button class="diag-option-card" data-group="segmento" data-value="consultoria">
+                                    <span class="diag-option-icon">💼</span>
+                                    <span class="diag-option-label">Consultoria / Serviços</span>
+                                </button>
+                                <button class="diag-option-card" data-group="segmento" data-value="educacao">
+                                    <span class="diag-option-icon">📚</span>
+                                    <span class="diag-option-label">Educação / Cursos</span>
+                                </button>
+                                <button class="diag-option-card" data-group="segmento" data-value="outro">
+                                    <span class="diag-option-icon">🔧</span>
+                                    <span class="diag-option-label">Outro segmento</span>
+                                </button>
+                            </div>
+                            <h3 class="diag-step-heading" style="margin-top: 28px;">Quantas pessoas fazem atendimento hoje?</h3>
+                            <div class="diag-options-grid" id="diag-equipe-grid">
+                                <button class="diag-option-card" data-group="equipe" data-value="1">
+                                    <span class="diag-option-label">Só eu</span>
+                                </button>
+                                <button class="diag-option-card" data-group="equipe" data-value="2-3">
+                                    <span class="diag-option-label">2 a 3 pessoas</span>
+                                </button>
+                                <button class="diag-option-card" data-group="equipe" data-value="4-10">
+                                    <span class="diag-option-label">4 a 10 pessoas</span>
+                                </button>
+                                <button class="diag-option-card" data-group="equipe" data-value="10+">
+                                    <span class="diag-option-label">Mais de 10</span>
+                                </button>
+                            </div>
                         </div>
+
+                        <!-- STEP 2: Volume de leads -->
+                        <div class="diag-step" id="diag-step-2">
+                            <h3 class="diag-step-heading">Quantos leads chegam por mês?</h3>
+                            <div class="diag-options-grid" id="diag-leads-grid">
+                                <button class="diag-option-card" data-group="leads" data-value="30" data-label="Até 30">
+                                    <span class="diag-option-label">Até 30/mês</span>
+                                </button>
+                                <button class="diag-option-card" data-group="leads" data-value="75" data-label="31 a 100">
+                                    <span class="diag-option-label">31 a 100/mês</span>
+                                </button>
+                                <button class="diag-option-card" data-group="leads" data-value="250" data-label="101 a 400">
+                                    <span class="diag-option-label">101 a 400/mês</span>
+                                </button>
+                                <button class="diag-option-card" data-group="leads" data-value="600" data-label="Mais de 400">
+                                    <span class="diag-option-label">Mais de 400/mês</span>
+                                </button>
+                            </div>
+                            <h3 class="diag-step-heading" style="margin-top: 28px;">Qual sua taxa de conversão atual (aprox.)?</h3>
+                            <div class="diag-options-grid" id="diag-taxa-grid">
+                                <button class="diag-option-card" data-group="taxa" data-value="5" data-label="Menos de 10%">
+                                    <span class="diag-option-label">Menos de 10%</span>
+                                </button>
+                                <button class="diag-option-card" data-group="taxa" data-value="15" data-label="10% a 20%">
+                                    <span class="diag-option-label">10% a 20%</span>
+                                </button>
+                                <button class="diag-option-card" data-group="taxa" data-value="30" data-label="20% a 40%">
+                                    <span class="diag-option-label">20% a 40%</span>
+                                </button>
+                                <button class="diag-option-card" data-group="taxa" data-value="50" data-label="Acima de 40%">
+                                    <span class="diag-option-label">Acima de 40%</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- STEP 3: Ticket + Desafio -->
+                        <div class="diag-step" id="diag-step-3">
+                            <h3 class="diag-step-heading">Qual o ticket médio por venda/serviço?</h3>
+                            <div class="diag-options-grid" id="diag-ticket-grid">
+                                <button class="diag-option-card" data-group="ticket" data-value="200" data-label="Até R$ 300">
+                                    <span class="diag-option-label">Até R$ 300</span>
+                                </button>
+                                <button class="diag-option-card" data-group="ticket" data-value="600" data-label="R$ 300 a R$ 900">
+                                    <span class="diag-option-label">R$ 300 a R$ 900</span>
+                                </button>
+                                <button class="diag-option-card" data-group="ticket" data-value="1750" data-label="R$ 900 a R$ 2.500">
+                                    <span class="diag-option-label">R$ 900 a R$ 2.500</span>
+                                </button>
+                                <button class="diag-option-card" data-group="ticket" data-value="5000" data-label="Acima de R$ 2.500">
+                                    <span class="diag-option-label">Acima de R$ 2.500</span>
+                                </button>
+                            </div>
+                            <h3 class="diag-step-heading" style="margin-top: 28px;">Qual o maior desafio no atendimento hoje?</h3>
+                            <div class="diag-options-grid cols-2" id="diag-desafio-grid">
+                                <button class="diag-option-card wide" data-group="desafio" data-value="demora">
+                                    <span class="diag-option-icon">⏱️</span>
+                                    <span class="diag-option-label">Demora para responder leads</span>
+                                </button>
+                                <button class="diag-option-card wide" data-group="desafio" data-value="perda">
+                                    <span class="diag-option-icon">📉</span>
+                                    <span class="diag-option-label">Perda de leads e oportunidades</span>
+                                </button>
+                                <button class="diag-option-card wide" data-group="desafio" data-value="fds">
+                                    <span class="diag-option-icon">📅</span>
+                                    <span class="diag-option-label">Leads sem atendimento no fds/noite</span>
+                                </button>
+                                <button class="diag-option-card wide" data-group="desafio" data-value="equipesobgm">
+                                    <span class="diag-option-icon">🔥</span>
+                                    <span class="diag-option-label">Equipe sobrecarregada</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- STEP 4: ROI Preview -->
+                        <div class="diag-step" id="diag-step-4">
+                            <div class="diag-roi-header">
+                                <div class="diag-roi-badge">📊 Seu Diagnóstico de ROI</div>
+                                <p class="diag-roi-subtitle">Baseado nas suas respostas, calculamos o impacto estimado da automação com IA no seu negócio:</p>
+                            </div>
+                            <div class="diag-roi-grid">
+                                <div class="diag-roi-card loss">
+                                    <div class="diag-roi-card-icon">📉</div>
+                                    <div class="diag-roi-card-label">Receita perdida/mês<br><small>por leads sem resposta rápida</small></div>
+                                    <div class="diag-roi-card-value" id="diag-roi-loss">—</div>
+                                </div>
+                                <div class="diag-roi-card gain">
+                                    <div class="diag-roi-card-icon">🚀</div>
+                                    <div class="diag-roi-card-label">Potencial extra/mês<br><small>com automação por IA</small></div>
+                                    <div class="diag-roi-card-value" id="diag-roi-gain">—</div>
+                                </div>
+                                <div class="diag-roi-card year">
+                                    <div class="diag-roi-card-icon">📆</div>
+                                    <div class="diag-roi-card-label">Projeção anual<br><small>de receita adicional</small></div>
+                                    <div class="diag-roi-card-value" id="diag-roi-year">—</div>
+                                </div>
+                                <div class="diag-roi-card leads">
+                                    <div class="diag-roi-card-icon">👥</div>
+                                    <div class="diag-roi-card-label">Leads recuperados/mês<br><small>estimativa com resposta imediata</small></div>
+                                    <div class="diag-roi-card-value" id="diag-roi-leads">—</div>
+                                </div>
+                            </div>
+                            <div class="diag-roi-disclaimer">
+                                ⚠️ <em>Estimativa baseada em benchmarks de mercado (MIT/InsideSales.com). Resultados reais dependem de cada operação. Receba um diagnóstico detalhado conversando com nosso especialista.</em>
+                            </div>
+                        </div>
+
+                        <!-- STEP 5: Dados de Contato -->
+                        <div class="diag-step" id="diag-step-5">
+                            <div class="diag-contact-header">
+                                <div class="diag-roi-badge">🎯 Quase lá!</div>
+                                <p>Preencha abaixo para receber seu diagnóstico completo e agendar uma conversa gratuita com o especialista.</p>
+                            </div>
+                            <div class="diag-form">
+                                <div class="diag-form-row">
+                                    <div class="diag-form-field">
+                                        <label for="diag-nome">Seu nome *</label>
+                                        <input type="text" id="diag-nome" placeholder="Ex: Maria Silva" autocomplete="name" />
+                                    </div>
+                                    <div class="diag-form-field">
+                                        <label for="diag-empresa">Empresa *</label>
+                                        <input type="text" id="diag-empresa" placeholder="Nome da sua empresa" autocomplete="organization" />
+                                    </div>
+                                </div>
+                                <div class="diag-form-row">
+                                    <div class="diag-form-field">
+                                        <label for="diag-whatsapp">WhatsApp (com DDD) *</label>
+                                        <input type="tel" id="diag-whatsapp" placeholder="(13) 99999-9999" autocomplete="tel" />
+                                    </div>
+                                    <div class="diag-form-field">
+                                        <label for="diag-cargo">Seu cargo</label>
+                                        <select id="diag-cargo">
+                                            <option value="">Selecione...</option>
+                                            <option value="Dono / Sócio">Dono / Sócio</option>
+                                            <option value="Gestor / Diretor">Gestor / Diretor</option>
+                                            <option value="Coordenador">Coordenador</option>
+                                            <option value="Vendedor / SDR">Vendedor / SDR</option>
+                                            <option value="Outro">Outro</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="diag-form-error" id="diag-form-error" style="display:none;">
+                                    ⚠️ Por favor, preencha nome, empresa e WhatsApp.
+                                </div>
+                                <button class="btn btn-primary diag-submit-btn" id="diag-submit-btn" onclick="diagEnviar()">
+                                    <span>Enviar Diagnóstico e Agendar Conversa</span>
+                                    <span>→</span>
+                                </button>
+                                <p class="diag-privacy">🔒 Seus dados são confidenciais. Utilizamos apenas para entrar em contato com você.</p>
+                            </div>
+                        </div>
+
+                    </div><!-- end diag-steps-container -->
+
+                    <!-- NAVIGATION BUTTONS -->
+                    <div class="diag-nav" id="diag-nav">
+                        <button class="btn btn-ghost diag-back-btn" id="diag-back-btn" onclick="diagBack()" style="display:none;">
+                            ← Voltar
+                        </button>
+                        <button class="btn btn-primary diag-next-btn" id="diag-next-btn" onclick="diagNext()">
+                            Próximo →
+                        </button>
                     </div>
-                </div>
 
-                <!-- Disclaimer -->
-                <div class="roi-sim-disclaimer">
-                    💡 <strong>Como calculamos:</strong> Baseado em dados de mercado, leads respondidos em até
-                    5 minutos têm <strong>30% mais chance de conversão</strong> (Fonte: MIT / InsideSales.com).
-                    O cálculo considera seu volume atual, taxa de conversão e ticket médio para estimar o impacto
-                    da automação.<br>
-                    <em>* Simulação baseada em modelagem média de mercado. Resultados reais podem variar.</em>
-                </div>
+                </div><!-- end diag-card -->
 
-                <div style="text-align:center; margin-top:28px;">
-                    <a href="https://wa.me/5513988091008?text=Ol%C3%A1%21%20Gostaria%20de%20saber%20mais%20sobre%20a%20implementa%C3%A7%C3%A3o%20de%20Agentes%20de%20IA%20no%20meu%20neg%C3%B3cio."
-                        target="_blank" rel="noopener" class="btn btn-primary">Agendar Diagnóstico Gratuito</a>
-                </div>
             </div>
         </section>
 
 
-        <!-- CENÁRIOS DE IMPLEMENTAÇÃO -->
         <section class="section reveal" id="casos">
             <div class="wrap">
                 <h2>Como Outros Negócios Usam Agentes de IA.</h2>
