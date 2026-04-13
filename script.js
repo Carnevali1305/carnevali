@@ -3,7 +3,91 @@
 // Interactive Features
 // ===================================
 
+// ============================================================
+// Particles Background Animation (inspired by MaIA Inteligência)
+// ============================================================
+function initParticles() {
+  if (typeof tsParticles === 'undefined') return;
+
+  tsParticles.load("particles-js", {
+    fullScreen: { enable: false },
+    background: { color: { value: "transparent" } },
+    fpsLimit: 60,
+    interactivity: {
+      events: {
+        onHover: {
+          enable: true,
+          mode: "grab"
+        },
+        resize: true
+      },
+      modes: {
+        grab: {
+          distance: 140,
+          links: {
+            opacity: 0.35
+          }
+        }
+      }
+    },
+    particles: {
+      color: {
+        value: ["#ffffff", "#25f3ff", "#9b5cff"]
+      },
+      links: {
+        color: "#ffffff",
+        distance: 150,
+        enable: true,
+        opacity: 0.08,
+        width: 1
+      },
+      move: {
+        direction: "none",
+        enable: true,
+        outModes: {
+          default: "out"
+        },
+        random: true,
+        speed: 0.8,
+        straight: false
+      },
+      number: {
+        density: {
+          enable: true,
+          area: 900
+        },
+        value: 80
+      },
+      opacity: {
+        value: { min: 0.1, max: 0.4 },
+        animation: {
+          enable: true,
+          speed: 0.8,
+          minimumValue: 0.1,
+          sync: false
+        }
+      },
+      shape: {
+        type: "circle"
+      },
+      size: {
+        value: { min: 1, max: 3 },
+        animation: {
+          enable: true,
+          speed: 2,
+          minimumValue: 0.5,
+          sync: false
+        }
+      }
+    },
+    detectRetina: true
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+
+  // Initialize Particles Background
+  initParticles();
 
   // Smooth scrolling for anchor links
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -50,7 +134,285 @@ document.addEventListener('DOMContentLoaded', () => {
   // Diagnostic Wizard
   initDiagnostico();
 
+  // Wireframe Dotted Globe
+  initGlobe();
+
 });
+
+// ============================================================
+// Wireframe Dotted Globe (converted from React to Vanilla JS)
+// ============================================================
+function initGlobe() {
+  const canvas = document.getElementById('globe-canvas');
+  if (!canvas || typeof d3 === 'undefined') return;
+
+  const context = canvas.getContext('2d');
+  if (!context) return;
+
+  const container = canvas.parentElement;
+
+  // Responsive sizing
+  function getSize() {
+    const w = Math.min(460, container.clientWidth);
+    const h = Math.min(460, w);
+    return { w, h };
+  }
+
+  let { w: containerWidth, h: containerHeight } = getSize();
+  let radius = Math.min(containerWidth, containerHeight) / 2.4;
+
+  // Set canvas with DPR
+  const dpr = window.devicePixelRatio || 1;
+
+  function setupCanvas() {
+    const size = getSize();
+    containerWidth = size.w;
+    containerHeight = size.h;
+    radius = Math.min(containerWidth, containerHeight) / 2.4;
+
+    canvas.width = containerWidth * dpr;
+    canvas.height = containerHeight * dpr;
+    canvas.style.width = containerWidth + 'px';
+    canvas.style.height = containerHeight + 'px';
+    context.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+    projection
+      .scale(radius)
+      .translate([containerWidth / 2, containerHeight / 2]);
+  }
+
+  // Projection
+  const projection = d3.geoOrthographic()
+    .scale(radius)
+    .translate([containerWidth / 2, containerHeight / 2])
+    .clipAngle(90);
+
+  const path = d3.geoPath().projection(projection).context(context);
+
+  // Point-in-polygon for dot generation
+  function pointInPolygon(point, polygon) {
+    const [x, y] = point;
+    let inside = false;
+    for (let i = 0, j = polygon.length - 1; i < polygon.length; j = i++) {
+      const [xi, yi] = polygon[i];
+      const [xj, yj] = polygon[j];
+      if ((yi > y) !== (yj > y) && x < ((xj - xi) * (y - yi)) / (yj - yi) + xi) {
+        inside = !inside;
+      }
+    }
+    return inside;
+  }
+
+  function pointInFeature(point, feature) {
+    const geom = feature.geometry;
+    if (geom.type === 'Polygon') {
+      if (!pointInPolygon(point, geom.coordinates[0])) return false;
+      for (let i = 1; i < geom.coordinates.length; i++) {
+        if (pointInPolygon(point, geom.coordinates[i])) return false;
+      }
+      return true;
+    } else if (geom.type === 'MultiPolygon') {
+      for (const poly of geom.coordinates) {
+        if (pointInPolygon(point, poly[0])) {
+          let inHole = false;
+          for (let i = 1; i < poly.length; i++) {
+            if (pointInPolygon(point, poly[i])) { inHole = true; break; }
+          }
+          if (!inHole) return true;
+        }
+      }
+    }
+    return false;
+  }
+
+  function generateDots(feature, spacing) {
+    const dots = [];
+    const bounds = d3.geoBounds(feature);
+    const step = spacing * 0.08;
+    for (let lng = bounds[0][0]; lng <= bounds[1][0]; lng += step) {
+      for (let lat = bounds[0][1]; lat <= bounds[1][1]; lat += step) {
+        if (pointInFeature([lng, lat], feature)) {
+          dots.push({ lng, lat });
+        }
+      }
+    }
+    return dots;
+  }
+
+  // Data
+  const allDots = [];
+  let landFeatures = null;
+
+  // Theme colors
+  const COLORS = {
+    ocean: 'rgba(4, 8, 20, 0.6)',
+    globeBorder: 'rgba(37, 243, 255, 0.5)',
+    graticule: 'rgba(37, 243, 255, 0.12)',
+    landOutline: 'rgba(255, 255, 255, 0.45)',
+    dots: 'rgba(155, 92, 255, 0.55)',
+    dotsHighlight: 'rgba(37, 243, 255, 0.4)'
+  };
+
+  // Render
+  function render() {
+    context.clearRect(0, 0, containerWidth, containerHeight);
+    const currentScale = projection.scale();
+    const sf = currentScale / radius;
+    const cx = containerWidth / 2;
+    const cy = containerHeight / 2;
+
+    // Ocean
+    context.beginPath();
+    context.arc(cx, cy, currentScale, 0, 2 * Math.PI);
+    context.fillStyle = COLORS.ocean;
+    context.fill();
+    context.strokeStyle = COLORS.globeBorder;
+    context.lineWidth = 1.5 * sf;
+    context.stroke();
+
+    if (!landFeatures) return;
+
+    // Graticule
+    const graticule = d3.geoGraticule();
+    context.beginPath();
+    path(graticule());
+    context.strokeStyle = COLORS.graticule;
+    context.lineWidth = 0.6 * sf;
+    context.stroke();
+
+    // Land outlines
+    context.beginPath();
+    landFeatures.features.forEach(function(f) { path(f); });
+    context.strokeStyle = COLORS.landOutline;
+    context.lineWidth = 0.8 * sf;
+    context.stroke();
+
+    // Halftone dots
+    allDots.forEach(function(dot, i) {
+      const projected = projection([dot.lng, dot.lat]);
+      if (projected &&
+          projected[0] >= 0 && projected[0] <= containerWidth &&
+          projected[1] >= 0 && projected[1] <= containerHeight) {
+        context.beginPath();
+        context.arc(projected[0], projected[1], 1.1 * sf, 0, 2 * Math.PI);
+        context.fillStyle = i % 5 === 0 ? COLORS.dotsHighlight : COLORS.dots;
+        context.fill();
+      }
+    });
+  }
+
+  // Load GeoJSON data
+  function loadData() {
+    fetch('https://raw.githubusercontent.com/martynafford/natural-earth-geojson/refs/heads/master/110m/physical/ne_110m_land.json')
+      .then(function(res) {
+        if (!res.ok) throw new Error('Failed');
+        return res.json();
+      })
+      .then(function(data) {
+        landFeatures = data;
+        data.features.forEach(function(feature) {
+          generateDots(feature, 16).forEach(function(d) {
+            allDots.push(d);
+          });
+        });
+        render();
+      })
+      .catch(function() {
+        // Silent fail — globe just shows empty
+      });
+  }
+
+  // Auto-rotation
+  const rotation = [0, -15];
+  let autoRotate = true;
+  let isVisible = false;
+  let animId = null;
+
+  function animate() {
+    if (autoRotate && isVisible) {
+      rotation[0] += 0.35;
+      projection.rotate(rotation);
+      render();
+    }
+    animId = requestAnimationFrame(animate);
+  }
+
+  // Pause when not visible (performance)
+  const observer = new IntersectionObserver(function(entries) {
+    isVisible = entries[0].isIntersecting;
+    if (isVisible && !animId) animate();
+  }, { threshold: 0.1 });
+  observer.observe(canvas);
+
+  // Drag interaction
+  canvas.addEventListener('mousedown', function(e) {
+    autoRotate = false;
+    const startX = e.clientX;
+    const startY = e.clientY;
+    const startRot = [rotation[0], rotation[1]];
+
+    function onMove(ev) {
+      rotation[0] = startRot[0] + (ev.clientX - startX) * 0.4;
+      rotation[1] = startRot[1] - (ev.clientY - startY) * 0.4;
+      rotation[1] = Math.max(-90, Math.min(90, rotation[1]));
+      projection.rotate(rotation);
+      render();
+    }
+
+    function onUp() {
+      document.removeEventListener('mousemove', onMove);
+      document.removeEventListener('mouseup', onUp);
+      setTimeout(function() { autoRotate = true; }, 2000);
+    }
+
+    document.addEventListener('mousemove', onMove);
+    document.addEventListener('mouseup', onUp);
+  });
+
+  // Touch support for mobile
+  canvas.addEventListener('touchstart', function(e) {
+    if (e.touches.length !== 1) return;
+    autoRotate = false;
+    const touch = e.touches[0];
+    const startX = touch.clientX;
+    const startY = touch.clientY;
+    const startRot = [rotation[0], rotation[1]];
+
+    function onTouchMove(ev) {
+      ev.preventDefault();
+      const t = ev.touches[0];
+      rotation[0] = startRot[0] + (t.clientX - startX) * 0.4;
+      rotation[1] = startRot[1] - (t.clientY - startY) * 0.4;
+      rotation[1] = Math.max(-90, Math.min(90, rotation[1]));
+      projection.rotate(rotation);
+      render();
+    }
+
+    function onTouchEnd() {
+      canvas.removeEventListener('touchmove', onTouchMove);
+      canvas.removeEventListener('touchend', onTouchEnd);
+      setTimeout(function() { autoRotate = true; }, 2000);
+    }
+
+    canvas.addEventListener('touchmove', onTouchMove, { passive: false });
+    canvas.addEventListener('touchend', onTouchEnd);
+  }, { passive: true });
+
+  // Resize handler
+  let resizeTimeout;
+  window.addEventListener('resize', function() {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(function() {
+      setupCanvas();
+      render();
+    }, 200);
+  });
+
+  // Initialize
+  setupCanvas();
+  loadData();
+  animate();
+}
 
 // Infinite Animation Loop
 function initAnimationLoop() {

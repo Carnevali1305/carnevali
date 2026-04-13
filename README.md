@@ -2,11 +2,17 @@
 
 > Landing page de alta conversão para apresentação e venda de serviços de Agentes de IA personalizados para empresas que desejam automatizar atendimento, qualificação de leads e agendamentos.
 
+![Status](https://img.shields.io/badge/status-produção-brightgreen)
+![Stack](https://img.shields.io/badge/stack-HTML%20%7C%20CSS%20%7C%20JS-blue)
+![Hospedagem](https://img.shields.io/badge/deploy-GitHub%20Pages-222?logo=github)
+
+**🔗 Live:** [carnevali1305.github.io/carnevali](https://carnevali1305.github.io/carnevali/index.html)
+
 ---
 
 ## ✨ Visão Geral
 
-Este projeto é uma landing page estática desenvolvida com **HTML, CSS e JavaScript puro**, seguindo o modelo **AIDA** (Atenção → Interesse → Desejo → Ação) para maximizar a taxa de conversão. 
+Este projeto é uma landing page estática desenvolvida com **HTML, CSS e JavaScript puro**, seguindo o modelo **AIDA** (Atenção → Interesse → Desejo → Ação) para maximizar a taxa de conversão.
 
 O site apresenta os serviços da **Carnevali Soluções Digitais**, especialista em implementação de Agentes de IA focados em conversão de leads via WhatsApp e outras plataformas de mensagens.
 
@@ -15,106 +21,183 @@ O site apresenta os serviços da **Carnevali Soluções Digitais**, especialista
 ## 🗂️ Estrutura do Projeto
 
 ```
-Landing Page/
-├── index.html        # Estrutura principal da página
-├── index.css         # Estilos e design system completo
-├── script.js         # Funcionalidades interativas (JS puro)
-├── logo.png          # Logotipo da empresa
-└── README.md         # Este arquivo
+Landing Page_CarnevaliSoluções/
+├── index.html            # Estrutura principal da página (SEO otimizado)
+├── index.css             # Design system completo (~2350 linhas)
+├── script.js             # Funcionalidades interativas (~940 linhas, JS puro)
+├── logo.png              # Logotipo da empresa
+├── hero-background.png   # Imagem de fundo do hero (fallback)
+└── README.md             # Este arquivo
 ```
 
 ---
 
-## 🎯 Seções da Página (Fluxo Otimizado)
+## 🎯 Seções da Página (Fluxo de Conversão)
 
 A página foi estruturada para conduzir o usuário em uma jornada lógica de conversão:
 
-| Seção | Descrição |
-|---|---|
-| **Hero** | Headline com efeito typewriter, painel HUD animado (chat simulado e visão CRM) e CTAs primários. |
-| **Problema** | Simulação visual de uma caixa de entrada caótica com leads perdidos, evidenciando a dor da demora no atendimento. |
-| **Solução** | 4 cards de benefícios focados na resolução do problema (24/7, fluxos, inteligência e integração). |
-| **Como Funciona** | Explicação simplificada do processo em 3 passos lógicos. |
-| **Calculadora de ROI** | Ferramenta interativa e comparativa para projetar ganhos financeiros mensais e anuais com a IA. |
-| **Casos de Uso** | Cenários práticos de implementação (Imobiliária, Clínica, E-commerce). |
-| **Tecnologias** | Marcas das inteligências artificiais parceiras (OpenAI, Gemini, Claude, etc). |
-| **FAQ** | Accordion interativo com as objeções e dúvidas mais comuns. |
-| **Sobre** | Apresentação de autoridade do especialista, focando na exclusividade do serviço. |
-| **Footer / CTA** | Rodapé com links diretos para o WhatsApp e redes sociais. |
+| # | Seção | ID | Descrição |
+|---|---|---|---|
+| 1 | **Hero** | `#hero` | Headline com efeito typewriter, painel HUD animado (chat simulado + visão CRM), CTAs primários e badges de confiança. |
+| 2 | **Problema** | `#problema` | Simulação visual de caixa de entrada caótica com leads perdidos, estatística de conversão (9× MIT) e cards de dor. |
+| 3 | **Solução** | `#solucao` | 4 cards de benefícios com ícones SVG (atendimento 24/7, fluxos inteligentes, análise avançada, integração nativa). |
+| 4 | **Como Funciona** | `#como-funciona` | Processo em 3 passos com cards numerados e ícones. |
+| 5 | **Calculadora de ROI** | `#roi` | Ferramenta interativa e comparativa para projetar ganhos financeiros mensais e anuais com IA. |
+| 6 | **Casos de Uso** | `#casos` | Cenários práticos — Imobiliária, Clínica, E-commerce — com cards descritivos. |
+| 7 | **Diagnóstico** | `#diagnostico` | Wizard multi-step (5 etapas) com cálculo de ROI personalizado e envio via WhatsApp. |
+| 8 | **Tecnologias** | `#tecnologias` | Marcas de IA parceiras (OpenAI, Gemini, Claude, Microsoft, Meta AI, Google). |
+| 9 | **FAQ** | `#faq` | 7 perguntas frequentes em accordion interativo (`<details>`/`<summary>`). |
+| 10 | **Sobre Nós** | `#sobre` | Layout 2 colunas — texto de autoridade + **Globo 3D wireframe interativo** com d3-geo. |
+| 11 | **Footer / CTA** | — | CTA final com link WhatsApp + botão de agendamento. |
 
 ---
 
-## ⚙️ Funcionalidades e UX (Atualizadas)
+## ⚙️ Funcionalidades e Recursos
 
-A página inclui diversas interações para melhorar a Experiência do Usuário (UX):
+### 🌐 Animações de Fundo
 
-- **Calculadora de ROI Comparativa:** Novo formulário onde o usuário insere Leads, Taxa de Conversão e Ticket Médio. O script gera um cenário comparativo dinâmico (Hoje vs. Com IA), projetando ganhos adicionais anuais e mensais.
-- **Menu Hamburger Mobile:** Navegação mobile amigável com botão hamburger animado e bloqueio de scroll quando aberto.
-- **Active Nav Link (Scroll Spy):** Destaque automático do link no menu de navegação baseando-se na seção que o usuário está visualizando.
-- **Sticky CTA Mobile:** Barra fixa de chamada de ação na versão mobile, desenhada de forma contextual (some automaticamente depois que o usuário passa da calculadora de ROI).
-- **FAQ Interativo (Accordion):** Perguntas frequentes utilizando as tags semânticas `<details>` e `<summary>` nativas do HTML.
-- **Links Otimizados:** Utilização de links diretos do WhatsApp (`wa.me`) com mensagens pré-formatadas para facilitar a conversão rápida, substituindo antigos links `mailto:`.
-- **Animações Contínuas (Loop de 20s):** Simulação de chat e CRM no Hero rodando em loop infinito via reflow do DOM no JS.
-- **Typewriter Effect:** Digitação animada alternando palavras-chave no Hero.
-- **Scroll Reveal:** Elementos surgem suavemente ao fazer scroll utilizando a API `IntersectionObserver`.
+| Recurso | Tecnologia | Descrição |
+|---|---|---|
+| **Partículas Flutuantes** | tsParticles 2.12.0 | Rede neural com nodos conectados, efeito *grab* no hover, posicionado como fundo fixo em toda a página. |
+| **Globo Wireframe 3D** | d3-geo 3.x (Canvas) | Globo terrestre interativo com projeção ortográfica, pontos halftone nos continentes, rotação automática, drag para girar manualmente e suporte a touch. Integrado à seção "Sobre Nós". |
+
+### 🧠 Interações do Usuário
+
+| Funcionalidade | Função JS | Descrição |
+|---|---|---|
+| **Typewriter Effect** | `initTypewriter()` | Digitação animada alternando palavras no hero ("WhatsApp", "Instagram", etc). |
+| **Loop de Animação** | `initAnimationLoop()` | Simulação realista de chat e CRM no painel HUD do hero (loop de 20s). |
+| **Scroll Reveal** | `initScrollReveal()` | Elementos surgem suavemente ao scrollar via `IntersectionObserver`. |
+| **Contadores Animados** | `initCounters()` | Números incrementam de 0 ao valor final quando visíveis. |
+| **Menu Hamburger** | `initHamburger()` | Navegação mobile com animação, bloqueio de scroll e fechamento automático. |
+| **Active Nav Link** | `initActiveNavLink()` | Destaque do link no menu baseado na seção visível (scroll spy). |
+| **Sticky CTA Mobile** | `initStickyCTA()` | Barra fixa de CTA no mobile, desaparece após a calculadora de ROI. |
+| **Calculadora de ROI** | `initROICalculator()` / `calcularROI()` | Formulário comparativo (Hoje vs. Com IA) com projeção de ganhos mensais e anuais. |
+
+### 📋 Wizard de Diagnóstico (5 etapas)
+
+| Etapa | Função | Conteúdo |
+|---|---|---|
+| 1 | `diagShowStep()` | Segmento do negócio + tamanho da equipe |
+| 2 | `diagShowStep()` | Volume de leads e canais de atendimento |
+| 3 | `diagShowStep()` | Dores e prioridades do negócio |
+| 4 | `diagCalcularROI()` | Resultado com projeção de ROI animada |
+| 5 | `diagEnviar()` | Formulário de contato → envio via WhatsApp |
+
+### 🌍 Globo 3D Wireframe (Novo)
+
+| Recurso | Implementação |
+|---|---|
+| **Renderização** | Canvas 2D com d3-geo (projeção ortográfica) |
+| **Dados geográficos** | GeoJSON Natural Earth 110m (~15KB, carregado async) |
+| **Pontos halftone** | Gerados via point-in-polygon sobre cada continente |
+| **Rotação automática** | 0.35°/frame, pausa ao arrastar, retoma após 2s |
+| **Interatividade** | Drag (mouse + touch) para rotacionar manualmente |
+| **Performance** | IntersectionObserver pausa quando fora do viewport |
+| **Responsivo** | Adapta tamanho ao container, DPR-aware |
+| **Cores** | Tema neon integrado (cyan borda, purple pontos) |
 
 ---
 
 ## 🎨 Design System e Identidade Visual
 
-O layout visual adota uma estética limpa, tecnológica e "premium", baseando-se em cores densas (dark mode) e detalhes em neon:
+O layout adota estética **dark premium** com destaques neon:
 
-**Paleta de cores:**
+### Paleta de cores
 
 ```css
---bg0: #040814          /* Fundo principal escuro */
---bg1: #050b1a          /* Fundo secundário */
---neonBlue: #2d7dff     /* Azul vibrante principal */
---neonCyan: #25f3ff     /* Ciano neon de destaque */
---neonPurple: #9b5cff   /* Roxo neon para detalhes */
---text: #eaf1ff         /* Texto principal claro */
---muted: rgba(...)      /* Texto secundário/mutado */
+:root {
+    --bg0: #040814;          /* Fundo principal escuro */
+    --bg1: #050b1a;          /* Fundo secundário */
+    --neonBlue: #2d7dff;     /* Azul vibrante principal */
+    --neonCyan: #25f3ff;     /* Ciano neon de destaque */
+    --neonPurple: #9b5cff;   /* Roxo neon para detalhes */
+    --text: #eaf1ff;         /* Texto principal claro */
+    --glass: rgba(255,255,255,.07);  /* Glassmorphism */
+    --radius: 18px;          /* Border radius padrão */
+    --max: 1120px;           /* Largura máxima do conteúdo */
+}
 ```
 
-**Técnicas visuais:**
-- Design focado em Dark mode com gradientes complexos.
-- Painéis HUD (Heads-Up Display) e UI simuladas via CSS (Chat, CRM, Caixa de Entrada).
-- Glassmorphism (`backdrop-filter: blur`) amplamente utilizado em barras de navegação, CTA mobile e HUD.
-- Design totalmente responsivo em coluna única para mobile, e estruturação robusta baseada em CSS Grid para Desktop.
+### Técnicas visuais
+
+- **Dark mode** com gradientes radiais multi-camada no body
+- **Glassmorphism** (`backdrop-filter: blur`) em navbar, CTA mobile e painéis HUD
+- **Animações CSS** — hover effects, transições suaves, glow neon
+- **Painéis HUD** simulados via CSS (chat, CRM, caixa de entrada)
+- **Partículas de fundo** com efeito de rede neural conectada
+- **Globo 3D** com glow radial cyan/purple
+- **Design responsivo** — CSS Grid para desktop, coluna única para mobile
+
+---
+
+## 📦 Dependências Externas (CDN)
+
+O projeto não usa Node.js, npm ou bundlers. Todas as dependências são carregadas via CDN:
+
+| Biblioteca | Versão | Tamanho (gzip) | Uso |
+|---|---|---|---|
+| **tsParticles** | 2.12.0 | ~80 KB | Animação de partículas de fundo |
+| **d3-array** | 3.x | ~5 KB | Utilitários de array para d3-geo |
+| **d3-geo** | 3.x | ~40 KB | Projeção geográfica do globo 3D |
+
+**Total de dependências:** ~125 KB gzip
 
 ---
 
 ## 🚀 Como Executar
 
-O projeto é 100% estático, sem processos de build complexos ou dependências (Node/NPM).
+O projeto é 100% estático, sem processos de build ou instalação.
 
-1. **Clonar o repositório:**
-   ```bash
-   git clone <url-do-repositorio>
-   ```
+### Opção 1: Abrir diretamente
+```bash
+# Basta abrir o arquivo no navegador
+xdg-open index.html          # Linux
+open index.html               # macOS
+start index.html              # Windows
+```
 
-2. **Abrir no navegador:**
-   Você pode simplesmente abrir o arquivo `index.html` em qualquer navegador:
-   ```bash
-   # Ou use um servidor local simples no terminal:
-   npx serve .
-   # ou
-   python -m http.server 8000
-   ```
+### Opção 2: Servidor local
+```bash
+# Python
+python3 -m http.server 8000
+
+# Node.js
+npx serve .
+
+# PHP
+php -S localhost:8000
+```
+
+### Opção 3: GitHub Pages
+O site está publicado automaticamente via GitHub Pages em:
+```
+https://carnevali1305.github.io/carnevali/index.html
+```
 
 ---
 
-## 🔧 Personalização Direta
-
-Para adaptar o projeto ou trocar as informações, edite os arquivos listados abaixo:
+## 🔧 Personalização
 
 | Arquivo | O que alterar |
 |---|---|
-| `index.html` | Trocar e-mails, telefone nos links `wa.me/` (verifique botões CTA), descrições de text e metadados SEO. |
-| `index.html` | Logo da empresa e links de mídias sociais no rodapé. |
-| `script.js` | Textos do efeito máquina de escrever (array `phrases` em `initTypewriter`). |
-| `script.js` | Constante ou fórmulas de expectativa de ganhos na função da `calcularROI()`. |
-| `index.css` | Cores, paletas no seletor `:root` e espaçamentos gerais. |
+| `index.html` | Textos, telefone nos links `wa.me/`, metadados SEO (`<title>`, `<meta description>`), logo e links de redes sociais. |
+| `script.js` | Palavras do typewriter (array `phrases` em `initTypewriter`), fórmulas da calculadora (`calcularROI()`), configuração das partículas (`initParticles()`), cores do globo (objeto `COLORS` em `initGlobe()`). |
+| `index.css` | Cores e tokens no seletor `:root`, espaçamentos, breakpoints responsivos. |
+| `logo.png` | Substituir pelo logotipo da empresa (recomendado: PNG transparente ≤ 200×60px). |
+
+---
+
+## 📊 Performance
+
+| Métrica | Valor |
+|---|---|
+| **Projeto total** | ~170 KB (sem CDNs) |
+| **CDNs (gzip)** | ~125 KB |
+| **Requests externos** | 4 (3 CDNs + 1 GeoJSON async) |
+| **Framework JS** | Nenhum — vanilla JS puro |
+| **Framework CSS** | Nenhum — CSS customizado |
+| **Otimizações** | IntersectionObserver (partículas/globo/scroll reveal), debounce em resize, loop de animação com reflow controlado |
 
 ---
 

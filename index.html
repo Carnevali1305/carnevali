@@ -11,6 +11,8 @@
 </head>
 
 <body>
+    <!-- Particles Background Animation (inspired by MaIA) -->
+    <div id="particles-js" aria-hidden="true"></div>
     <header class="nav" aria-label="Topo">
         <div class="wrap nav-inner">
             <div class="brand">
@@ -729,34 +731,37 @@
 
         <!-- SOBRE NÓS -->
         <section class="section reveal" id="sobre">
-            <div class="wrap">
-                <h2>Especialista em Automação de Vendas.</h2>
-                <p class="sub"><strong>Não sou uma agência de marketing.</strong> Sou especialista em implementação de
-                    Agentes de IA focados em conversão.</p>
-                <p class="sub" style="margin-top:16px;">Atuo na etapa mais crítica do seu negócio: o momento em que o
-                    lead chega e precisa de resposta imediata. Enquanto o marketing traz o lead, eu implemento a
-                    tecnologia que garante que nenhuma oportunidade seja desperdiçada.</p>
-                <p class="sub" style="margin-top:16px;">Por ser um trabalho especializado e personalizado, aceito um
-                    número limitado de clientes por vez — para garantir que cada implementação seja feita com atenção
-                    total ao seu negócio.</p>
-                <p class="sub"
-                    style="margin-top:24px; color:var(--neonCyan); font-weight:600; font-style:italic; font-size:1.1rem;">
-                    Sua empresa vendendo com a precisão de um relógio. Sem depender de equipe.</p>
+            <div class="wrap sobre-grid">
+                <div class="sobre-text">
+                    <h2>Especialista em Automação de Vendas.</h2>
+                    <p class="sub"><strong>Não sou uma agência de marketing.</strong> Sou especialista em implementação de
+                        Agentes de IA focados em conversão.</p>
+                    <p class="sub" style="margin-top:16px;">Atuo na etapa mais crítica do seu negócio: o momento em que o
+                        lead chega e precisa de resposta imediata. Enquanto o marketing traz o lead, eu implemento a
+                        tecnologia que garante que nenhuma oportunidade seja desperdiçada.</p>
+                    <p class="sub" style="margin-top:16px;">Por ser um trabalho especializado e personalizado, aceito um
+                        número limitado de clientes por vez — para garantir que cada implementação seja feita com atenção
+                        total ao seu negócio.</p>
+                    <p class="sub"
+                        style="margin-top:24px; color:var(--neonCyan); font-weight:600; font-style:italic; font-size:1.1rem;">
+                        Sua empresa vendendo com a precisão de um relógio. Sem depender de equipe.</p>
 
-                <div style="margin-top:32px; display:flex; gap:16px; flex-wrap:wrap; justify-content:center;">
-                    <div
-                        style="padding:12px 20px; background:rgba(0,255,255,0.1); border:1px solid rgba(0,255,255,0.3); border-radius:8px;">
-                        <span style="font-size:0.9rem;">✓ Implementação 100% Personalizada</span>
-                    </div>
-                    <div
-                        style="padding:12px 20px; background:rgba(138,43,226,0.1); border:1px solid rgba(138,43,226,0.3); border-radius:8px;">
-                        <span style="font-size:0.9rem;">✓ Atendimento Direto com o Especialista</span>
-                    </div>
-                    <div
-                        style="padding:12px 20px; background:rgba(0,255,255,0.1); border:1px solid rgba(0,255,255,0.3); border-radius:8px;">
-                        <span style="font-size:0.9rem;">✓ Vagas Limitadas por Mês</span>
+                    <div class="sobre-pills">
+                        <div class="sobre-pill pill-cyan">
+                            <span>✓ Implementação 100% Personalizada</span>
+                        </div>
+                        <div class="sobre-pill pill-purple">
+                            <span>✓ Atendimento Direto com o Especialista</span>
+                        </div>
+                        <div class="sobre-pill pill-cyan">
+                            <span>✓ Vagas Limitadas por Mês</span>
+                        </div>
                     </div>
                 </div>
+
+                <aside class="globe-container" aria-label="Globo terrestre interativo representando alcance global">
+                    <canvas id="globe-canvas"></canvas>
+                </aside>
             </div>
         </section>
     </main>
@@ -818,6 +823,11 @@
         </div>
     </div>
 
+    <!-- d3-geo for Globe (lightweight ~45KB) -->
+    <script src="https://cdn.jsdelivr.net/npm/d3-array@3"></script>
+    <script src="https://cdn.jsdelivr.net/npm/d3-geo@3"></script>
+    <!-- tsParticles CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
     <script src="script.js"></script>
 </body>
 
