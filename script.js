@@ -416,15 +416,48 @@ function initGlobe() {
 
 // Infinite Animation Loop
 function initAnimationLoop() {
-  const chatSequence = document.querySelector('.chat-sequence');
-  const crmView = document.querySelector('.crm-view');
+  const hudChat = document.querySelector('.hud-chat');
+  if (!hudChat) return;
 
-  if (!chatSequence || !crmView) return;
+  // Total: 12s chat + 5s CRM + 3s pause = 20s
+  const LOOP_DURATION = 20000;
 
-  // Total animation duration: 17s (animation) + 3s (pause) = 20s
-  const LOOP_DURATION = 20000; // 20 seconds
+  // Auto-scroll chat as messages appear
+  function setupAutoScroll() {
+    const chatContainer = document.querySelector('.hud-chat');
+    if (!chatContainer) return;
+
+    const messages = chatContainer.querySelectorAll('.chat-msg.chat-anim');
+    messages.forEach(function(msg) {
+      // Get animation-delay from inline style
+      const style = msg.getAttribute('style') || '';
+      const match = style.match(/animation-delay:\s*([\d.]+)s/);
+      if (!match) return;
+
+      const delay = parseFloat(match[1]) * 1000 + 500; // +500ms after appear
+
+      setTimeout(function() {
+        chatContainer.scrollTo({
+          top: chatContainer.scrollHeight,
+          behavior: 'smooth'
+        });
+      }, delay);
+    });
+  }
+
+  // Initial auto-scroll setup
+  setupAutoScroll();
 
   function restartAnimations() {
+    const chatSequence = document.querySelector('.chat-sequence');
+    const crmView = document.querySelector('.crm-view');
+    const chatContainer = document.querySelector('.hud-chat');
+
+    if (!chatSequence || !crmView) return;
+
+    // Reset scroll to top
+    if (chatContainer) chatContainer.scrollTop = 0;
+
     // Clone and replace to restart CSS animations
     const chatClone = chatSequence.cloneNode(true);
     const crmClone = crmView.cloneNode(true);
@@ -432,11 +465,14 @@ function initAnimationLoop() {
     chatSequence.parentNode.replaceChild(chatClone, chatSequence);
     crmView.parentNode.replaceChild(crmClone, crmView);
 
+    // Re-setup auto-scroll for new cloned elements
+    setupAutoScroll();
+
     // Schedule next restart
     setTimeout(restartAnimations, LOOP_DURATION);
   }
 
-  // Start the loop after first animation completes
+  // Start the loop
   setTimeout(restartAnimations, LOOP_DURATION);
 }
 

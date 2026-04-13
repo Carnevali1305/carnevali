@@ -23,8 +23,8 @@ O site apresenta os serviços da **Carnevali Soluções Digitais**, especialista
 ```
 Landing Page_CarnevaliSoluções/
 ├── index.html            # Estrutura principal da página (SEO otimizado)
-├── index.css             # Design system completo (~2350 linhas)
-├── script.js             # Funcionalidades interativas (~940 linhas, JS puro)
+├── index.css             # Design system completo (~2430 linhas)
+├── script.js             # Funcionalidades interativas (~960 linhas, JS puro)
 ├── logo.png              # Logotipo da empresa
 ├── hero-background.png   # Imagem de fundo do hero (fallback)
 └── README.md             # Este arquivo
@@ -66,7 +66,7 @@ A página foi estruturada para conduzir o usuário em uma jornada lógica de con
 | Funcionalidade | Função JS | Descrição |
 |---|---|---|
 | **Typewriter Effect** | `initTypewriter()` | Digitação animada alternando palavras no hero ("WhatsApp", "Instagram", etc). |
-| **Loop de Animação** | `initAnimationLoop()` | Simulação realista de chat e CRM no painel HUD do hero (loop de 20s). |
+| **Loop de Animação** | `initAnimationLoop()` | Simulação de chat WhatsApp + CRM no hero com auto-scroll, transição suave e loop de 20s. |
 | **Scroll Reveal** | `initScrollReveal()` | Elementos surgem suavemente ao scrollar via `IntersectionObserver`. |
 | **Contadores Animados** | `initCounters()` | Números incrementam de 0 ao valor final quando visíveis. |
 | **Menu Hamburger** | `initHamburger()` | Navegação mobile com animação, bloqueio de scroll e fechamento automático. |
@@ -84,7 +84,22 @@ A página foi estruturada para conduzir o usuário em uma jornada lógica de con
 | 4 | `diagCalcularROI()` | Resultado com projeção de ROI animada |
 | 5 | `diagEnviar()` | Formulário de contato → envio via WhatsApp |
 
-### 🌍 Globo 3D Wireframe (Novo)
+### 💬 Simulador de Chat WhatsApp (Hero)
+
+O painel HUD do hero exibe uma conversa simulada entre um lead e o Agente de IA, seguida de uma visão CRM:
+
+| Fase | Timing | Descrição |
+|---|---|---|
+| **Chat** | 0s – 12s | 8 mensagens aparecem sequencialmente (delay de 1.5s entre cada), com **auto-scroll suave** acompanhando a última mensagem visível. |
+| **CRM** | 12.5s – 17s | Painel CRM surge com card do lead, badge de status (LEAD → REUNIÃO) e notificação pop-up, **sem sobrepor o footer de stats**. |
+| **Restart** | 20s | Loop reinicia com clone+replace dos nós DOM e re-setup do auto-scroll. |
+
+**Arquitetura de camadas (z-index):**
+- `z-index: 3` — Footer stats ("24/7" e "5s") — sempre visível
+- `z-index: 2` — CRM view (`bottom: 72px`, `overflow: hidden`) — contida acima do footer
+- `z-index: 1` — Chat messages — área com scroll automático
+
+### 🌍 Globo 3D Wireframe
 
 | Recurso | Implementação |
 |---|---|
@@ -197,7 +212,7 @@ https://carnevali1305.github.io/carnevali/index.html
 | **Requests externos** | 4 (3 CDNs + 1 GeoJSON async) |
 | **Framework JS** | Nenhum — vanilla JS puro |
 | **Framework CSS** | Nenhum — CSS customizado |
-| **Otimizações** | IntersectionObserver (partículas/globo/scroll reveal), debounce em resize, loop de animação com reflow controlado |
+| **Otimizações** | IntersectionObserver (partículas/globo/scroll reveal), debounce em resize, auto-scroll no chat, camadas z-index para evitar sobreposição |
 
 ---
 
