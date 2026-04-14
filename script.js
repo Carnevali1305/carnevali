@@ -282,17 +282,17 @@ function initGlobe() {
 
     // Land outlines
     context.beginPath();
-    landFeatures.features.forEach(function(f) { path(f); });
+    landFeatures.features.forEach(function (f) { path(f); });
     context.strokeStyle = COLORS.landOutline;
     context.lineWidth = 0.8 * sf;
     context.stroke();
 
     // Halftone dots
-    allDots.forEach(function(dot, i) {
+    allDots.forEach(function (dot, i) {
       const projected = projection([dot.lng, dot.lat]);
       if (projected &&
-          projected[0] >= 0 && projected[0] <= containerWidth &&
-          projected[1] >= 0 && projected[1] <= containerHeight) {
+        projected[0] >= 0 && projected[0] <= containerWidth &&
+        projected[1] >= 0 && projected[1] <= containerHeight) {
         context.beginPath();
         context.arc(projected[0], projected[1], 1.1 * sf, 0, 2 * Math.PI);
         context.fillStyle = i % 5 === 0 ? COLORS.dotsHighlight : COLORS.dots;
@@ -304,20 +304,20 @@ function initGlobe() {
   // Load GeoJSON data
   function loadData() {
     fetch('https://raw.githubusercontent.com/martynafford/natural-earth-geojson/refs/heads/master/110m/physical/ne_110m_land.json')
-      .then(function(res) {
+      .then(function (res) {
         if (!res.ok) throw new Error('Failed');
         return res.json();
       })
-      .then(function(data) {
+      .then(function (data) {
         landFeatures = data;
-        data.features.forEach(function(feature) {
-          generateDots(feature, 16).forEach(function(d) {
+        data.features.forEach(function (feature) {
+          generateDots(feature, 16).forEach(function (d) {
             allDots.push(d);
           });
         });
         render();
       })
-      .catch(function() {
+      .catch(function () {
         // Silent fail — globe just shows empty
       });
   }
@@ -338,14 +338,14 @@ function initGlobe() {
   }
 
   // Pause when not visible (performance)
-  const observer = new IntersectionObserver(function(entries) {
+  const observer = new IntersectionObserver(function (entries) {
     isVisible = entries[0].isIntersecting;
     if (isVisible && !animId) animate();
   }, { threshold: 0.1 });
   observer.observe(canvas);
 
   // Drag interaction
-  canvas.addEventListener('mousedown', function(e) {
+  canvas.addEventListener('mousedown', function (e) {
     autoRotate = false;
     const startX = e.clientX;
     const startY = e.clientY;
@@ -362,7 +362,7 @@ function initGlobe() {
     function onUp() {
       document.removeEventListener('mousemove', onMove);
       document.removeEventListener('mouseup', onUp);
-      setTimeout(function() { autoRotate = true; }, 2000);
+      setTimeout(function () { autoRotate = true; }, 2000);
     }
 
     document.addEventListener('mousemove', onMove);
@@ -370,7 +370,7 @@ function initGlobe() {
   });
 
   // Touch support for mobile
-  canvas.addEventListener('touchstart', function(e) {
+  canvas.addEventListener('touchstart', function (e) {
     if (e.touches.length !== 1) return;
     autoRotate = false;
     const touch = e.touches[0];
@@ -391,7 +391,7 @@ function initGlobe() {
     function onTouchEnd() {
       canvas.removeEventListener('touchmove', onTouchMove);
       canvas.removeEventListener('touchend', onTouchEnd);
-      setTimeout(function() { autoRotate = true; }, 2000);
+      setTimeout(function () { autoRotate = true; }, 2000);
     }
 
     canvas.addEventListener('touchmove', onTouchMove, { passive: false });
@@ -400,9 +400,9 @@ function initGlobe() {
 
   // Resize handler
   let resizeTimeout;
-  window.addEventListener('resize', function() {
+  window.addEventListener('resize', function () {
     clearTimeout(resizeTimeout);
-    resizeTimeout = setTimeout(function() {
+    resizeTimeout = setTimeout(function () {
       setupCanvas();
       render();
     }, 200);
@@ -428,7 +428,7 @@ function initAnimationLoop() {
     if (!chatContainer) return;
 
     const messages = chatContainer.querySelectorAll('.chat-msg.chat-anim');
-    messages.forEach(function(msg) {
+    messages.forEach(function (msg) {
       // Get animation-delay from inline style
       const style = msg.getAttribute('style') || '';
       const match = style.match(/animation-delay:\s*([\d.]+)s/);
@@ -436,7 +436,7 @@ function initAnimationLoop() {
 
       const delay = parseFloat(match[1]) * 1000 + 500; // +500ms after appear
 
-      setTimeout(function() {
+      setTimeout(function () {
         chatContainer.scrollTo({
           top: chatContainer.scrollHeight,
           behavior: 'smooth'
@@ -605,7 +605,7 @@ function diagCalcularROI() {
   const leadsRecuperados = Math.round(leads * 0.60 * 0.40);
   const receitaPerdida = Math.round(leadsRecuperados * ticket * (taxa / 100));
 
-  const fmt = function(n) { return 'R$\u00a0' + n.toLocaleString('pt-BR'); };
+  const fmt = function (n) { return 'R$\u00a0' + n.toLocaleString('pt-BR'); };
 
   diagAnimateValue('diag-roi-loss', fmt(receitaPerdida));
   diagAnimateValue('diag-roi-gain', fmt(ganhoMes));
@@ -657,7 +657,7 @@ function diagEnviar() {
   const taxaIA = Math.min(taxa * 1.30, 100);
   const ganhoMes = Math.round(leads * ((taxaIA - taxa) / 100) * ticket);
   const ganhoAno = ganhoMes * 12;
-  const fmt = function(n) { return 'R$ ' + n.toLocaleString('pt-BR'); };
+  const fmt = function (n) { return 'R$ ' + n.toLocaleString('pt-BR'); };
 
   const lines = [
     'Ol\u00e1! Fiz o Diagn\u00f3stico de IA da Carnevali Solu\u00e7\u00f5es Digitais e quero receber meu resultado detalhado.',
@@ -754,7 +754,7 @@ function initTypewriter() {
   const textElement = document.querySelector('.type-effect');
   if (!textElement) return;
 
-  const phrases = ["Piloto Automático.", "WhatsApp.", "Instagram."];
+  const phrases = ["no Piloto Automático.", "no Atendimento.", "no Suporte ao Cliente.", "nos Agendamentos.", "nos Processos Internos.", "no Pós-Venda."];
   let phraseIndex = 0;
   let charIndex = 0;
   let isDeleting = false;

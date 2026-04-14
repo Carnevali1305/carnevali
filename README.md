@@ -1,6 +1,6 @@
 # 🤖 Carnevali Soluções Digitais — Landing Page
 
-> Landing page de alta conversão para apresentação e venda de serviços de Agentes de IA personalizados para empresas que desejam automatizar atendimento, qualificação de leads e agendamentos.
+> Landing page de alta conversão para apresentação de serviços de Agentes de IA personalizados para empresas que desejam automatizar operações — atendimento, suporte, qualificação, agendamentos, processos internos e pós-venda.
 
 ![Status](https://img.shields.io/badge/status-produção-brightgreen)
 ![Stack](https://img.shields.io/badge/stack-HTML%20%7C%20CSS%20%7C%20JS-blue)
@@ -14,7 +14,7 @@
 
 Este projeto é uma landing page estática desenvolvida com **HTML, CSS e JavaScript puro**, seguindo o modelo **AIDA** (Atenção → Interesse → Desejo → Ação) para maximizar a taxa de conversão.
 
-O site apresenta os serviços da **Carnevali Soluções Digitais**, especialista em implementação de Agentes de IA focados em conversão de leads via WhatsApp e outras plataformas de mensagens.
+O site apresenta os serviços da **Carnevali Soluções Digitais**, especialista em implementação de Agentes de IA focados em resultados — automatizando operações completas em qualquer canal ou sistema que a empresa utilize.
 
 ---
 
@@ -38,16 +38,16 @@ A página foi estruturada para conduzir o usuário em uma jornada lógica de con
 
 | # | Seção | ID | Descrição |
 |---|---|---|---|
-| 1 | **Hero** | `#hero` | Headline com efeito typewriter, painel HUD animado (chat simulado + visão CRM), CTAs primários e badges de confiança. |
-| 2 | **Problema** | `#problema` | Simulação visual de caixa de entrada caótica com leads perdidos, estatística de conversão (9× MIT) e cards de dor. |
+| 1 | **Hero** | `#hero` | Headline com efeito typewriter (6 frases rotativas: Atendimento, Suporte, Agendamentos, Processos Internos, Pós-Venda), painel HUD animado (chat simulado + visão CRM multi-canal), CTAs primários e badges de confiança. |
+| 2 | **Problema** | `#problema` | Simulação visual de caixa de entrada caótica com oportunidades perdidas, estatística de conversão (9× MIT) e cards de dor (demora, sobrecarga, demandas acumuladas). |
 | 3 | **Solução** | `#solucao` | 4 cards de benefícios com ícones SVG (atendimento 24/7, fluxos inteligentes, análise avançada, integração nativa). |
 | 4 | **Como Funciona** | `#como-funciona` | Processo em 3 passos com cards numerados e ícones. |
 | 5 | **Calculadora de ROI** | `#roi` | Ferramenta interativa e comparativa para projetar ganhos financeiros mensais e anuais com IA. |
-| 6 | **Casos de Uso** | `#casos` | Cenários práticos — Imobiliária, Clínica, E-commerce — com cards descritivos. |
+| 6 | **Casos de Uso** | `#casos` | 5 cenários práticos — Imobiliária, Clínica, E-commerce, Suporte Técnico SaaS e Pós-Venda/Logística — com cards descritivos. |
 | 7 | **Diagnóstico** | `#diagnostico` | Wizard multi-step (5 etapas) com cálculo de ROI personalizado e envio via WhatsApp. |
 | 8 | **Tecnologias** | `#tecnologias` | Marcas de IA parceiras (OpenAI, Gemini, Claude, Microsoft, Meta AI, Google). |
 | 9 | **FAQ** | `#faq` | 7 perguntas frequentes em accordion interativo (`<details>`/`<summary>`). |
-| 10 | **Sobre Nós** | `#sobre` | Layout 2 colunas — texto de autoridade + **Globo 3D wireframe interativo** com d3-geo. |
+| 10 | **Sobre Nós** | `#sobre` | Layout 2 colunas — texto de autoridade ("Especialista em Automação com Inteligência Artificial") + **Globo 3D wireframe interativo** com d3-geo. |
 | 11 | **Footer / CTA** | — | CTA final com link WhatsApp + botão de agendamento. |
 
 ---
@@ -65,8 +65,8 @@ A página foi estruturada para conduzir o usuário em uma jornada lógica de con
 
 | Funcionalidade | Função JS | Descrição |
 |---|---|---|
-| **Typewriter Effect** | `initTypewriter()` | Digitação animada alternando palavras no hero ("WhatsApp", "Instagram", etc). |
-| **Loop de Animação** | `initAnimationLoop()` | Simulação de chat WhatsApp + CRM no hero com auto-scroll, transição suave e loop de 20s. |
+| **Typewriter Effect** | `initTypewriter()` | Digitação animada alternando 6 palavras no hero ("Piloto Automático", "Atendimento", "Suporte ao Cliente", "Agendamentos", "Processos Internos", "Pós-Venda"). |
+| **Loop de Animação** | `initAnimationLoop()` | Simulação de chat multi-canal + CRM no hero com auto-scroll, transição suave e loop de 20s. |
 | **Scroll Reveal** | `initScrollReveal()` | Elementos surgem suavemente ao scrollar via `IntersectionObserver`. |
 | **Contadores Animados** | `initCounters()` | Números incrementam de 0 ao valor final quando visíveis. |
 | **Menu Hamburger** | `initHamburger()` | Navegação mobile com animação, bloqueio de scroll e fechamento automático. |
@@ -84,9 +84,9 @@ A página foi estruturada para conduzir o usuário em uma jornada lógica de con
 | 4 | `diagCalcularROI()` | Resultado com projeção de ROI animada |
 | 5 | `diagEnviar()` | Formulário de contato → envio via WhatsApp |
 
-### 💬 Simulador de Chat WhatsApp (Hero)
+### 💬 Simulador de Chat Multi-canal (Hero)
 
-O painel HUD do hero exibe uma conversa simulada entre um lead e o Agente de IA, seguida de uma visão CRM:
+O painel HUD do hero exibe uma conversa simulada entre um lead e o Agente de IA (conectado em multi-canal + CRM), seguida de uma visão CRM:
 
 | Fase | Timing | Descrição |
 |---|---|---|
@@ -197,7 +197,7 @@ https://carnevali1305.github.io/carnevali/index.html
 | Arquivo | O que alterar |
 |---|---|
 | `index.html` | Textos, telefone nos links `wa.me/`, metadados SEO (`<title>`, `<meta description>`), logo e links de redes sociais. |
-| `script.js` | Palavras do typewriter (array `phrases` em `initTypewriter`), fórmulas da calculadora (`calcularROI()`), configuração das partículas (`initParticles()`), cores do globo (objeto `COLORS` em `initGlobe()`). |
+| `script.js` | Palavras do typewriter (array `phrases` em `initTypewriter` — atualmente 6 frases rotativas), fórmulas da calculadora (`calcularROI()`), configuração das partículas (`initParticles()`), cores do globo (objeto `COLORS` em `initGlobe()`). |
 | `index.css` | Cores e tokens no seletor `:root`, espaçamentos, breakpoints responsivos. |
 | `logo.png` | Substituir pelo logotipo da empresa (recomendado: PNG transparente ≤ 200×60px). |
 
@@ -220,4 +220,4 @@ https://carnevali1305.github.io/carnevali/index.html
 
 Todos os direitos reservados © 2026 — **Carnevali Soluções Digitais**
 
-> Desenvolvido com foco absoluto em performance, responsividade avançada, design moderno e conversão de leads. Sem frameworks pesados, rodando puramente na web nativa.
+> Desenvolvido com foco absoluto em performance, responsividade avançada, design moderno e automação inteligente de operações. Sem frameworks pesados, rodando puramente na web nativa.
