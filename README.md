@@ -43,12 +43,12 @@ A página foi estruturada para conduzir o usuário em uma jornada lógica de con
 | 3 | **Solução** | `#solucao` | 4 cards de benefícios com ícones SVG (atendimento 24/7, fluxos inteligentes, análise avançada, integração nativa). |
 | 4 | **Como Funciona** | `#como-funciona` | Processo em 3 passos com cards numerados e ícones. |
 | 5 | **Calculadora de ROI** | `#roi` | Ferramenta interativa e comparativa para projetar ganhos financeiros mensais e anuais com IA. |
-| 6 | **Casos de Uso** | `#casos` | 5 cenários práticos — Imobiliária, Clínica, E-commerce, Suporte Técnico SaaS e Pós-Venda/Logística — com cards descritivos. |
-| 7 | **Diagnóstico** | `#diagnostico` | Wizard multi-step (5 etapas) com cálculo de ROI personalizado e envio via WhatsApp. |
+| 6 | **Casos de Uso** | `#casos` | 6 cenários práticos — Imobiliária, Clínica, E-commerce, Suporte Técnico SaaS, Pós-Venda/Logística e Consultoria/Agência — com cards descritivos. |
+| 7 | **Diagnóstico** | `#diagnostico` | Wizard multi-step (5 etapas) com cálculo de ROI personalizado, envio via WhatsApp e tela de confirmação após envio. |
 | 8 | **Tecnologias** | `#tecnologias` | Marcas de IA parceiras (OpenAI, Gemini, Claude, Microsoft, Meta AI, Google). |
-| 9 | **FAQ** | `#faq` | 7 perguntas frequentes em accordion interativo (`<details>`/`<summary>`). |
+| 9 | **FAQ** | `#faq` | 8 perguntas frequentes em accordion interativo (`<details>`/`<summary>`), incluindo prazo de implementação. |
 | 10 | **Sobre Nós** | `#sobre` | Layout 2 colunas — texto de autoridade ("Especialista em Automação com Inteligência Artificial") + **Globo 3D wireframe interativo** com d3-geo. |
-| 11 | **Footer / CTA** | — | CTA final com link WhatsApp + botão de agendamento. |
+| 11 | **Footer / CTA** | — | CTA final com WhatsApp, Instagram e LinkedIn. Localização: Santos, SP — Brasil. |
 
 ---
 
@@ -68,7 +68,8 @@ A página foi estruturada para conduzir o usuário em uma jornada lógica de con
 | **Typewriter Effect** | `initTypewriter()` | Digitação animada alternando 6 palavras no hero ("Piloto Automático", "Atendimento", "Suporte ao Cliente", "Agendamentos", "Processos Internos", "Pós-Venda"). |
 | **Loop de Animação** | `initAnimationLoop()` | Simulação de chat multi-canal + CRM no hero com auto-scroll, transição suave e loop de 20s. |
 | **Scroll Reveal** | `initScrollReveal()` | Elementos surgem suavemente ao scrollar via `IntersectionObserver`. |
-| **Contadores Animados** | `initCounters()` | Números incrementam de 0 ao valor final quando visíveis. |
+| **Indicadores de Digitação** | CSS `typingBubble` | Balões `...` aparecem antes de cada resposta da IA no chat do hero, tornando a simulação mais realista. |
+| **Botão Voltar ao Topo** | `DOMContentLoaded` | Aparece após 300px de scroll, posicionado acima da sticky CTA no mobile. |
 | **Menu Hamburger** | `initHamburger()` | Navegação mobile com animação, bloqueio de scroll e fechamento automático. |
 | **Active Nav Link** | `initActiveNavLink()` | Destaque do link no menu baseado na seção visível (scroll spy). |
 | **Sticky CTA Mobile** | `initStickyCTA()` | Barra fixa de CTA no mobile, desaparece após a calculadora de ROI. |
@@ -79,10 +80,10 @@ A página foi estruturada para conduzir o usuário em uma jornada lógica de con
 | Etapa | Função | Conteúdo |
 |---|---|---|
 | 1 | `diagShowStep()` | Segmento do negócio + tamanho da equipe |
-| 2 | `diagShowStep()` | Volume de leads e canais de atendimento |
-| 3 | `diagShowStep()` | Dores e prioridades do negócio |
+| 2 | `diagShowStep()` | Volume de leads e taxa de conversão |
+| 3 | `diagShowStep()` | Ticket médio e principal desafio |
 | 4 | `diagCalcularROI()` | Resultado com projeção de ROI animada |
-| 5 | `diagEnviar()` | Formulário de contato → envio via WhatsApp |
+| 5 | `diagEnviar()` | Formulário de contato → envio via WhatsApp → tela de confirmação ✅ |
 
 ### 💬 Simulador de Chat Multi-canal (Hero)
 
@@ -90,7 +91,7 @@ O painel HUD do hero exibe uma conversa simulada entre um lead e o Agente de IA 
 
 | Fase | Timing | Descrição |
 |---|---|---|
-| **Chat** | 0s – 12s | 8 mensagens aparecem sequencialmente (delay de 1.5s entre cada), com **auto-scroll suave** acompanhando a última mensagem visível. |
+| **Chat** | 0s – 12s | 8 mensagens aparecem sequencialmente (delay de 1.5s entre cada), com **indicadores de digitação `...`** antes de cada resposta da IA e **auto-scroll suave** acompanhando a última mensagem visível. |
 | **CRM** | 12.5s – 17s | Painel CRM surge com card do lead, badge de status (LEAD → REUNIÃO) e notificação pop-up, **sem sobrepor o footer de stats**. |
 | **Restart** | 20s | Loop reinicia com clone+replace dos nós DOM e re-setup do auto-scroll. |
 
@@ -196,7 +197,7 @@ https://carnevali1305.github.io/carnevali/index.html
 
 | Arquivo | O que alterar |
 |---|---|
-| `index.html` | Textos, telefone nos links `wa.me/`, metadados SEO (`<title>`, `<meta description>`), logo e links de redes sociais. |
+| `index.html` | Textos, telefone nos links `wa.me/`, metadados SEO (`<title>`, `<meta description>`), logo, links de redes sociais (WhatsApp, Instagram, LinkedIn) e cidade no footer. |
 | `script.js` | Palavras do typewriter (array `phrases` em `initTypewriter` — atualmente 6 frases rotativas), fórmulas da calculadora (`calcularROI()`), configuração das partículas (`initParticles()`), cores do globo (objeto `COLORS` em `initGlobe()`). |
 | `index.css` | Cores e tokens no seletor `:root`, espaçamentos, breakpoints responsivos. |
 | `logo.png` | Substituir pelo logotipo da empresa (recomendado: PNG transparente ≤ 200×60px). |
