@@ -1,1006 +1,462 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Carnevali Soluções Digitais — Agentes de IA</title>
-    <meta name="description"
-        content="Implemente Agentes de IA que atendem, automatizam e resolvem 24h por dia. Integração com seus canais e sistemas." />
-    <link rel="stylesheet" href="index.css" />
-    <link rel="stylesheet" href="premium.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Carnevali Soluções Digitais | Agentes de IA para atendimento</title>
+  <meta name="description" content="Agentes de IA treinados no jeito do seu negócio. Atendem, qualificam e agendam no WhatsApp 24/7, sem equipe técnica. No ar em 7 a 21 dias úteis.">
+  <meta name="theme-color" content="#0b0d0c">
+  <meta property="og:title" content="Carnevali Soluções Digitais | Agentes de IA">
+  <meta property="og:description" content="Seu atendimento respondendo em 5 segundos, 24 horas por dia.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="logo.png">
+  <link rel="preload" href="fonts/geist-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/light/style.css">
+  <link rel="stylesheet" href="index.css?v=2">
 </head>
-
 <body>
-    <!-- Particles Background Animation (inspired by MaIA) -->
-    <div id="particles-js" aria-hidden="true"></div>
-    <header class="nav" aria-label="Topo">
-        <div class="wrap nav-inner">
-            <div class="brand">
-                <img src="logo.png" alt="Carnevali Soluções Digitais" class="logo-img" />
-                <div>
-                    <strong>Carnevali Soluções Digitais</strong>
-                    <span>Agentes de IA • Automação • Integrações</span>
-                </div>
-            </div>
+  <a class="skip" href="#conteudo">Ir para o conteúdo</a>
+  <div class="grain" aria-hidden="true"></div>
 
-            <nav class="nav-links" aria-label="Navegação" id="nav-links">
-                <a href="#solucao">Soluções</a>
-                <a href="#como-funciona">Como Funciona</a>
-                <a href="#produtos">Produtos</a>
-                <a href="#casos">Casos de Uso</a>
-                <a href="#diagnostico">Diagnóstico</a>
-                <a href="#faq">FAQ</a>
-                <a href="https://wa.me/5513988091008?text=Ol%C3%A1%21%20Gostaria%20de%20falar%20com%20um%20consultor."
-                    target="_blank" rel="noopener" class="btn btn-primary btn-nav">
-                    Falar com Consultor
-                </a>
-            </nav>
+  <!-- NAV -->
+  <header class="nav" id="nav">
+    <a class="brand" href="#topo" aria-label="Carnevali Soluções Digitais">carnevali<small>soluções digitais</small></a>
+    <nav class="nav-links" aria-label="Principal">
+      <a href="#solucao">Soluções</a>
+      <a href="#como-funciona">Como funciona</a>
+      <a href="#produtos">Produtos</a>
+      <a href="#casos">Casos de uso</a>
+      <a href="#diagnostico">Diagnóstico</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="btn btn-primary" href="https://wa.me/5513988091008?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20um%20diagn%C3%B3stico%20gratuito." target="_blank" rel="noopener">Agendar diagnóstico <span class="ico"><i class="ph-light ph-arrow-up-right"></i></span></a>
+    <button class="burger" id="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu"><i></i><i></i></button>
+  </header>
+  <div class="menu" id="menu" aria-hidden="true">
+    <a href="#solucao">Soluções</a>
+    <a href="#como-funciona">Como funciona</a>
+    <a href="#produtos">Produtos</a>
+    <a href="#casos">Casos de uso</a>
+    <a href="#diagnostico">Diagnóstico</a>
+    <a href="#faq">FAQ</a>
+    <a class="btn btn-primary" href="https://wa.me/5513988091008?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20um%20diagn%C3%B3stico%20gratuito." target="_blank" rel="noopener">Agendar diagnóstico <span class="ico"><i class="ph-light ph-arrow-up-right"></i></span></a>
+  </div>
 
-            <button class="hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false"
-                aria-controls="nav-links">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-
+  <main id="conteudo">
+    <!-- HERO -->
+    <section class="hero" id="topo">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="wrap hero-grid">
+        <div>
+          <span class="tag">Implementação 100% personalizada</span>
+          <h1>
+            <span class="l"><span>Agentes de IA</span></span>
+            <span class="l"><span>que trabalham 24/7</span></span>
+            <span class="l"><span>no <em class="accent">piloto automático.</em></span></span>
+          </h1>
+          <p class="lead">Treinamos um Agente de IA no jeito único do seu negócio: atende, qualifica, agenda e escala sem equipe técnica.</p>
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="https://wa.me/5513988091008?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20um%20diagn%C3%B3stico%20gratuito%20para%20ver%20como%20Agentes%20de%20IA%20podem%20ajudar%20meu%20neg%C3%B3cio." target="_blank" rel="noopener">Agendar diagnóstico <span class="ico"><i class="ph-light ph-arrow-up-right"></i></span></a>
+            <a class="btn btn-ghost" href="#produtos"><span>Ver produtos no ar</span> <span class="ico"><i class="ph-light ph-arrow-down"></i></span></a>
+          </div>
         </div>
-    </header>
 
-    <main>
-        <!-- HERO -->
-        <section class="hero" id="topo">
-            <div class="hero-3d" id="hero3d" aria-hidden="true"><canvas id="hero3d-canvas"></canvas></div>
-            <div class="wrap hero-grid">
-                <div>
-                    <div class="kicker">
-                        <span class="dot" aria-hidden="true"></span> Implementação 100% Personalizada para o seu negócio
-                    </div>
-
-                    <h1>Agentes de IA que Trabalham 24/7 <span class="text-gradient type-effect">no Piloto Automático.</span><span class="cursor">|</span></h1>
-
-                    <p class="lead">Treinamos um Agente de IA no jeito único que <strong>o seu negócio</strong>
-                        atende, qualifica, agenda, resolve e escala — sem precisar de equipe
-                        técnica.
-                    </p>
-
-                    <div class="hero-actions" id="demo">
-                        <a class="btn btn-primary"
-                            href="https://wa.me/5513988091008?text=Ol%C3%A1%21%20Tenho%20interesse%20em%20automatizar%20minha%20opera%C3%A7%C3%A3o%20com%20IA.%20Gostaria%20de%20agendar%20uma%20reuni%C3%A3o."
-                            target="_blank" rel="noopener">
-                            Agendar Diagnóstico Gratuito
-                        </a>
-                        <a class="btn btn-ghost" href="#produtos">
-                            Ver produtos no ar →
-                        </a>
-                    </div>
-
-                    <p class="hero-eta">
-                        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 2" /></svg>
-                        No ar em 7 a 21 dias úteis · sem equipe técnica · diagnóstico sem custo
-                    </p>
-
-                    <div class="microtrust" aria-label="Elementos de confiança">
-                        <div class="pill"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l4-1 11-11a2.8 2.8 0 0 0-4-4L4 15z" /></svg>Implementação Personalizada</div>
-                        <div class="pill"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2" /><path d="M8 11V8a4 4 0 0 1 8 0v3" /></svg>Segurança Total</div>
-                        <div class="pill"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 3L5 14h6l-1 7 8-11h-6z" /></svg>Operação 24/7</div>
-                    </div>
-                </div>
-
-                <aside class="hero-panel" aria-label="Visual tecnológico abstrato">
-                    <div class="hud">
-                        <div class="hud-top">
-                            <span class="hud-badge"><span class="dot" aria-hidden="true"></span> IA em operação</span>
-                            <span>Conectado • Multi-canal • CRM</span>
-                        </div>
-                        <div class="hud-chat" aria-hidden="true">
-                            <div class="chat-sequence">
-                                <!-- Message 1 -->
-                                <div class="chat-msg chat-user chat-anim" style="animation-delay: 0s;">
-                                    <div class="chat-bubble">Olá! Gostaria de saber sobre os planos.</div>
-                                    <div class="chat-time">10:23</div>
-                                </div>
-                                <!-- Typing indicator 1 -->
-                                <div class="chat-msg chat-ai chat-typing-indicator" style="animation: typingBubble 0.7s ease 0.8s forwards;">
-                                    <div class="chat-typing"><span></span><span></span><span></span></div>
-                                </div>
-                                <!-- Message 2 -->
-                                <div class="chat-msg chat-ai chat-anim" style="animation-delay: 1.5s;">
-                                    <div class="chat-bubble">Olá! 👋 Claro, posso te ajudar. Temos 3 planos disponíveis.
-                                        Qual o seu interesse principal?</div>
-                                    <div class="chat-time">10:23</div>
-                                </div>
-                                <!-- Message 3 -->
-                                <div class="chat-msg chat-user chat-anim" style="animation-delay: 3s;">
-                                    <div class="chat-bubble">Preciso de atendimento 24/7</div>
-                                    <div class="chat-time">10:24</div>
-                                </div>
-                                <!-- Typing indicator 2 -->
-                                <div class="chat-msg chat-ai chat-typing-indicator" style="animation: typingBubble 0.7s ease 3.8s forwards;">
-                                    <div class="chat-typing"><span></span><span></span><span></span></div>
-                                </div>
-                                <!-- Message 4 -->
-                                <div class="chat-msg chat-ai chat-anim" style="animation-delay: 4.5s;">
-                                    <div class="chat-bubble">Perfeito! Qual seu nome para eu personalizar o atendimento?
-                                    </div>
-                                    <div class="chat-time">10:24</div>
-                                </div>
-                                <!-- Message 5 -->
-                                <div class="chat-msg chat-user chat-anim" style="animation-delay: 6s;">
-                                    <div class="chat-bubble">João Silva</div>
-                                    <div class="chat-time">10:24</div>
-                                </div>
-                                <!-- Typing indicator 3 -->
-                                <div class="chat-msg chat-ai chat-typing-indicator" style="animation: typingBubble 0.7s ease 6.8s forwards;">
-                                    <div class="chat-typing"><span></span><span></span><span></span></div>
-                                </div>
-                                <!-- Message 6 -->
-                                <div class="chat-msg chat-ai chat-anim" style="animation-delay: 7.5s;">
-                                    <div class="chat-bubble">Ótimo, João! Vou agendar uma consultoria gratuita. Qual
-                                        melhor
-                                        horário para você?</div>
-                                    <div class="chat-time">10:25</div>
-                                </div>
-                                <!-- Message 7 -->
-                                <div class="chat-msg chat-user chat-anim" style="animation-delay: 9s;">
-                                    <div class="chat-bubble">Amanhã às 14h</div>
-                                    <div class="chat-time">10:25</div>
-                                </div>
-                                <!-- Typing indicator 4 -->
-                                <div class="chat-msg chat-ai chat-typing-indicator" style="animation: typingBubble 0.7s ease 9.8s forwards;">
-                                    <div class="chat-typing"><span></span><span></span><span></span></div>
-                                </div>
-                                <!-- Message 8 -->
-                                <div class="chat-msg chat-ai chat-anim" style="animation-delay: 10.5s;">
-                                    <div class="chat-bubble">✅ Agendado! Você receberá uma confirmação por WhatsApp. Até
-                                        amanhã, João!</div>
-                                    <div class="chat-time">10:26</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- CRM Backend View -->
-                        <div class="crm-view">
-                            <div class="crm-header">
-                                <span class="crm-title">📊 Painel CRM</span>
-                                <span class="crm-subtitle">Visão do Gestor</span>
-                            </div>
-
-                            <!-- Lead Card -->
-                            <div class="lead-card" style="animation-delay: 13s;">
-                                <div class="lead-header">
-                                    <div class="lead-avatar">JS</div>
-                                    <div class="lead-info">
-                                        <div class="lead-name">João Silva</div>
-                                        <div class="lead-source">WhatsApp • Agora</div>
-                                    </div>
-                                    <div class="lead-status status-lead" style="animation-delay: 13s;">LEAD</div>
-                                    <div class="lead-status status-meeting" style="animation-delay: 15s;">REUNIÃO</div>
-                                </div>
-                                <div class="lead-details">
-                                    <div class="lead-detail-item">📅 Amanhã às 14h</div>
-                                    <div class="lead-detail-item">💼 Atendimento 24/7</div>
-                                </div>
-                            </div>
-
-                            <!-- Notification -->
-                            <div class="crm-notification" style="animation-delay: 16s;">
-                                <div class="notif-icon">🔔</div>
-                                <div class="notif-content">
-                                    <div class="notif-title">Nova Reunião Agendada</div>
-                                    <div class="notif-text">João Silva • Amanhã 14h</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="hud-foot">
-                            <div class="stat"><strong>24/7</strong><em>Atendimento contínuo</em></div>
-                            <div class="stat"><strong>5s</strong><em>Tempo médio de resposta</em></div>
-                        </div>
-                    </div>
-                </aside>
-            </div>
-        </section>
-
-        <!-- NÚMEROS -->
-        <section class="stats-strip" aria-label="Números">
-            <div class="wrap">
-                <div class="stats-grid">
-                    <div class="stat-item"><b>24/7</b><span>Atendimento contínuo</span></div>
-                    <div class="stat-item"><b><span data-count="5">5</span>s</b><span>Tempo médio de resposta</span></div>
-                    <div class="stat-item"><b><span data-count="21">21</span> dias</b><span>Prazo máximo de implantação</span></div>
-                    <div class="stat-item"><b><span data-count="2">2</span></b><span>Produtos de IA já no ar</span></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- PROBLEMA -->
-        <section class="section reveal" id="problema">
-            <div class="wrap">
-                <h2>Você está perdendo oportunidades agora, enquanto lê isso.</h2>
-                <p class="sub">Você investe em tráfego, atrai interessados — mas o <strong>tempo de resposta</strong>
-                    determina quem fica e quem procura o concorrente.</p>
-                <div class="stat-highlight">
-                    <span class="stat-number">9×</span>
-                    <span class="stat-text">mais chance de conversão quando o lead é respondido em até 5
-                        minutos.<br><em>Fonte: MIT / InsideSales.com</em></span>
-                </div>
-
-                <div class="problem-grid">
-                    <div class="inbox" aria-label="Caos de mensagens não respondidas">
-                        <h3>Caixa de entrada (Cenário Comum)</h3>
-                        <div class="msg">
-                            <div class="avatar" aria-hidden="true"></div>
-                            <div>
-                                <b>Cliente: "Tem disponibilidade hoje?"</b>
-                                <span>há 17 min • <span style="color:#ff4444">PERDIDO</span></span>
-                            </div>
-                        </div>
-                        <div class="msg">
-                            <div class="avatar" aria-hidden="true"></div>
-                            <div>
-                                <b>Lead: "Qual o valor? Pode mandar detalhes?"</b>
-                                <span>há 42 min • <span style="color:#ff4444">ESFRIANDO</span></span>
-                            </div>
-                        </div>
-                        <div class="msg">
-                            <div class="avatar" aria-hidden="true"></div>
-                            <div>
-                                <b>Cliente: "Ainda está aberto?"</b>
-                                <span>domingo • <span style="color:#ff4444">IGNORADO</span></span>
-                            </div>
-                        </div>
-                        <div class="badge-urgent">⚠️ Urgente: Velocidade é Venda</div>
-                    </div>
-
-                    <div class="grid cols-3" style="margin-top:0">
-                        <div class="card">
-                            <div class="icon i-cyan" aria-hidden="true">
-                                <svg viewBox="0 0 24 24">
-                                    <path d="M12 6v6l4 2" />
-                                    <path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0" />
-                                </svg>
-                            </div>
-                            <h3>Perda de oportunidades por demora</h3>
-                            <p>O cliente troca de fornecedor enquanto sua equipe "dá conta do volume".</p>
-                        </div>
-
-                        <div class="card">
-                            <div class="icon i-purple" aria-hidden="true">
-                                <svg viewBox="0 0 24 24">
-                                    <path d="M3 12h18" />
-                                    <path d="M7 7v10" />
-                                    <path d="M17 7v10" />
-                                </svg>
-                            </div>
-                            <h3>Equipe sobrecarregada</h3>
-                            <p>Atendimento vira incêndio diário, reduzindo qualidade e produtividade do time.</p>
-                        </div>
-
-                        <div class="card">
-                            <div class="icon i-blue" aria-hidden="true">
-                                <svg viewBox="0 0 24 24">
-                                    <path d="M12 2v20M2 12h20" />
-                                    <path d="M17 7H7a5 5 0 0 0 0 10h10a5 5 0 0 0 0-10z" />
-                                </svg>
-                            </div>
-                            <h3>Custo operacional que não escala</h3>
-                            <p>Cada hora da equipe respondendo perguntas repetitivas é dinheiro gasto em algo que a IA resolve — sem limite de volume.</p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- SOLUÇÃO -->
-        <section class="section reveal" id="solucao">
-            <div class="wrap">
-                <h2>Tecnologia que trabalha pela sua empresa.</h2>
-                <p class="sub">Não apenas respondemos mensagens. Criamos <strong>Processos Inteligentes</strong> que
-                    entendem seu negócio e agem com autonomia.
-                </p>
-
-                <div class="grid cols-4">
-                    <div class="card">
-                        <div class="icon i-cyan" aria-hidden="true">
-                            <svg viewBox="0 0 24 24">
-                                <path d="M12 3v3" />
-                                <path d="M18.36 5.64l-2.12 2.12" />
-                                <path d="M21 12h-3" />
-                                <path d="M18.36 18.36l-2.12-2.12" />
-                                <path d="M12 21v-3" />
-                                <path d="M5.64 18.36l2.12-2.12" />
-                                <path d="M3 12h3" />
-                                <path d="M5.64 5.64l2.12 2.12" />
-                            </svg>
-                        </div>
-                        <h3>Disponibilidade 24/7</h3>
-                        <p>Opere enquanto dorme. Seu negócio nunca mais para.</p>
-                    </div>
-
-                    <div class="card">
-                        <div class="icon i-blue" aria-hidden="true">
-                            <svg viewBox="0 0 24 24">
-                                <path d="M4 4h7v7H4z" />
-                                <path d="M13 4h7v7h-7z" />
-                                <path d="M4 13h7v7H4z" />
-                                <path d="M13 13h7v7h-7z" />
-                            </svg>
-                        </div>
-                        <h3>Fluxos Personalizados</h3>
-                        <p>Automações desenhadas sob medida para a realidade da sua operação.</p>
-                    </div>
-
-                    <div class="card">
-                        <div class="icon i-purple" aria-hidden="true">
-                            <svg viewBox="0 0 24 24">
-                                <path d="M12 2a7 7 0 0 0-4 13v5l4-2 4 2v-5a7 7 0 0 0-4-13z" />
-                            </svg>
-                        </div>
-                        <h3>Inteligência Real</h3>
-                        <p>Entende mensagens de voz, emojis, contexto de conversa anterior — e responde como o melhor
-                            colaborador do seu time.</p>
-                    </div>
-
-                    <div class="card">
-                        <div class="icon i-cyan" aria-hidden="true">
-                            <svg viewBox="0 0 24 24">
-                                <path d="M7 7h10v10H7z" />
-                                <path d="M4 12h3" />
-                                <path d="M17 12h3" />
-                                <path d="M12 4v3" />
-                                <path d="M12 17v3" />
-                            </svg>
-                        </div>
-                        <h3>Integração Total</h3>
-                        <p>Conecta com seu CRM, Planilhas, Google Calendar e ERP. Do diagnóstico ao ar com
-                            acompanhamento dedicado em cada etapa.</p>
-
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- COMO FUNCIONA -->
-        <section class="section reveal" id="como-funciona">
-            <div class="wrap">
-                <h2>Como Funciona (3 Passos Simples):</h2>
-                <p class="sub">Do diagnóstico ao "go live", você ganha um atendimento consistente sem travar sua
-                    operação.</p>
-
-                <div class="steps">
-                    <div class="card step">
-                        <div class="num n1">1</div>
-                        <h3>Diagnóstico e Treinamento 🧠</h3>
-                        <p>Nós alimentamos o cérebro da IA com seus dados, scripts de atendimento, workflows e processos
-                            internos. O Agente
-                            aprende como você opera.</p>
-                    </div>
-                    <div class="card step">
-                        <div class="num n2">2</div>
-                        <h3>Conexão e Integração 🔌</h3>
-                        <p>Integramos aos seus canais e sistemas sem parar sua operação. Tudo conectado e funcionando em
-                            harmonia.</p>
-                    </div>
-                    <div class="card step">
-                        <div class="num n3">3</div>
-                        <h3>Go Live (Ativação) 🚀</h3>
-                        <p>O Agente assume o atendimento 24/7 e você foca na estratégia. Acompanhe tudo em tempo real.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-        <!-- DIAGNÓSTICO INTERATIVO -->
-        <section class="section diag-section reveal" id="diagnostico">
-            <div class="wrap">
-                <div class="kicker" style="margin-bottom:20px;">
-                    <span class="dot" aria-hidden="true"></span> Gratuito · Resultado em 2 minutos
-                </div>
-                <h2>Descubra quanto sua empresa<br><span class="text-gradient">perde por mês</span> sem IA</h2>
-                <p class="sub">Responda 4 perguntas rápidas e receba um diagnóstico personalizado com o potencial de
-                    receita que você pode estar deixando na mesa.</p>
-
-                <!-- WIZARD CARD -->
-                <div class="diag-card">
-
-                    <!-- PROGRESS BAR -->
-                    <div class="diag-progress-wrap">
-                        <div class="diag-progress-labels">
-                            <span id="diag-step-label">Etapa <span id="diag-current-step">1</span> de 5</span>
-                            <span id="diag-step-title-label">Seu negócio</span>
-                        </div>
-                        <div class="diag-progress-track">
-                            <div class="diag-progress-bar" id="diag-progress-bar" style="width: 20%"></div>
-                        </div>
-                    </div>
-
-                    <!-- STEPS CONTAINER -->
-                    <div class="diag-steps-container" id="diag-steps-container">
-
-                        <!-- STEP 1: Segmento + Equipe -->
-                        <div class="diag-step active" id="diag-step-1">
-                            <h3 class="diag-step-heading">Qual é o segmento do seu negócio?</h3>
-                            <div class="diag-options-grid" id="diag-segmento-grid">
-                                <button class="diag-option-card" data-group="segmento" data-value="ecommerce">
-                                    <span class="diag-option-icon">🛒</span>
-                                    <span class="diag-option-label">E-commerce</span>
-                                </button>
-                                <button class="diag-option-card" data-group="segmento" data-value="clinica">
-                                    <span class="diag-option-icon">⚕️</span>
-                                    <span class="diag-option-label">Saúde / Clínica</span>
-                                </button>
-                                <button class="diag-option-card" data-group="segmento" data-value="imobiliaria">
-                                    <span class="diag-option-icon">🏢</span>
-                                    <span class="diag-option-label">Imobiliária</span>
-                                </button>
-                                <button class="diag-option-card" data-group="segmento" data-value="consultoria">
-                                    <span class="diag-option-icon">💼</span>
-                                    <span class="diag-option-label">Consultoria / Serviços</span>
-                                </button>
-                                <button class="diag-option-card" data-group="segmento" data-value="educacao">
-                                    <span class="diag-option-icon">📚</span>
-                                    <span class="diag-option-label">Educação / Cursos</span>
-                                </button>
-                                <button class="diag-option-card" data-group="segmento" data-value="outro">
-                                    <span class="diag-option-icon">🔧</span>
-                                    <span class="diag-option-label">Outro segmento</span>
-                                </button>
-                            </div>
-                            <h3 class="diag-step-heading" style="margin-top: 28px;">Quantas pessoas fazem atendimento
-                                hoje?</h3>
-                            <div class="diag-options-grid" id="diag-equipe-grid">
-                                <button class="diag-option-card" data-group="equipe" data-value="1">
-                                    <span class="diag-option-label">Só eu</span>
-                                </button>
-                                <button class="diag-option-card" data-group="equipe" data-value="2-3">
-                                    <span class="diag-option-label">2 a 3 pessoas</span>
-                                </button>
-                                <button class="diag-option-card" data-group="equipe" data-value="4-10">
-                                    <span class="diag-option-label">4 a 10 pessoas</span>
-                                </button>
-                                <button class="diag-option-card" data-group="equipe" data-value="10+">
-                                    <span class="diag-option-label">Mais de 10</span>
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- STEP 2: Volume de leads -->
-                        <div class="diag-step" id="diag-step-2">
-                            <h3 class="diag-step-heading">Quantos leads chegam por mês?</h3>
-                            <div class="diag-options-grid" id="diag-leads-grid">
-                                <button class="diag-option-card" data-group="leads" data-value="30" data-label="Até 30">
-                                    <span class="diag-option-label">Até 30/mês</span>
-                                </button>
-                                <button class="diag-option-card" data-group="leads" data-value="75"
-                                    data-label="31 a 100">
-                                    <span class="diag-option-label">31 a 100/mês</span>
-                                </button>
-                                <button class="diag-option-card" data-group="leads" data-value="250"
-                                    data-label="101 a 400">
-                                    <span class="diag-option-label">101 a 400/mês</span>
-                                </button>
-                                <button class="diag-option-card" data-group="leads" data-value="600"
-                                    data-label="Mais de 400">
-                                    <span class="diag-option-label">Mais de 400/mês</span>
-                                </button>
-                            </div>
-                            <h3 class="diag-step-heading" style="margin-top: 28px;">Qual sua taxa de conversão atual
-                                (aprox.)?</h3>
-                            <div class="diag-options-grid" id="diag-taxa-grid">
-                                <button class="diag-option-card" data-group="taxa" data-value="5"
-                                    data-label="Menos de 10%">
-                                    <span class="diag-option-label">Menos de 10%</span>
-                                </button>
-                                <button class="diag-option-card" data-group="taxa" data-value="15"
-                                    data-label="10% a 20%">
-                                    <span class="diag-option-label">10% a 20%</span>
-                                </button>
-                                <button class="diag-option-card" data-group="taxa" data-value="30"
-                                    data-label="20% a 40%">
-                                    <span class="diag-option-label">20% a 40%</span>
-                                </button>
-                                <button class="diag-option-card" data-group="taxa" data-value="50"
-                                    data-label="Acima de 40%">
-                                    <span class="diag-option-label">Acima de 40%</span>
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- STEP 3: Ticket + Desafio -->
-                        <div class="diag-step" id="diag-step-3">
-                            <h3 class="diag-step-heading">Qual o ticket médio por venda/serviço?</h3>
-                            <div class="diag-options-grid" id="diag-ticket-grid">
-                                <button class="diag-option-card" data-group="ticket" data-value="200"
-                                    data-label="Até R$ 300">
-                                    <span class="diag-option-label">Até R$ 300</span>
-                                </button>
-                                <button class="diag-option-card" data-group="ticket" data-value="600"
-                                    data-label="R$ 300 a R$ 900">
-                                    <span class="diag-option-label">R$ 300 a R$ 900</span>
-                                </button>
-                                <button class="diag-option-card" data-group="ticket" data-value="1750"
-                                    data-label="R$ 900 a R$ 2.500">
-                                    <span class="diag-option-label">R$ 900 a R$ 2.500</span>
-                                </button>
-                                <button class="diag-option-card" data-group="ticket" data-value="5000"
-                                    data-label="Acima de R$ 2.500">
-                                    <span class="diag-option-label">Acima de R$ 2.500</span>
-                                </button>
-                            </div>
-                            <h3 class="diag-step-heading" style="margin-top: 28px;">Qual o maior desafio no atendimento
-                                hoje?</h3>
-                            <div class="diag-options-grid cols-2" id="diag-desafio-grid">
-                                <button class="diag-option-card wide" data-group="desafio" data-value="demora">
-                                    <span class="diag-option-icon">⏱️</span>
-                                    <span class="diag-option-label">Demora para responder leads</span>
-                                </button>
-                                <button class="diag-option-card wide" data-group="desafio" data-value="perda">
-                                    <span class="diag-option-icon">📉</span>
-                                    <span class="diag-option-label">Perda de leads e oportunidades</span>
-                                </button>
-                                <button class="diag-option-card wide" data-group="desafio" data-value="fds">
-                                    <span class="diag-option-icon">📅</span>
-                                    <span class="diag-option-label">Leads sem atendimento no fds/noite</span>
-                                </button>
-                                <button class="diag-option-card wide" data-group="desafio" data-value="equipesobgm">
-                                    <span class="diag-option-icon">🔥</span>
-                                    <span class="diag-option-label">Equipe sobrecarregada</span>
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- STEP 4: ROI Preview -->
-                        <div class="diag-step" id="diag-step-4">
-                            <div class="diag-roi-header">
-                                <div class="diag-roi-badge">📊 Seu Diagnóstico de ROI</div>
-                                <p class="diag-roi-subtitle">Baseado nas suas respostas, calculamos o impacto estimado
-                                    da automação com IA no seu negócio:</p>
-                            </div>
-                            <div class="diag-roi-grid">
-                                <div class="diag-roi-card loss">
-                                    <div class="diag-roi-card-icon">📉</div>
-                                    <div class="diag-roi-card-label">Receita perdida/mês<br><small>por leads sem
-                                            resposta rápida</small></div>
-                                    <div class="diag-roi-card-value" id="diag-roi-loss">—</div>
-                                </div>
-                                <div class="diag-roi-card gain">
-                                    <div class="diag-roi-card-icon">🚀</div>
-                                    <div class="diag-roi-card-label">Potencial extra/mês<br><small>com automação por
-                                            IA</small></div>
-                                    <div class="diag-roi-card-value" id="diag-roi-gain">—</div>
-                                </div>
-                                <div class="diag-roi-card year">
-                                    <div class="diag-roi-card-icon">📆</div>
-                                    <div class="diag-roi-card-label">Projeção anual<br><small>de receita
-                                            adicional</small></div>
-                                    <div class="diag-roi-card-value" id="diag-roi-year">—</div>
-                                </div>
-                                <div class="diag-roi-card leads">
-                                    <div class="diag-roi-card-icon">👥</div>
-                                    <div class="diag-roi-card-label">Leads recuperados/mês<br><small>estimativa com
-                                            resposta imediata</small></div>
-                                    <div class="diag-roi-card-value" id="diag-roi-leads">—</div>
-                                </div>
-                            </div>
-                            <div class="diag-roi-disclaimer">
-                                ⚠️ <em>Estimativa baseada em benchmarks de mercado (MIT/InsideSales.com). Resultados
-                                    reais dependem de cada operação. Receba um diagnóstico detalhado conversando com
-                                    nosso especialista.</em>
-                            </div>
-                        </div>
-
-                        <!-- STEP 5: Dados de Contato -->
-                        <div class="diag-step" id="diag-step-5">
-                            <div class="diag-contact-header">
-                                <div class="diag-roi-badge">🎯 Quase lá!</div>
-                                <p>Preencha abaixo para receber seu diagnóstico completo e agendar uma conversa gratuita
-                                    com o especialista.</p>
-                            </div>
-                            <div class="diag-form">
-                                <div class="diag-form-row">
-                                    <div class="diag-form-field">
-                                        <label for="diag-nome">Seu nome *</label>
-                                        <input type="text" id="diag-nome" placeholder="Ex: Maria Silva"
-                                            autocomplete="name" />
-                                    </div>
-                                    <div class="diag-form-field">
-                                        <label for="diag-empresa">Empresa *</label>
-                                        <input type="text" id="diag-empresa" placeholder="Nome da sua empresa"
-                                            autocomplete="organization" />
-                                    </div>
-                                </div>
-                                <div class="diag-form-row">
-                                    <div class="diag-form-field">
-                                        <label for="diag-whatsapp">WhatsApp (com DDD) *</label>
-                                        <input type="tel" id="diag-whatsapp" placeholder="(13) 99999-9999"
-                                            autocomplete="tel" />
-                                    </div>
-                                    <div class="diag-form-field">
-                                        <label for="diag-cargo">Seu cargo</label>
-                                        <select id="diag-cargo">
-                                            <option value="">Selecione...</option>
-                                            <option value="Dono / Sócio">Dono / Sócio</option>
-                                            <option value="Gestor / Diretor">Gestor / Diretor</option>
-                                            <option value="Coordenador">Coordenador</option>
-                                            <option value="Vendedor / SDR">Vendedor / SDR</option>
-                                            <option value="Outro">Outro</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="diag-form-error" id="diag-form-error" style="display:none;">
-                                    ⚠️ Por favor, preencha nome, empresa e WhatsApp.
-                                </div>
-                                <button class="btn btn-primary diag-submit-btn" id="diag-submit-btn"
-                                    onclick="diagEnviar()">
-                                    <span>Enviar Diagnóstico e Agendar Conversa</span>
-                                    <span>→</span>
-                                </button>
-                                <p class="diag-privacy">🔒 Seus dados são confidenciais. Utilizamos apenas para entrar
-                                    em contato com você.</p>
-                            </div>
-                        </div>
-
-                    </div><!-- end diag-steps-container -->
-
-                    <!-- NAVIGATION BUTTONS -->
-                    <div class="diag-nav" id="diag-nav">
-                        <button class="btn btn-ghost diag-back-btn" id="diag-back-btn" onclick="diagBack()"
-                            style="display:none;">
-                            ← Voltar
-                        </button>
-                        <button class="btn btn-primary diag-next-btn" id="diag-next-btn" onclick="diagNext()">
-                            Próximo →
-                        </button>
-                    </div>
-
-                    <!-- SUCCESS STATE (shown after form submission) -->
-                    <div class="diag-success" id="diag-success" aria-live="polite" style="display:none;">
-                        <div class="diag-success-icon">✅</div>
-                        <h3>Diagnóstico enviado!</h3>
-                        <p>Abrimos o WhatsApp com seu diagnóstico completo.<br>
-                            Nosso especialista retornará em breve.</p>
-                        <a class="btn btn-primary diag-success-btn"
-                            href="https://wa.me/5513988091008?text=Ol%C3%A1%21%20Enviei%20meu%20diagn%C3%B3stico%20e%20gostaria%20de%20confirmar%20o%20agendamento."
-                            target="_blank" rel="noopener">
-                            Abrir WhatsApp novamente →
-                        </a>
-                    </div>
-
-                </div><!-- end diag-card -->
-
-            </div>
-        </section>
-
-
-        <!-- PRODUTOS -->
-        <section class="section reveal products" id="produtos">
-            <div class="wrap">
-                <span class="eyebrow">Prova real, em produção</span>
-                <h2>Produtos que já rodam com a nossa tecnologia.</h2>
-                <p class="sub">Não é promessa de slide: são Agentes de IA no WhatsApp oficial, vendidos como produto e usados todos os dias.</p>
-
-                <div class="products-grid">
-                    <article class="product product--lumina">
-                        <div class="product-card" data-tilt>
-                            <div class="product-stage" aria-hidden="true">
-                                <div class="mock mock-main">
-                                    <div class="mock-head">Lumina · WhatsApp</div>
-                                    <div class="bubble">Oi, Ana! Sua sessão é amanhã às 15h. Confirma?</div>
-                                    <div class="bubble me">Confirmo! 💆‍♀️</div>
-                                    <div class="bubble">Perfeito, até lá!</div>
-                                </div>
-                                <div class="mock mock-side"><b>70%</b><span>do pacote usado → oferta de renovação</span></div>
-                                <div class="mock mock-chip"><i></i>Cliente reativada</div>
-                            </div>
-                            <span class="product-tag">Clínicas de estética</span>
-                            <h3>Lumina</h3>
-                            <p class="tagline">A funcionária que nunca dorme.</p>
-                            <ul>
-                                <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5 9-10" /></svg>Lembretes 24h antes: menos no-show</li>
-                                <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5 9-10" /></svg>Renovação de pacote na hora certa</li>
-                                <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5 9-10" /></svg>Reativação automática de quem sumiu</li>
-                            </ul>
-                            <a class="btn btn-primary btn-accent" href="https://lumina-jade-pi.vercel.app/landing-lumina.html#agente" target="_blank" rel="noopener">Ver a landing do Lumina →</a>
-                        </div>
-                    </article>
-
-                    <article class="product product--fechei">
-                        <div class="product-card" data-tilt>
-                            <div class="product-stage" aria-hidden="true">
-                                <div class="mock mock-main">
-                                    <div class="mock-head">Fechei Imóveis · WhatsApp</div>
-                                    <div class="bubble me">Tem apto de 2 quartos no Gonzaga?</div>
-                                    <div class="mock-prop">Apto 2 dorm · Gonzaga</div>
-                                    <div class="bubble">Tenho 3! Qual horário prefere para visitar?</div>
-                                </div>
-                                <div class="mock mock-side"><b>Qui 14h</b><span>visita agendada pelo cliente</span></div>
-                                <div class="mock mock-chip"><i></i>Lead qualificado</div>
-                            </div>
-                            <span class="product-tag">Corretores de imóveis</span>
-                            <h3>Fechei Imóveis</h3>
-                            <p class="tagline">O funcionário de IA do corretor autônomo.</p>
-                            <ul>
-                                <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5 9-10" /></svg>Agente 24/7 no WhatsApp que qualifica leads</li>
-                                <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5 9-10" /></svg>Carteira de imóveis com fotos enviadas na hora</li>
-                                <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5 9-10" /></svg>Cliente escolhe o horário da visita sozinho</li>
-                            </ul>
-                            <a class="btn btn-primary btn-accent" href="https://fechei-imoveis.vercel.app/" target="_blank" rel="noopener">Ver a landing do Fechei Imóveis →</a>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- CASOS DE USO -->
-        <section class="section reveal" id="casos">
-            <div class="wrap">
-                <h2>Casos de Uso por Segmento.</h2>
-                <p class="sub">Cenários reais por segmento — o mesmo modelo que implementamos para o seu negócio.</p>
-
-                <div class="grid cols-3">
-                    <div class="card">
-                        <div class="quote"><b>Imobiliária High-Ticket:</b> Agente qualifica leads perguntando sobre
-                            faixa de renda, localização preferida e urgência. Agenda visitas automaticamente no Google
-                            Calendar dos corretores e envia confirmação por WhatsApp.</div>
-                        <div class="tag">Qualificação Automática + Agendamento</div>
-                        <a class="case-link" href="https://fechei-imoveis.vercel.app/" target="_blank" rel="noopener">Já lançamos isso — conheça o Fechei Imóveis →</a>
-                    </div>
-                    <div class="card">
-                        <div class="quote"><b>Clínica de Estética:</b> Agente confirma consultas 24h antes, reagenda
-                            automaticamente em caso de cancelamento e envia lembretes de cuidados pré e
-                            pós-procedimento. Reduz drasticamente o no-show.</div>
-                        <div class="tag">Gestão de Agenda Inteligente</div>
-                        <a class="case-link" href="https://lumina-jade-pi.vercel.app/landing-lumina.html#agente" target="_blank" rel="noopener">Já lançamos isso — conheça o Lumina →</a>
-                    </div>
-                    <div class="card">
-                        <div class="quote"><b>E-commerce / Infoprodutos:</b> Agente identifica carrinhos abandonados,
-                            envia mensagem personalizada oferecendo desconto ou parcelamento. Recupera
-                            vendas que seriam perdidas.</div>
-                        <div class="tag">Recuperação de Carrinhos Abandonados</div>
-                    </div>
-                    <div class="card">
-                        <div class="quote"><b>Suporte Técnico SaaS:</b> Agente responde dúvidas técnicas comuns,
-                            abre tickets internos e escala para humano quando necessário. Reduz
-                            drasticamente o volume de suporte nível 1.</div>
-                        <div class="tag">Suporte Automatizado + Escalonamento</div>
-                    </div>
-                    <div class="card">
-                        <div class="quote"><b>Pós-Venda / Logística:</b> Agente monitora status de entregas,
-                            envia atualizações proativas ao cliente e trata reclamações com respostas
-                            personalizadas antes que virem problemas.</div>
-                        <div class="tag">Gestão de Pós-Venda Inteligente</div>
-                    </div>
-                    <div class="card">
-                        <div class="quote"><b>Consultoria / Agência:</b> Agente recepciona leads, apresenta o portfólio, qualifica com perguntas estratégicas e envia proposta inicial personalizada — tudo antes do primeiro contato humano.</div>
-                        <div class="tag">Qualificação Comercial Automática</div>
-                    </div>
-                </div>
-
-                <div class="cta-center">
-                    <a class="btn btn-primary"
-                        href="https://wa.me/5513988091008?text=Ol%C3%A1%21%20Gostaria%20de%20solicitar%20um%20diagn%C3%B3stico%20do%20meu%20funil%20de%20atendimento%20para%20identificar%20oportunidades%20de%20automa%C3%A7%C3%A3o."
-                        target="_blank" rel="noopener">
-                        Agendar Diagnóstico Gratuito
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- TECNOLOGIAS -->
-        <section class="section reveal" id="tecnologias" style="padding-top:0;">
-            <div class="wrap">
-                <p class="tech-label">Tecnologias e integrações que utilizamos</p>
-                <div class="tech-logos">
-                    <div class="tech-item"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="3" /><path d="M9 3v3M15 3v3M9 18v3M15 18v3M3 9h3M3 15h3M18 9h3M18 15h3" /></svg>OpenAI</div>
-                    <div class="tech-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c.6 5 4 8.4 9 9-5 .6-8.4 4-9 9-.6-5-4-8.4-9-9 5-.6 8.4-4 9-9z" /></svg>Google Gemini</div>
-                    <div class="tech-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M5 7l14 10M19 7L5 17" /></svg>Claude AI</div>
-                    <div class="tech-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z" /></svg>Microsoft</div>
-                    <div class="tech-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12c0-4 2-7 4-7 3 0 6 14 10 14 2 0 4-3 4-7s-2-7-4-7c-4 0-7 14-10 14-2 0-4-3-4-7z" /></svg>Meta AI</div>
-                    <div class="tech-item"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18" /></svg>Google</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- FAQ -->
-        <section class="section reveal" id="faq">
-            <div class="wrap">
-                <h2>Perguntas Frequentes</h2>
-                <p class="sub">Respostas para as dúvidas mais comuns sobre Agentes de IA.</p>
-
-                <div class="faq-list">
-                    <details class="faq-item">
-                        <summary class="faq-question">💰 Quanto custa implementar um Agente de IA?</summary>
-                        <div class="faq-answer">
-                            <p>O investimento varia conforme a complexidade do seu funil e integrações necessárias.
-                                Agende uma análise gratuita para receber uma proposta personalizada baseada nas suas
-                                necessidades específicas.</p>
-                        </div>
-                    </details>
-
-                    <details class="faq-item">
-                        <summary class="faq-question">🛠️ Preciso ter conhecimento técnico?</summary>
-                        <div class="faq-answer">
-                            <p>Não. Cuidamos de toda a parte técnica: configuração, integração e treinamento do Agente.
-                                Você só precisa fornecer seus scripts de vendas e processos de atendimento.</p>
-                        </div>
-                    </details>
-
-                    <details class="faq-item">
-                        <summary class="faq-question">⚠️ E se o Agente responder errado?</summary>
-                        <div class="faq-answer">
-                            <p>Você aprova todas as respostas e fluxos antes do Go Live. Além disso, monitoramos
-                                continuamente e ajustamos o comportamento do Agente conforme necessário. Você tem
-                                controle total.</p>
-                        </div>
-                    </details>
-
-                    <details class="faq-item">
-                        <summary class="faq-question">🏢 Funciona para qualquer nicho?</summary>
-                        <div class="faq-answer">
-                            <p>Sim. Já implementamos Agentes de IA em imobiliárias, clínicas, e-commerce, infoprodutos,
-                                consultorias e diversos outros segmentos. A tecnologia se adapta ao seu modelo de
-                                negócio.</p>
-                        </div>
-                    </details>
-
-                    <details class="faq-item">
-                        <summary class="faq-question">📱 Funciona em quais plataformas?</summary>
-                        <div class="faq-answer">
-                            <p>Integramos com WhatsApp, Instagram, Facebook Messenger, e-mail e outras plataformas que
-                                possuam API ou formas de comunicação disponíveis. Analisamos cada caso para identificar
-                                a melhor forma de integração.</p>
-                        </div>
-                    </details>
-
-                    <details class="faq-item">
-                        <summary class="faq-question">🔒 Meus dados estão seguros?</summary>
-                        <div class="faq-answer">
-                            <p>Sim. Utilizamos criptografia de ponta a ponta e seguimos as melhores práticas de
-                                segurança. Seus dados e os dados dos seus clientes são tratados com total
-                                confidencialidade e em conformidade com a LGPD.</p>
-                        </div>
-                    </details>
-
-                    <details class="faq-item">
-                        <summary class="faq-question">🤝 Terei suporte após a implementação?</summary>
-                        <div class="faq-answer">
-                            <p>Sim. Oferecemos suporte durante a implementação para solução de problemas e ajustes
-                                necessários. Após o Go Live, você pode contratar suporte contínuo para evoluções e
-                                melhorias.</p>
-                        </div>
-                    </details>
-
-                    <details class="faq-item">
-                        <summary class="faq-question">⏳ Quanto tempo leva para o Agente entrar em operação?</summary>
-                        <div class="faq-answer">
-                            <p>Em média, de <strong>7 a 21 dias úteis</strong> do diagnóstico ao Go Live. Projetos simples (um canal, fluxo único) ficam prontos em 1 a 2 semanas. Implementações com múltiplos canais, CRM e ERP podem levar de 3 a 4 semanas. Durante esse período você acompanha cada etapa e aprova o comportamento do Agente antes da ativação.</p>
-                        </div>
-                    </details>
-                </div>
-            </div>
-        </section>
-
-        <!-- SOBRE NÓS -->
-        <section class="section reveal" id="sobre">
-            <div class="wrap sobre-grid">
-                <div class="sobre-text">
-                    <h2>Especialista em Automação com Inteligência Artificial.</h2>
-                    <p class="sub"><strong>Não sou uma agência de marketing.</strong> Sou especialista em implementação
-                        de
-                        Agentes de IA focados em resultados.</p>
-                    <p class="sub" style="margin-top:16px;">Atuo na etapa mais crítica do seu negócio: o momento em que
-                        o
-                        lead chega e precisa de resposta imediata. Enquanto o marketing traz o lead, eu implemento a
-                        tecnologia que garante que nenhuma oportunidade seja desperdiçada.</p>
-                    <p class="sub" style="margin-top:16px;">Por ser um trabalho especializado e personalizado, aceito um
-                        número limitado de clientes por vez — para garantir que cada implementação seja feita com
-                        atenção
-                        total ao seu negócio.</p>
-                    <p class="sub"
-                        style="margin-top:24px; color:var(--neonCyan); font-weight:600; font-style:italic; font-size:1.1rem;">
-                        Sua empresa operando com a precisão de um relógio. Sem depender de equipe.</p>
-
-                    <div class="sobre-pills">
-                        <div class="sobre-pill pill-cyan">
-                            <span>✓ Implementação 100% Personalizada</span>
-                        </div>
-                        <div class="sobre-pill pill-purple">
-                            <span>✓ Atendimento Direto com o Especialista</span>
-                        </div>
-                        <div class="sobre-pill pill-cyan">
-                            <span>✓ Vagas Limitadas por Mês</span>
-                        </div>
-                    </div>
-                </div>
-
-                <aside class="globe-container" aria-label="Representação visual de conectividade digital">
-                    <canvas id="globe-canvas"></canvas>
-                    <p class="globe-caption">Tecnologia conectada ao seu negócio</p>
-                </aside>
-            </div>
-        </section>
-    </main>
-
-    <!-- FOOTER -->
-    <footer aria-label="Rodapé" id="contato">
-        <div class="wrap">
-            <div class="footer-inner">
-                <h2>Pronto para Automatizar sua Operação?</h2>
-                <p class="sub">
-                    Agende um diagnóstico gratuito e descubra como um Agente de IA pode
-                    transformar seu atendimento em resultados ainda esta semana.
-                </p>
-                <p class="footer-scarcity">⚡ Vagas limitadas
-                    — atendimento individual e personalizado</p>
-
-                <a class="btn btn-primary btn-lg" style="margin-bottom:24px;"
-                    href="https://wa.me/5513988091008?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20um%20diagn%C3%B3stico%20gratuito%20para%20ver%20como%20Agentes%20de%20IA%20podem%20ajudar%20meu%20neg%C3%B3cio."
-                    target="_blank" rel="noopener">
-                    Agendar Diagnóstico Gratuito
-                </a>
-
-                <p class="footer-or">ou fale diretamente:</p>
-
-                <div class="social-footer" style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
-                    <a href="https://wa.me/5513988091008" target="_blank" rel="noopener"
-                        style="display:inline-flex; align-items:center; gap:8px; padding:8px 16px; background:rgba(37,211,102,0.08); border:1px solid rgba(37,211,102,0.25); border-radius:8px; transition:all 0.3s ease; text-decoration:none; color:var(--text);">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                            fill="#25d366" aria-hidden="true">
-                            <path
-                                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
-                            <path
-                                d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.532 5.858L.057 23.25a.75.75 0 0 0 .916.919l5.453-1.467A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.713 9.713 0 0 1-4.953-1.355l-.355-.212-3.676.989.999-3.598-.232-.371A9.718 9.718 0 0 1 2.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z" />
-                        </svg>
-                        WhatsApp
-                    </a>
-
-                    <a href="https://instagram.com/carnevalisolucoes" target="_blank" rel="noopener"
-                        style="padding:8px 16px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:8px; transition:all 0.3s ease; text-decoration:none; color:var(--text);">
-                        📷 Instagram
-                    </a>
-
-                    <a href="https://www.linkedin.com/in/sergio-carnevali-68268998" target="_blank" rel="noopener"
-                        style="padding:8px 16px; background:rgba(10,102,194,0.08); border:1px solid rgba(10,102,194,0.25); border-radius:8px; transition:all 0.3s ease; text-decoration:none; color:var(--text);">
-                        💼 LinkedIn
-                    </a>
-                </div>
-                <p style="margin-top:18px; font-size:0.75rem; color:rgba(234,241,255,.28); letter-spacing:0.4px;">
-                    Santos, SP — Brasil
-                </p>
-            </div>
+        <div class="phone-wrap">
+          <div class="phone">
+            <div class="shell"><div class="core">
+              <div class="chat-top">
+                <div class="avatar"><i class="ph-light ph-sparkle"></i></div>
+                <div><b>Agente Carnevali</b><span>online agora</span></div>
+              </div>
+              <div class="chat" aria-label="Exemplo de conversa com o agente">
+                <div class="msg out">Olá! Gostaria de saber sobre os planos.</div>
+                <div class="msg in">Claro, posso ajudar. Temos 3 planos. Qual o seu interesse principal?</div>
+                <div class="msg out">Preciso de atendimento 24/7.</div>
+                <div class="msg in">Perfeito, João. Agendei sua consultoria gratuita para amanhã às 14h. A confirmação chega por WhatsApp.</div>
+              </div>
+            </div></div>
+          </div>
+          <div class="float-card">
+            <div class="avatar"><i class="ph-light ph-calendar-check"></i></div>
+            <div><b>Nova reunião agendada</b><span>João Silva, amanhã 14h</span></div>
+          </div>
         </div>
-    </footer>
+      </div>
+    </section>
 
-    <!-- STICKY CTA MOBILE -->
-    <div class="sticky-cta" role="region" aria-label="Fale com um especialista">
-        <div class="inner wrap">
-            <div class="label">
-                <b style="color:var(--text)">Vagas limitadas este mês.</b><br />
-                Agende seu diagnóstico gratuito agora.
-            </div>
-            <a class="btn btn-primary" style="padding:12px 14px"
-                href="https://wa.me/5513988091008?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20um%20diagn%C3%B3stico%20gratuito."
-                target="_blank" rel="noopener">
-                Agendar Grátis
-            </a>
+    <!-- NÚMEROS -->
+    <section class="stats" aria-label="Números">
+      <div class="wrap stats-row">
+        <div class="stat rv"><strong>24<sup>/7</sup></strong><span>Atendimento contínuo, sem pausa</span></div>
+        <div class="stat rv" style="--i:1"><strong><span data-count="5">5</span><sup>s</sup></strong><span>Tempo médio de resposta</span></div>
+        <div class="stat rv" style="--i:2"><strong><span data-count="21">21</span><sup>dias</sup></strong><span>Prazo máximo de implantação</span></div>
+        <div class="stat rv" style="--i:3"><strong><span data-count="2">2</span><sup>no ar</sup></strong><span>Produtos de IA em produção</span></div>
+      </div>
+    </section>
+
+    <!-- PROBLEMA -->
+    <section class="sec" id="problema">
+      <div class="wrap">
+        <h2 class="h2 rv">Você está perdendo oportunidades agora, enquanto lê isto.</h2>
+        <p class="lead rv">Você investe em tráfego e atrai interessados, mas o tempo de resposta decide quem fica e quem procura o concorrente.</p>
+
+        <div class="problem-grid">
+          <div class="big-stat rv">
+            <strong>9×</strong>
+            <p>mais chance de conversão quando o lead é respondido em até 5 minutos.<small>Fonte: MIT / InsideSales.com</small></p>
+          </div>
+          <div class="shell rv" style="--i:1"><div class="core inbox">
+            <div class="row"><div class="ph"><i class="ph-light ph-chat-circle"></i></div><div class="who">"Tem disponibilidade hoje?"<small>há 17 min</small></div><span class="st">PERDIDO</span></div>
+            <div class="row"><div class="ph"><i class="ph-light ph-chat-circle"></i></div><div class="who">"Qual o valor? Pode mandar detalhes?"<small>há 42 min</small></div><span class="st">ESFRIANDO</span></div>
+            <div class="row"><div class="ph"><i class="ph-light ph-chat-circle"></i></div><div class="who">"Ainda está aberto?"<small>domingo</small></div><span class="st">IGNORADO</span></div>
+          </div></div>
         </div>
+
+        <div class="costs">
+          <div class="cost rv"><h3>Perda de oportunidades por demora</h3><p>O cliente troca de fornecedor enquanto sua equipe dá conta do volume.</p></div>
+          <div class="cost rv" style="--i:1"><h3>Equipe sobrecarregada</h3><p>O atendimento vira incêndio diário e derruba a qualidade e a produtividade do time.</p></div>
+          <div class="cost rv" style="--i:2"><h3>Custo que não escala</h3><p>Cada hora respondendo perguntas repetitivas é dinheiro gasto em algo que a IA resolve, sem limite de volume.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOLUÇÃO -->
+    <section class="sec" id="solucao" style="padding-top:0">
+      <div class="wrap">
+        <h2 class="h2 rv">Tecnologia que trabalha pela sua empresa.</h2>
+        <p class="lead rv">Não apenas respondemos mensagens. Criamos processos inteligentes que entendem seu negócio e agem com autonomia.</p>
+        <div class="bento">
+          <div class="shell b1 rv" style="padding:8px"><div class="core b">
+            <div><i class="ph-light ph-clock pi"></i><h3>Disponibilidade 24/7</h3><p>Opere enquanto dorme. Seu negócio nunca mais para.</p></div>
+            <div class="clock" aria-hidden="true">24:00</div>
+          </div></div>
+          <div class="shell b2 rv" style="padding:8px;--i:1;background:rgb(181 242 107 / .25)"><div class="core b" style="background:var(--accent)">
+            <div><i class="ph-light ph-flow-arrow pi"></i><h3>Fluxos personalizados</h3><p>Automações desenhadas sob medida para a realidade da sua operação.</p></div>
+          </div></div>
+          <div class="shell b3 rv" style="padding:8px"><div class="core b">
+            <div><i class="ph-light ph-waveform pi"></i><h3>Inteligência real</h3><p>Entende mensagens de voz, emojis e o contexto da conversa anterior, e responde como o melhor colaborador do seu time.</p></div>
+          </div></div>
+          <div class="shell b4 rv" style="padding:8px;--i:1"><div class="core b" style="background:radial-gradient(70% 90% at 100% 100%, rgb(181 242 107 / .14), transparent 70%), var(--surface)">
+            <div><i class="ph-light ph-plugs-connected pi"></i><h3>Integração total</h3><p>Do diagnóstico ao ar, com acompanhamento dedicado em cada etapa.</p></div>
+            <div class="chips"><span>CRM</span><span>Planilhas</span><span>Google Calendar</span><span>ERP</span><span>WhatsApp</span></div>
+          </div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMO FUNCIONA -->
+    <section class="sec" id="como-funciona" style="padding-top:0">
+      <div class="wrap">
+        <h2 class="h2 rv">Três passos do diagnóstico ao go live.</h2>
+        <p class="lead rv">Você ganha um atendimento consistente sem travar sua operação.</p>
+        <div class="steps">
+          <article class="step"><div class="shell"><div class="core">
+            <div class="num" aria-hidden="true">01</div>
+            <div><i class="ph-light ph-brain pi"></i><h3>Diagnóstico e treinamento</h3><p>Alimentamos o cérebro da IA com seus dados, scripts de atendimento, workflows e processos internos. O Agente aprende como você opera.</p></div>
+          </div></div></article>
+          <article class="step"><div class="shell"><div class="core">
+            <div class="num" aria-hidden="true">02</div>
+            <div><i class="ph-light ph-plugs pi"></i><h3>Conexão e integração</h3><p>Integramos aos seus canais e sistemas sem parar sua operação. Tudo conectado e funcionando em harmonia.</p></div>
+          </div></div></article>
+          <article class="step"><div class="shell"><div class="core">
+            <div class="num" aria-hidden="true">03</div>
+            <div><i class="ph-light ph-lightning pi"></i><h3>Go live</h3><p>O Agente assume o atendimento 24/7 e você foca na estratégia. Acompanhe tudo em tempo real.</p></div>
+          </div></div></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- DIAGNÓSTICO -->
+    <section class="sec" id="diagnostico" style="padding-top:0">
+      <div class="wrap">
+        <div class="diag-head rv">
+          <span class="tag">Gratuito, resultado em 2 minutos</span>
+          <h2 class="h2" style="margin-top:28px;max-width:18ch">Descubra quanto sua empresa perde por mês sem IA.</h2>
+          <p class="lead">Responda 4 perguntas rápidas e receba um diagnóstico com o potencial de receita que você pode estar deixando na mesa.</p>
+        </div>
+
+        <div class="shell diag rv" id="diag">
+          <div class="core">
+            <div class="prog" id="diag-prog"><span id="diag-label">Etapa 1 de 5</span><div class="prog-bar"><i class="on"></i><i></i><i></i><i></i><i></i></div></div>
+
+            <div id="diag-steps">
+              <div class="step-pane on" data-step="1">
+                <p class="q">Qual é o segmento do seu negócio?</p>
+                <div class="opts">
+                  <button class="opt" data-group="segmento" data-value="ecommerce"><i class="ph-light ph-shopping-cart"></i>E-commerce</button>
+                  <button class="opt" data-group="segmento" data-value="clinica"><i class="ph-light ph-first-aid-kit"></i>Saúde / Clínica</button>
+                  <button class="opt" data-group="segmento" data-value="imobiliaria"><i class="ph-light ph-buildings"></i>Imobiliária</button>
+                  <button class="opt" data-group="segmento" data-value="consultoria"><i class="ph-light ph-briefcase"></i>Consultoria / Serviços</button>
+                  <button class="opt" data-group="segmento" data-value="educacao"><i class="ph-light ph-graduation-cap"></i>Educação / Cursos</button>
+                  <button class="opt" data-group="segmento" data-value="outro"><i class="ph-light ph-wrench"></i>Outro segmento</button>
+                </div>
+                <p class="q">Quantas pessoas fazem atendimento hoje?</p>
+                <div class="opts">
+                  <button class="opt" data-group="equipe" data-value="1">Só eu</button>
+                  <button class="opt" data-group="equipe" data-value="2-3">2 a 3 pessoas</button>
+                  <button class="opt" data-group="equipe" data-value="4-10">4 a 10 pessoas</button>
+                  <button class="opt" data-group="equipe" data-value="10+">Mais de 10</button>
+                </div>
+              </div>
+
+              <div class="step-pane" data-step="2">
+                <p class="q">Quantos leads chegam por mês?</p>
+                <div class="opts">
+                  <button class="opt" data-group="leads" data-value="30" data-label="Até 30">Até 30 por mês</button>
+                  <button class="opt" data-group="leads" data-value="75" data-label="31 a 100">31 a 100 por mês</button>
+                  <button class="opt" data-group="leads" data-value="250" data-label="101 a 400">101 a 400 por mês</button>
+                  <button class="opt" data-group="leads" data-value="600" data-label="Mais de 400">Mais de 400 por mês</button>
+                </div>
+                <p class="q">Qual sua taxa de conversão atual (aprox.)?</p>
+                <div class="opts">
+                  <button class="opt" data-group="taxa" data-value="5" data-label="Menos de 10%">Menos de 10%</button>
+                  <button class="opt" data-group="taxa" data-value="15" data-label="10% a 20%">10% a 20%</button>
+                  <button class="opt" data-group="taxa" data-value="30" data-label="20% a 40%">20% a 40%</button>
+                  <button class="opt" data-group="taxa" data-value="50" data-label="Acima de 40%">Acima de 40%</button>
+                </div>
+              </div>
+
+              <div class="step-pane" data-step="3">
+                <p class="q">Qual o ticket médio por venda ou serviço?</p>
+                <div class="opts">
+                  <button class="opt" data-group="ticket" data-value="200" data-label="Até R$ 300">Até R$ 300</button>
+                  <button class="opt" data-group="ticket" data-value="600" data-label="R$ 300 a R$ 900">R$ 300 a R$ 900</button>
+                  <button class="opt" data-group="ticket" data-value="1750" data-label="R$ 900 a R$ 2.500">R$ 900 a R$ 2.500</button>
+                  <button class="opt" data-group="ticket" data-value="5000" data-label="Acima de R$ 2.500">Acima de R$ 2.500</button>
+                </div>
+                <p class="q">Qual o maior desafio no atendimento hoje?</p>
+                <div class="opts">
+                  <button class="opt" data-group="desafio" data-value="demora" data-label="Demora para responder leads"><i class="ph-light ph-timer"></i>Demora para responder leads</button>
+                  <button class="opt" data-group="desafio" data-value="perda" data-label="Perda de leads e oportunidades"><i class="ph-light ph-trend-down"></i>Perda de leads e oportunidades</button>
+                  <button class="opt" data-group="desafio" data-value="fds" data-label="Leads sem atendimento no fim de semana ou à noite"><i class="ph-light ph-moon"></i>Leads sem atendimento à noite e no fim de semana</button>
+                  <button class="opt" data-group="desafio" data-value="equipe" data-label="Equipe sobrecarregada"><i class="ph-light ph-fire"></i>Equipe sobrecarregada</button>
+                </div>
+              </div>
+
+              <div class="step-pane" data-step="4">
+                <p class="q">Impacto estimado da automação com IA no seu negócio:</p>
+                <div class="roi">
+                  <div><small>Receita perdida por mês com leads sem resposta rápida</small><strong id="roi-loss">R$ 0</strong></div>
+                  <div><small>Potencial extra por mês com IA</small><strong id="roi-gain">R$ 0</strong></div>
+                  <div><small>Projeção anual de receita adicional</small><strong id="roi-year">R$ 0</strong></div>
+                  <div><small>Leads recuperados por mês</small><strong id="roi-leads">0</strong></div>
+                </div>
+                <p class="note">Estimativa baseada em benchmarks de mercado (MIT / InsideSales.com). Resultados reais dependem de cada operação. Receba um diagnóstico detalhado conversando com nosso especialista.</p>
+              </div>
+
+              <div class="step-pane" data-step="5">
+                <p class="q">Quase lá. Preencha para receber o diagnóstico completo e agendar uma conversa gratuita.</p>
+                <div class="fields">
+                  <div class="field" data-f="nome"><label for="f-nome">Seu nome</label><input id="f-nome" autocomplete="name" placeholder="Maria Souza" required><span class="err-msg">Informe seu nome.</span></div>
+                  <div class="field" data-f="empresa"><label for="f-empresa">Empresa</label><input id="f-empresa" autocomplete="organization" placeholder="Nome da empresa" required><span class="err-msg">Informe a empresa.</span></div>
+                  <div class="field" data-f="whatsapp"><label for="f-whatsapp">WhatsApp com DDD</label><input id="f-whatsapp" type="tel" autocomplete="tel" placeholder="(13) 90000-0000" required><span class="err-msg">Informe um WhatsApp com DDD.</span></div>
+                  <div class="field"><label for="f-cargo">Seu cargo (opcional)</label>
+                    <select id="f-cargo"><option value="">Selecione</option><option>Dono / Sócio</option><option>Gestor / Diretor</option><option>Coordenador</option><option>Vendedor / SDR</option><option>Outro</option></select></div>
+                </div>
+                <p class="note">Seus dados são confidenciais e usados apenas para entrarmos em contato.</p>
+              </div>
+            </div>
+
+            <div class="done" id="diag-done" role="status">
+              <i class="ph-light ph-check-circle pi"></i>
+              <h3>Diagnóstico enviado.</h3>
+              <p>Abrimos o WhatsApp com seu diagnóstico completo. Nosso especialista retorna em breve.</p>
+              <a class="btn btn-line" id="diag-again" href="#" target="_blank" rel="noopener">Abrir WhatsApp novamente <i class="ph-light ph-arrow-up-right"></i></a>
+            </div>
+
+            <div class="diag-nav" id="diag-nav">
+              <button class="btn btn-line" id="diag-back" disabled><i class="ph-light ph-arrow-left"></i> Voltar</button>
+              <button class="btn btn-primary" id="diag-next">Próximo <span class="ico"><i class="ph-light ph-arrow-right"></i></span></button>
+            </div>
+            <p class="err-msg" id="diag-err" style="margin-top:14px">Escolha uma opção em cada pergunta para continuar.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUTOS -->
+    <section class="sec" id="produtos" style="padding-top:0">
+      <div class="wrap">
+        <span class="tag rv">Prova real, em produção</span>
+        <h2 class="h2 rv" style="margin-top:28px;max-width:20ch">Produtos que já rodam com a nossa tecnologia.</h2>
+        <p class="lead rv">Não é promessa de slide. São Agentes de IA no WhatsApp oficial, vendidos como produto e usados todos os dias.</p>
+
+        <div class="prod-grid">
+          <article class="shell prod rv"><div class="core">
+            <div class="prod-visual">
+              <div class="msg in">Oi, Ana! Sua sessão é amanhã às 15h. Confirma?</div>
+              <div class="msg out">Confirmo!</div>
+              <div class="tag-card">70% do pacote usado: oferta de renovação</div>
+            </div>
+            <div class="prod-body">
+              <span class="for">Clínicas de estética</span>
+              <h3>Lumina</h3>
+              <p class="sub">A funcionária que nunca dorme.</p>
+              <ul>
+                <li><i class="ph-light ph-check"></i>Lembretes 24h antes: menos no-show</li>
+                <li><i class="ph-light ph-check"></i>Renovação de pacote na hora certa</li>
+                <li><i class="ph-light ph-check"></i>Reativação automática de quem sumiu</li>
+              </ul>
+              <a class="btn btn-line" href="https://lumina-jade-pi.vercel.app/landing-lumina.html#agente" target="_blank" rel="noopener">Ver a landing do Lumina <i class="ph-light ph-arrow-up-right"></i></a>
+            </div>
+          </div></article>
+
+          <article class="shell prod rv" style="--i:1"><div class="core">
+            <div class="prod-visual">
+              <div class="msg out">Tem apto de 2 quartos no Gonzaga?</div>
+              <div class="msg in">Tenho 3. Qual horário prefere para visitar?</div>
+              <div class="msg out">Quinta, 14h</div>
+              <div class="tag-card">visita agendada pelo cliente</div>
+            </div>
+            <div class="prod-body">
+              <span class="for">Corretores de imóveis</span>
+              <h3>Fechei Imóveis</h3>
+              <p class="sub">O funcionário de IA do corretor autônomo.</p>
+              <ul>
+                <li><i class="ph-light ph-check"></i>Agente 24/7 no WhatsApp que qualifica leads</li>
+                <li><i class="ph-light ph-check"></i>Carteira de imóveis com fotos enviadas na hora</li>
+                <li><i class="ph-light ph-check"></i>Cliente escolhe o horário da visita sozinho</li>
+              </ul>
+              <a class="btn btn-line" href="https://fechei-imoveis.vercel.app/" target="_blank" rel="noopener">Ver a landing do Fechei Imóveis <i class="ph-light ph-arrow-up-right"></i></a>
+            </div>
+          </div></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CASOS DE USO -->
+    <section class="cases" id="casos">
+      <div class="wrap">
+        <h2 class="h2 rv">Casos de uso por segmento.</h2>
+        <p class="lead rv">Cenários reais. O mesmo modelo que implementamos para o seu negócio.</p>
+      </div>
+      <div class="pan" id="pan">
+        <div class="pan-stick">
+          <div class="pan-track" id="pan-track">
+            <article class="shell case"><div class="core">
+              <i class="ph-light ph-buildings pi"></i>
+              <h3>Qualificação automática e agendamento</h3>
+              <span class="seg" style="margin:14px 0 0">Imobiliária high-ticket</span>
+              <p>O Agente pergunta faixa de renda, localização e urgência. Agenda visitas no Google Calendar dos corretores e confirma por WhatsApp.</p>
+              <a class="link" href="https://fechei-imoveis.vercel.app/" target="_blank" rel="noopener">Já lançamos: Fechei Imóveis <i class="ph-light ph-arrow-up-right"></i></a>
+            </div></article>
+            <article class="shell case"><div class="core">
+              <i class="ph-light ph-heartbeat pi"></i>
+              <h3>Gestão de agenda inteligente</h3>
+              <span class="seg" style="margin:14px 0 0">Clínica de estética</span>
+              <p>Confirma consultas 24h antes, reagenda cancelamentos e envia cuidados pré e pós-procedimento. Reduz o no-show.</p>
+              <a class="link" href="https://lumina-jade-pi.vercel.app/landing-lumina.html#agente" target="_blank" rel="noopener">Já lançamos: Lumina <i class="ph-light ph-arrow-up-right"></i></a>
+            </div></article>
+            <article class="shell case"><div class="core">
+              <i class="ph-light ph-shopping-cart pi"></i>
+              <h3>Recuperação de carrinhos abandonados</h3>
+              <span class="seg" style="margin:14px 0 0">E-commerce e infoprodutos</span>
+              <p>Identifica carrinhos abandonados e envia mensagem personalizada com desconto ou parcelamento. Recupera vendas que seriam perdidas.</p>
+            </div></article>
+            <article class="shell case"><div class="core">
+              <i class="ph-light ph-headset pi"></i>
+              <h3>Suporte automatizado com escalonamento</h3>
+              <span class="seg" style="margin:14px 0 0">Suporte técnico SaaS</span>
+              <p>Responde dúvidas técnicas comuns, abre tickets internos e escala para um humano quando necessário. Reduz o volume de nível 1.</p>
+            </div></article>
+            <article class="shell case"><div class="core">
+              <i class="ph-light ph-package pi"></i>
+              <h3>Gestão de pós-venda inteligente</h3>
+              <span class="seg" style="margin:14px 0 0">Pós-venda e logística</span>
+              <p>Monitora o status das entregas, avisa o cliente de forma proativa e trata reclamações antes que virem problemas.</p>
+            </div></article>
+            <article class="shell case"><div class="core">
+              <i class="ph-light ph-handshake pi"></i>
+              <h3>Qualificação comercial automática</h3>
+              <span class="seg" style="margin:14px 0 0">Consultoria e agência</span>
+              <p>Recepciona leads, apresenta o portfólio, qualifica com perguntas estratégicas e envia a proposta inicial antes do primeiro contato humano.</p>
+              <a class="btn btn-primary" style="margin-top:22px;align-self:flex-start" href="https://wa.me/5513988091008?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20um%20diagn%C3%B3stico%20gratuito." target="_blank" rel="noopener">Agendar diagnóstico <span class="ico"><i class="ph-light ph-arrow-up-right"></i></span></a>
+            </div></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TECNOLOGIAS (único marquee) -->
+    <section class="tech" id="tecnologias" aria-label="Tecnologias">
+      <div class="wrap"><h2>Tecnologias e integrações que utilizamos</h2></div>
+      <div class="mq" aria-hidden="true">
+        <span>OpenAI</span><span>Google Gemini</span><span>Claude</span><span>Microsoft</span><span>Meta AI</span><span>Google</span><span>WhatsApp</span><span>n8n</span>
+        <span>OpenAI</span><span>Google Gemini</span><span>Claude</span><span>Microsoft</span><span>Meta AI</span><span>Google</span><span>WhatsApp</span><span>n8n</span>
+      </div>
+      <p class="wrap" style="position:absolute;width:1px;height:1px;overflow:hidden">OpenAI, Google Gemini, Claude, Microsoft, Meta AI, Google, WhatsApp, n8n</p>
+    </section>
+
+    <!-- FAQ -->
+    <section class="sec" id="faq">
+      <div class="wrap faq-grid">
+        <div class="faq-side rv">
+          <h2 class="h2">Perguntas frequentes.</h2>
+          <p class="lead">Respostas para as dúvidas mais comuns sobre Agentes de IA.</p>
+        </div>
+        <div class="faq-list rv" style="--i:1">
+          <details open><summary>Quanto custa implementar um Agente de IA?<i class="ph-light ph-plus"></i></summary><p class="ans">O investimento varia conforme a complexidade do seu funil e as integrações necessárias. Agende uma análise gratuita para receber uma proposta personalizada.</p></details>
+          <details><summary>Preciso ter conhecimento técnico?<i class="ph-light ph-plus"></i></summary><p class="ans">Não. Cuidamos de toda a parte técnica: configuração, integração e treinamento do Agente. Você só fornece seus scripts de vendas e processos de atendimento.</p></details>
+          <details><summary>E se o Agente responder errado?<i class="ph-light ph-plus"></i></summary><p class="ans">Você aprova todas as respostas e fluxos antes do go live. Depois, monitoramos continuamente e ajustamos o comportamento do Agente. O controle é seu.</p></details>
+          <details><summary>Funciona para qualquer nicho?<i class="ph-light ph-plus"></i></summary><p class="ans">Sim. Já implementamos Agentes em imobiliárias, clínicas, e-commerce, infoprodutos e consultorias. A tecnologia se adapta ao seu modelo de negócio.</p></details>
+          <details><summary>Funciona em quais plataformas?<i class="ph-light ph-plus"></i></summary><p class="ans">WhatsApp, Instagram, Facebook Messenger, e-mail e outras plataformas com API ou forma de comunicação disponível. Analisamos cada caso para achar a melhor integração.</p></details>
+          <details><summary>Meus dados estão seguros?<i class="ph-light ph-plus"></i></summary><p class="ans">Sim. Usamos criptografia e seguimos boas práticas de segurança. Seus dados e os dos seus clientes são tratados com confidencialidade e em conformidade com a LGPD.</p></details>
+          <details><summary>Terei suporte após a implementação?<i class="ph-light ph-plus"></i></summary><p class="ans">Sim. Há suporte durante a implementação para ajustes e solução de problemas. Depois do go live, você pode contratar suporte contínuo para evoluções e melhorias.</p></details>
+          <details><summary>Quanto tempo leva para entrar em operação?<i class="ph-light ph-plus"></i></summary><p class="ans">Em média, <b>7 a 21 dias úteis</b> do diagnóstico ao go live. Projetos simples (um canal, fluxo único) ficam prontos em 1 a 2 semanas. Com múltiplos canais, CRM e ERP, de 3 a 4 semanas. Você acompanha cada etapa e aprova o comportamento do Agente antes da ativação.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOBRE -->
+    <section class="sec about" id="sobre" style="padding-top:0">
+      <div class="wrap about-grid">
+        <div class="shell rv"><div class="core">
+          <h2>Especialista em automação com inteligência artificial.</h2>
+          <p class="quote">Não sou uma agência de marketing. Sou especialista em implementação de Agentes de IA focados em resultados.</p>
+          <p>Atuo na etapa mais crítica do seu negócio: o momento em que o lead chega e precisa de resposta imediata. Enquanto o marketing traz o lead, eu implemento a tecnologia que garante que nenhuma oportunidade seja desperdiçada.</p>
+          <p>Por ser um trabalho especializado, aceito um número limitado de clientes por vez, para dar atenção total a cada implementação.</p>
+        </div></div>
+        <ul class="checks rv" style="--i:1">
+          <li><i class="ph-light ph-check-circle"></i>Implementação 100% personalizada</li>
+          <li><i class="ph-light ph-check-circle"></i>Atendimento direto com o especialista</li>
+          <li><i class="ph-light ph-check-circle"></i>Vagas limitadas por mês</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="final" id="contato">
+      <div class="wrap">
+        <div class="final-box rv">
+          <h2>Pronto para automatizar sua operação?</h2>
+          <p>Agende um diagnóstico gratuito e descubra como um Agente de IA pode transformar seu atendimento ainda esta semana.</p>
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="https://wa.me/5513988091008?text=Ol%C3%A1%21%20Tenho%20interesse%20em%20automatizar%20minha%20opera%C3%A7%C3%A3o%20com%20IA.%20Gostaria%20de%20agendar%20uma%20reuni%C3%A3o." target="_blank" rel="noopener">Agendar diagnóstico <span class="ico"><i class="ph-light ph-arrow-up-right"></i></span></a>
+          </div>
+          <div class="socials">
+            <a href="https://wa.me/5513988091008" target="_blank" rel="noopener"><i class="ph-light ph-whatsapp-logo"></i>WhatsApp</a>
+            <a href="https://instagram.com/carnevalisolucoes" target="_blank" rel="noopener"><i class="ph-light ph-instagram-logo"></i>Instagram</a>
+            <a href="https://www.linkedin.com/in/sergio-carnevali-68268998" target="_blank" rel="noopener"><i class="ph-light ph-linkedin-logo"></i>LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap foot">
+      <a class="brand" href="#topo">carnevali<small>soluções digitais</small></a>
+      <nav aria-label="Rodapé"><a href="#solucao">Soluções</a><a href="#produtos">Produtos</a><a href="#faq">FAQ</a><a href="#sobre">Sobre</a></nav>
+      <span>Santos, SP, Brasil</span>
     </div>
+  </footer>
 
-    <!-- BACK TO TOP BUTTON -->
-    <button class="back-to-top" id="back-to-top" aria-label="Voltar ao topo">↑</button>
+  <div class="sticky-cta" id="sticky">
+    <a class="btn btn-primary" href="https://wa.me/5513988091008?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20um%20diagn%C3%B3stico%20gratuito." target="_blank" rel="noopener">Agendar diagnóstico <span class="ico"><i class="ph-light ph-arrow-up-right"></i></span></a>
+  </div>
 
-    <!-- d3-geo for Globe (lightweight ~45KB) -->
-    <script src="https://cdn.jsdelivr.net/npm/d3-array@3"></script>
-    <script src="https://cdn.jsdelivr.net/npm/d3-geo@3"></script>
-    <!-- tsParticles CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
-    <script src="script.js"></script>
-    <script src="hero3d.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha384-g4NTh/Iv5PPU4xPyhEWqPcwtNXOvdaDI8LLnyYfyNZOjKJeYQyjzQ9X5275eBjpt" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha384-Z3REaz79l2IaAZqJsSABtTbhjgOUYyV3p90XNnAPCSHg3EMTz1fouunq9WZRtj3d" crossorigin="anonymous" defer></script>
+  <script src="script.js?v=2" defer></script>
 </body>
-
 </html>
