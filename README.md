@@ -25,6 +25,8 @@ Landing Page_CarnevaliSoluções/
 ├── index.html            # Estrutura principal da página (SEO otimizado)
 ├── index.css             # Design system completo (~2430 linhas)
 ├── script.js             # Funcionalidades interativas (~960 linhas, JS puro)
+├── premium.css           # Camada visual 2.0: hero 3D, produtos, faixa de números (carrega após index.css)
+├── hero3d.js             # Cena Three.js do hero, tilt 3D dos produtos e contadores animados
 ├── logo.png              # Logotipo da empresa
 ├── hero-background.png   # Imagem de fundo do hero (fallback)
 └── README.md             # Este arquivo
@@ -38,14 +40,16 @@ A página foi estruturada para conduzir o usuário em uma jornada lógica de con
 
 | # | Seção | ID | Descrição |
 |---|---|---|---|
-| 1 | **Hero** | `#hero` | Headline com efeito typewriter (6 frases rotativas: Atendimento, Suporte, Agendamentos, Processos Internos, Pós-Venda), painel HUD animado (chat simulado + visão CRM multi-canal), CTAs primários e badges de confiança. |
+| 1 | **Hero** | `#topo` | Headline com efeito typewriter, **cena 3D em Three.js** (núcleo de IA, anéis orbitais e partículas que reagem ao mouse), painel HUD animado (chat simulado + visão CRM), CTA principal, prazo "7 a 21 dias úteis" e badges com ícones SVG. |
+| 1.1 | **Faixa de números** | — | 24/7, ~5s de resposta, 21 dias de implantação e 2 produtos no ar, com contadores animados. |
 | 2 | **Problema** | `#problema` | Simulação visual de caixa de entrada caótica com oportunidades perdidas, estatística de conversão (9× MIT) e cards de dor (demora, sobrecarga, demandas acumuladas). |
 | 3 | **Solução** | `#solucao` | 4 cards de benefícios com ícones SVG (atendimento 24/7, fluxos inteligentes, análise avançada, integração nativa). |
 | 4 | **Como Funciona** | `#como-funciona` | Processo em 3 passos com cards numerados e ícones. |
 | 5 | **Calculadora de ROI** | `#roi` | Ferramenta interativa e comparativa para projetar ganhos financeiros mensais e anuais com IA. |
-| 6 | **Casos de Uso** | `#casos` | 6 cenários práticos — Imobiliária, Clínica, E-commerce, Suporte Técnico SaaS, Pós-Venda/Logística e Consultoria/Agência — com cards descritivos. |
+| 5.1 | **Produtos** | `#produtos` | Os dois produtos próprios no ar, com mockups em CSS 3D (tilt ao passar o mouse): **Lumina** (clínicas de estética, [landing](https://lumina-jade-pi.vercel.app/landing-lumina.html#agente)) e **Fechei Imóveis** (corretores, [landing](https://fechei-imoveis.vercel.app/)). |
+| 6 | **Casos de Uso** | `#casos` | 6 cenários práticos — Imobiliária, Clínica, E-commerce, Suporte Técnico SaaS, Pós-Venda/Logística e Consultoria/Agência. Os cases de imobiliária e clínica linkam para o Fechei Imóveis e o Lumina. |
 | 7 | **Diagnóstico** | `#diagnostico` | Wizard multi-step (5 etapas) com cálculo de ROI personalizado, envio via WhatsApp e tela de confirmação após envio. |
-| 8 | **Tecnologias** | `#tecnologias` | Marcas de IA parceiras (OpenAI, Gemini, Claude, Microsoft, Meta AI, Google). |
+| 8 | **Tecnologias** | `#tecnologias` | Marcas de IA parceiras (OpenAI, Gemini, Claude, Microsoft, Meta AI, Google), com ícones SVG. |
 | 9 | **FAQ** | `#faq` | 8 perguntas frequentes em accordion interativo (`<details>`/`<summary>`), incluindo prazo de implementação. |
 | 10 | **Sobre Nós** | `#sobre` | Layout 2 colunas — texto de autoridade ("Especialista em Automação com Inteligência Artificial") + **Globo 3D wireframe interativo** com d3-geo. |
 | 11 | **Footer / CTA** | — | CTA final com WhatsApp, Instagram e LinkedIn. Localização: Santos, SP — Brasil. |
@@ -100,6 +104,17 @@ O painel HUD do hero exibe uma conversa simulada entre um lead e o Agente de IA 
 - `z-index: 2` — CRM view (`bottom: 72px`, `overflow: hidden`) — contida acima do footer
 - `z-index: 1` — Chat messages — área com scroll automático
 
+### 🧊 Hero 3D e Produtos (`hero3d.js` + `premium.css`)
+
+| Recurso | Implementação |
+|---|---|
+| **Cena do hero** | Three.js r128: icosaedro wireframe + núcleo pulsante, 3 anéis orbitais, 7 nós em órbita e partículas |
+| **Interação** | Parallax pelo mouse e leve rotação conforme o scroll |
+| **Performance** | Renderiza só quando visível (IntersectionObserver), pixel ratio limitado e menos partículas no mobile |
+| **Fallback** | Sem WebGL, sem Three.js ou com `prefers-reduced-motion`: brilho estático em CSS |
+| **Tilt 3D dos produtos** | Atributo `data-tilt` + `perspective` e `translateZ` em camadas; desativado em dispositivos sem hover |
+| **Contadores** | Atributo `data-count` anima os números da faixa ao entrar na tela |
+
 ### 🌍 Globo 3D Wireframe
 
 | Recurso | Implementação |
@@ -153,11 +168,12 @@ O projeto não usa Node.js, npm ou bundlers. Todas as dependências são carrega
 
 | Biblioteca | Versão | Tamanho (gzip) | Uso |
 |---|---|---|---|
+| **Three.js** | r128 | ~130 KB | Cena 3D do hero (`defer`, via cdnjs) |
 | **tsParticles** | 2.12.0 | ~80 KB | Animação de partículas de fundo |
 | **d3-array** | 3.x | ~5 KB | Utilitários de array para d3-geo |
 | **d3-geo** | 3.x | ~40 KB | Projeção geográfica do globo 3D |
 
-**Total de dependências:** ~125 KB gzip
+**Total de dependências:** ~255 KB gzip (estimativa)
 
 ---
 
@@ -200,6 +216,8 @@ https://carnevali1305.github.io/carnevali/index.html
 | `index.html` | Textos, telefone nos links `wa.me/`, metadados SEO (`<title>`, `<meta description>`), logo, links de redes sociais (WhatsApp, Instagram, LinkedIn) e cidade no footer. |
 | `script.js` | Palavras do typewriter (array `phrases` em `initTypewriter` — atualmente 6 frases rotativas), fórmulas da calculadora (`calcularROI()`), configuração das partículas (`initParticles()`), cores do globo (objeto `COLORS` em `initGlobe()`). |
 | `index.css` | Cores e tokens no seletor `:root`, espaçamentos, breakpoints responsivos. |
+| `premium.css` | Estilos do hero 3D, faixa de números, cards de produto (cor de destaque em `--accent`, ex.: `.product--lumina`) e ritmo das seções. |
+| `hero3d.js` | Cores, anéis, nós e partículas da cena 3D em `initHero3D()`; intensidade do tilt em `initTilt()`. |
 | `logo.png` | Substituir pelo logotipo da empresa (recomendado: PNG transparente ≤ 200×60px). |
 
 ---
@@ -209,8 +227,8 @@ https://carnevali1305.github.io/carnevali/index.html
 | Métrica | Valor |
 |---|---|
 | **Projeto total** | ~170 KB (sem CDNs) |
-| **CDNs (gzip)** | ~125 KB |
-| **Requests externos** | 4 (3 CDNs + 1 GeoJSON async) |
+| **CDNs (gzip)** | ~255 KB (estimativa, inclui Three.js) |
+| **Requests externos** | 5 (4 CDNs + 1 GeoJSON async) |
 | **Framework JS** | Nenhum — vanilla JS puro |
 | **Framework CSS** | Nenhum — CSS customizado |
 | **Otimizações** | IntersectionObserver (partículas/globo/scroll reveal), debounce em resize, auto-scroll no chat, camadas z-index para evitar sobreposição |
