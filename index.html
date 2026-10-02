@@ -8,6 +8,7 @@
     <meta name="description"
         content="Implemente Agentes de IA que atendem, automatizam e resolvem 24h por dia. Integração com seus canais e sistemas." />
     <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="premium.css" />
 </head>
 
 <body>
@@ -26,12 +27,12 @@
             <nav class="nav-links" aria-label="Navegação" id="nav-links">
                 <a href="#solucao">Soluções</a>
                 <a href="#como-funciona">Como Funciona</a>
+                <a href="#produtos">Produtos</a>
                 <a href="#casos">Casos de Uso</a>
                 <a href="#diagnostico">Diagnóstico</a>
                 <a href="#faq">FAQ</a>
-                <a class="btn btn-primary"
-                    href="https://wa.me/5513988091008?text=Ol%C3%A1%21%20Gostaria%20de%20falar%20com%20um%20consultor."
-                    target="_blank" rel="noopener" style="padding: 10px 16px; margin-left: 8px;">
+                <a href="https://wa.me/5513988091008?text=Ol%C3%A1%21%20Gostaria%20de%20falar%20com%20um%20consultor."
+                    target="_blank" rel="noopener" class="btn btn-primary btn-nav">
                     Falar com Consultor
                 </a>
             </nav>
@@ -49,6 +50,7 @@
     <main>
         <!-- HERO -->
         <section class="hero" id="topo">
+            <div class="hero-3d" id="hero3d" aria-hidden="true"><canvas id="hero3d-canvas"></canvas></div>
             <div class="wrap hero-grid">
                 <div>
                     <div class="kicker">
@@ -62,27 +64,26 @@
                         técnica.
                     </p>
 
-                    <p class="hero-explainer" style="margin-top:16px; font-size:0.95rem; opacity:0.9;">
-                        💡 <strong>Agentes de IA</strong> são assistentes inteligentes que automatizam atendimento,
-                        suporte, agendamentos, qualificação, processos internos e muito mais — em qualquer canal ou
-                        sistema que sua empresa utilize.
-                    </p>
-
                     <div class="hero-actions" id="demo">
                         <a class="btn btn-primary"
                             href="https://wa.me/5513988091008?text=Ol%C3%A1%21%20Tenho%20interesse%20em%20automatizar%20minha%20opera%C3%A7%C3%A3o%20com%20IA.%20Gostaria%20de%20agendar%20uma%20reuni%C3%A3o."
                             target="_blank" rel="noopener">
                             Agendar Diagnóstico Gratuito
                         </a>
-                        <a class="btn btn-ghost" href="#como-funciona">
-                            Ver Como Funciona
+                        <a class="btn btn-ghost" href="#produtos">
+                            Ver produtos no ar →
                         </a>
                     </div>
 
+                    <p class="hero-eta">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 2" /></svg>
+                        No ar em 7 a 21 dias úteis · sem equipe técnica · diagnóstico sem custo
+                    </p>
+
                     <div class="microtrust" aria-label="Elementos de confiança">
-                        <div class="pill">🚀 Implementação Personalizada</div>
-                        <div class="pill">🔒 Segurança Total</div>
-                        <div class="pill">⚡ Operação 24/7</div>
+                        <div class="pill"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l4-1 11-11a2.8 2.8 0 0 0-4-4L4 15z" /></svg>Implementação Personalizada</div>
+                        <div class="pill"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2" /><path d="M8 11V8a4 4 0 0 1 8 0v3" /></svg>Segurança Total</div>
+                        <div class="pill"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 3L5 14h6l-1 7 8-11h-6z" /></svg>Operação 24/7</div>
                     </div>
                 </div>
 
@@ -198,6 +199,18 @@
                         </div>
                     </div>
                 </aside>
+            </div>
+        </section>
+
+        <!-- NÚMEROS -->
+        <section class="stats-strip" aria-label="Números">
+            <div class="wrap">
+                <div class="stats-grid">
+                    <div class="stat-item"><b>24/7</b><span>Atendimento contínuo</span></div>
+                    <div class="stat-item"><b><span data-count="5">5</span>s</b><span>Tempo médio de resposta</span></div>
+                    <div class="stat-item"><b><span data-count="21">21</span> dias</b><span>Prazo máximo de implantação</span></div>
+                    <div class="stat-item"><b><span data-count="2">2</span></b><span>Produtos de IA já no ar</span></div>
+                </div>
             </div>
         </section>
 
@@ -663,24 +676,70 @@
         </section>
 
 
+        <!-- PRODUTOS -->
+        <section class="section reveal products" id="produtos">
+            <div class="wrap">
+                <span class="eyebrow">Prova real, em produção</span>
+                <h2>Produtos que já rodam com a nossa tecnologia.</h2>
+                <p class="sub">Não é promessa de slide: são Agentes de IA no WhatsApp oficial, vendidos como produto e usados todos os dias.</p>
+
+                <div class="products-grid">
+                    <article class="product product--lumina">
+                        <div class="product-card" data-tilt>
+                            <div class="product-stage" aria-hidden="true">
+                                <div class="mock mock-main">
+                                    <div class="mock-head">Lumina · WhatsApp</div>
+                                    <div class="bubble">Oi, Ana! Sua sessão é amanhã às 15h. Confirma?</div>
+                                    <div class="bubble me">Confirmo! 💆‍♀️</div>
+                                    <div class="bubble">Perfeito, até lá!</div>
+                                </div>
+                                <div class="mock mock-side"><b>70%</b><span>do pacote usado → oferta de renovação</span></div>
+                                <div class="mock mock-chip"><i></i>Cliente reativada</div>
+                            </div>
+                            <span class="product-tag">Clínicas de estética</span>
+                            <h3>Lumina</h3>
+                            <p class="tagline">A funcionária que nunca dorme.</p>
+                            <ul>
+                                <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5 9-10" /></svg>Lembretes 24h antes: menos no-show</li>
+                                <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5 9-10" /></svg>Renovação de pacote na hora certa</li>
+                                <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5 9-10" /></svg>Reativação automática de quem sumiu</li>
+                            </ul>
+                            <a class="btn btn-primary btn-accent" href="https://lumina-jade-pi.vercel.app/landing-lumina.html#agente" target="_blank" rel="noopener">Ver a landing do Lumina →</a>
+                        </div>
+                    </article>
+
+                    <article class="product product--fechei">
+                        <div class="product-card" data-tilt>
+                            <div class="product-stage" aria-hidden="true">
+                                <div class="mock mock-main">
+                                    <div class="mock-head">Fechei Imóveis · WhatsApp</div>
+                                    <div class="bubble me">Tem apto de 2 quartos no Gonzaga?</div>
+                                    <div class="mock-prop">Apto 2 dorm · Gonzaga</div>
+                                    <div class="bubble">Tenho 3! Qual horário prefere para visitar?</div>
+                                </div>
+                                <div class="mock mock-side"><b>Qui 14h</b><span>visita agendada pelo cliente</span></div>
+                                <div class="mock mock-chip"><i></i>Lead qualificado</div>
+                            </div>
+                            <span class="product-tag">Corretores de imóveis</span>
+                            <h3>Fechei Imóveis</h3>
+                            <p class="tagline">O funcionário de IA do corretor autônomo.</p>
+                            <ul>
+                                <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5 9-10" /></svg>Agente 24/7 no WhatsApp que qualifica leads</li>
+                                <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5 9-10" /></svg>Carteira de imóveis com fotos enviadas na hora</li>
+                                <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5 9-10" /></svg>Cliente escolhe o horário da visita sozinho</li>
+                            </ul>
+                            <a class="btn btn-primary btn-accent" href="https://fechei-imoveis.vercel.app/" target="_blank" rel="noopener">Ver a landing do Fechei Imóveis →</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- CASOS DE USO -->
         <section class="section reveal" id="casos">
             <div class="wrap">
                 <h2>Casos de Uso por Segmento.</h2>
                 <p class="sub">Cenários reais por segmento — o mesmo modelo que implementamos para o seu negócio.</p>
-
-                <div class="card" style="margin-bottom:24px; border-color:rgba(37,243,255,.30); background:linear-gradient(135deg, rgba(45,125,255,.12), rgba(155,92,255,.08)); display:flex; flex-wrap:wrap; align-items:center; gap:20px; justify-content:space-between;">
-                    <div style="flex:1; min-width:260px;">
-                        <span class="tag" style="background:rgba(37,243,255,.14); border-color:rgba(37,243,255,.35); color:var(--text);">🚀 Não é só case — é produto no ar</span>
-                        <h3 style="margin-top:12px; font-size:19px;">Lumina — Agente de IA para Clínicas de Estética</h3>
-                        <p>Construído com o mesmo método que aplicamos aqui, virou um SaaS real: o Agente Lumina roda 24h no
-                            WhatsApp oficial da clínica — lembra consulta, oferece renovação de pacote na hora certa e reativa
-                            quem sumiu. É a prova de que essa arquitetura funciona em produção, não só em slide.</p>
-                    </div>
-                    <a class="btn btn-primary" href="https://lumina-jade-pi.vercel.app/landing-lumina.html#agente"
-                        target="_blank" rel="noopener" style="flex-shrink:0;">
-                        Ver o Lumina ao vivo →
-                    </a>
-                </div>
 
                 <div class="grid cols-3">
                     <div class="card">
@@ -688,16 +747,14 @@
                             faixa de renda, localização preferida e urgência. Agenda visitas automaticamente no Google
                             Calendar dos corretores e envia confirmação por WhatsApp.</div>
                         <div class="tag">Qualificação Automática + Agendamento</div>
+                        <a class="case-link" href="https://fechei-imoveis.vercel.app/" target="_blank" rel="noopener">Já lançamos isso — conheça o Fechei Imóveis →</a>
                     </div>
                     <div class="card">
                         <div class="quote"><b>Clínica de Estética:</b> Agente confirma consultas 24h antes, reagenda
                             automaticamente em caso de cancelamento e envia lembretes de cuidados pré e
                             pós-procedimento. Reduz drasticamente o no-show.</div>
                         <div class="tag">Gestão de Agenda Inteligente</div>
-                        <a href="https://lumina-jade-pi.vercel.app/landing-lumina.html#agente" target="_blank"
-                            rel="noopener" style="display:block; margin-top:10px; font-size:12px; color:var(--neonCyan);">
-                            🔗 Já lançamos isso — conheça o Lumina
-                        </a>
+                        <a class="case-link" href="https://lumina-jade-pi.vercel.app/landing-lumina.html#agente" target="_blank" rel="noopener">Já lançamos isso — conheça o Lumina →</a>
                     </div>
                     <div class="card">
                         <div class="quote"><b>E-commerce / Infoprodutos:</b> Agente identifica carrinhos abandonados,
@@ -723,7 +780,7 @@
                     </div>
                 </div>
 
-                <div style="margin-top:24px; display:flex; gap:12px; flex-wrap:wrap; justify-content:center;">
+                <div class="cta-center">
                     <a class="btn btn-primary"
                         href="https://wa.me/5513988091008?text=Ol%C3%A1%21%20Gostaria%20de%20solicitar%20um%20diagn%C3%B3stico%20do%20meu%20funil%20de%20atendimento%20para%20identificar%20oportunidades%20de%20automa%C3%A7%C3%A3o."
                         target="_blank" rel="noopener">
@@ -738,12 +795,12 @@
             <div class="wrap">
                 <p class="tech-label">Tecnologias e integrações que utilizamos</p>
                 <div class="tech-logos">
-                    <div class="tech-item">🤖 OpenAI</div>
-                    <div class="tech-item">✨ Google Gemini</div>
-                    <div class="tech-item">🧠 Claude AI</div>
-                    <div class="tech-item">🪟 Microsoft</div>
-                    <div class="tech-item">🔵 Meta AI</div>
-                    <div class="tech-item">🌐 Google</div>
+                    <div class="tech-item"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="3" /><path d="M9 3v3M15 3v3M9 18v3M15 18v3M3 9h3M3 15h3M18 9h3M18 15h3" /></svg>OpenAI</div>
+                    <div class="tech-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c.6 5 4 8.4 9 9-5 .6-8.4 4-9 9-.6-5-4-8.4-9-9 5-.6 8.4-4 9-9z" /></svg>Google Gemini</div>
+                    <div class="tech-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M5 7l14 10M19 7L5 17" /></svg>Claude AI</div>
+                    <div class="tech-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z" /></svg>Microsoft</div>
+                    <div class="tech-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12c0-4 2-7 4-7 3 0 6 14 10 14 2 0 4-3 4-7s-2-7-4-7c-4 0-7 14-10 14-2 0-4-3-4-7z" /></svg>Meta AI</div>
+                    <div class="tech-item"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18" /></svg>Google</div>
                 </div>
             </div>
         </section>
@@ -871,22 +928,22 @@
     <!-- FOOTER -->
     <footer aria-label="Rodapé" id="contato">
         <div class="wrap">
-            <div style="max-width:600px; margin:0 auto; text-align:center;">
-                <h2 style="margin-bottom:16px;">Pronto para Automatizar sua Operação?</h2>
-                <p class="sub" style="margin-bottom:16px;">
+            <div class="footer-inner">
+                <h2>Pronto para Automatizar sua Operação?</h2>
+                <p class="sub">
                     Agende um diagnóstico gratuito e descubra como um Agente de IA pode
                     transformar seu atendimento em resultados ainda esta semana.
                 </p>
-                <p style="margin-bottom:28px; font-size:0.88rem; color:var(--neonCyan); opacity:0.9;">⚡ Vagas limitadas
+                <p class="footer-scarcity">⚡ Vagas limitadas
                     — atendimento individual e personalizado</p>
 
-                <a class="btn btn-primary" style="margin-bottom:24px; display:inline-block;"
+                <a class="btn btn-primary btn-lg" style="margin-bottom:24px;"
                     href="https://wa.me/5513988091008?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20um%20diagn%C3%B3stico%20gratuito%20para%20ver%20como%20Agentes%20de%20IA%20podem%20ajudar%20meu%20neg%C3%B3cio."
                     target="_blank" rel="noopener">
                     Agendar Diagnóstico Gratuito
                 </a>
 
-                <p style="margin-bottom:12px; font-size:0.9rem; opacity:0.8;">ou fale diretamente:</p>
+                <p class="footer-or">ou fale diretamente:</p>
 
                 <div class="social-footer" style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
                     <a href="https://wa.me/5513988091008" target="_blank" rel="noopener"
@@ -941,7 +998,9 @@
     <script src="https://cdn.jsdelivr.net/npm/d3-geo@3"></script>
     <!-- tsParticles CDN -->
     <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
     <script src="script.js"></script>
+    <script src="hero3d.js" defer></script>
 </body>
 
 </html>
