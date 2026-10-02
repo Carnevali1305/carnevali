@@ -1,242 +1,100 @@
-# 🤖 Carnevali Soluções Digitais — Landing Page
+# Carnevali Soluções Digitais: Landing Page
 
-> Landing page de alta conversão para apresentação de serviços de Agentes de IA personalizados para empresas que desejam automatizar operações — atendimento, suporte, qualificação, agendamentos, processos internos e pós-venda.
+Landing page de apresentação dos serviços de Agentes de IA personalizados (atendimento, qualificação, agendamento, suporte e pós-venda), com diagnóstico de ROI que envia o resultado ao WhatsApp.
 
-![Status](https://img.shields.io/badge/status-produção-brightgreen)
-![Stack](https://img.shields.io/badge/stack-HTML%20%7C%20CSS%20%7C%20JS-blue)
-![Hospedagem](https://img.shields.io/badge/deploy-GitHub%20Pages-222?logo=github)
+**Produção:** [carnevali-solucoes.vercel.app](https://carnevali-solucoes.vercel.app/)
 
-**🔗 Live:** [carnevali1305.github.io/carnevali](https://carnevali1305.github.io/carnevali/index.html)
+Stack: HTML, CSS e JavaScript puros, sem build. Deploy automático no Vercel a cada push na `main`.
 
 ---
 
-## ✨ Visão Geral
-
-Este projeto é uma landing page estática desenvolvida com **HTML, CSS e JavaScript puro**, seguindo o modelo **AIDA** (Atenção → Interesse → Desejo → Ação) para maximizar a taxa de conversão.
-
-O site apresenta os serviços da **Carnevali Soluções Digitais**, especialista em implementação de Agentes de IA focados em resultados — automatizando operações completas em qualquer canal ou sistema que a empresa utilize.
-
----
-
-## 🗂️ Estrutura do Projeto
+## Estrutura
 
 ```
 Landing Page_CarnevaliSoluções/
-├── index.html            # Estrutura principal da página (SEO otimizado)
-├── index.css             # Design system completo (~2430 linhas)
-├── script.js             # Funcionalidades interativas (~960 linhas, JS puro)
-├── premium.css           # Camada visual 2.0: hero 3D, produtos, faixa de números (carrega após index.css)
-├── hero3d.js             # Cena Three.js do hero, tilt 3D dos produtos e contadores animados
-├── logo.png              # Logotipo da empresa
-├── hero-background.png   # Imagem de fundo do hero (fallback)
-└── README.md             # Este arquivo
+├── index.html            # Página (SEO, seções e conteúdo)
+├── index.css             # Design system e estilos
+├── script.js             # Interações (reveal, menu, pan horizontal, diagnóstico)
+├── fonts/                # Geist (variável, woff2), hospedada junto ao projeto
+├── logo.png              # Logotipo (usado como favicon)
+├── hero-background.png   # Imagem antiga do hero (sem uso atual)
+├── vercel.json           # Rewrites e cache
+└── README.md
 ```
 
----
-
-## 🎯 Seções da Página (Fluxo de Conversão)
-
-A página foi estruturada para conduzir o usuário em uma jornada lógica de conversão:
-
-| # | Seção | ID | Descrição |
-|---|---|---|---|
-| 1 | **Hero** | `#topo` | Headline com efeito typewriter, **cena 3D em Three.js** (núcleo de IA, anéis orbitais e partículas que reagem ao mouse), painel HUD animado (chat simulado + visão CRM), CTA principal, prazo "7 a 21 dias úteis" e badges com ícones SVG. |
-| 1.1 | **Faixa de números** | — | 24/7, ~5s de resposta, 21 dias de implantação e 2 produtos no ar, com contadores animados. |
-| 2 | **Problema** | `#problema` | Simulação visual de caixa de entrada caótica com oportunidades perdidas, estatística de conversão (9× MIT) e cards de dor (demora, sobrecarga, demandas acumuladas). |
-| 3 | **Solução** | `#solucao` | 4 cards de benefícios com ícones SVG (atendimento 24/7, fluxos inteligentes, análise avançada, integração nativa). |
-| 4 | **Como Funciona** | `#como-funciona` | Processo em 3 passos com cards numerados e ícones. |
-| 5 | **Calculadora de ROI** | `#roi` | Ferramenta interativa e comparativa para projetar ganhos financeiros mensais e anuais com IA. |
-| 5.1 | **Produtos** | `#produtos` | Os dois produtos próprios no ar, com mockups em CSS 3D (tilt ao passar o mouse): **Lumina** (clínicas de estética, [landing](https://lumina-jade-pi.vercel.app/landing-lumina.html#agente)) e **Fechei Imóveis** (corretores, [landing](https://fechei-imoveis.vercel.app/)). |
-| 6 | **Casos de Uso** | `#casos` | 6 cenários práticos — Imobiliária, Clínica, E-commerce, Suporte Técnico SaaS, Pós-Venda/Logística e Consultoria/Agência. Os cases de imobiliária e clínica linkam para o Fechei Imóveis e o Lumina. |
-| 7 | **Diagnóstico** | `#diagnostico` | Wizard multi-step (5 etapas) com cálculo de ROI personalizado, envio via WhatsApp e tela de confirmação após envio. |
-| 8 | **Tecnologias** | `#tecnologias` | Marcas de IA parceiras (OpenAI, Gemini, Claude, Microsoft, Meta AI, Google), com ícones SVG. |
-| 9 | **FAQ** | `#faq` | 8 perguntas frequentes em accordion interativo (`<details>`/`<summary>`), incluindo prazo de implementação. |
-| 10 | **Sobre Nós** | `#sobre` | Layout 2 colunas — texto de autoridade ("Especialista em Automação com Inteligência Artificial") + **Globo 3D wireframe interativo** com d3-geo. |
-| 11 | **Footer / CTA** | — | CTA final com WhatsApp, Instagram e LinkedIn. Localização: Santos, SP — Brasil. |
+> **Cache:** o `vercel.json` marca os assets como imutáveis por 1 ano. Ao alterar `index.css` ou `script.js`, aumente o `?v=` nas tags `<link>` e `<script>` do `index.html`.
 
 ---
 
-## ⚙️ Funcionalidades e Recursos
+## Seções
 
-### 🌐 Animações de Fundo
-
-| Recurso | Tecnologia | Descrição |
+| Seção | ID | Conteúdo |
 |---|---|---|
-| **Partículas Flutuantes** | tsParticles 2.12.0 | Rede neural com nodos conectados, efeito *grab* no hover, posicionado como fundo fixo em toda a página. |
-| **Globo Wireframe 3D** | d3-geo 3.x (Canvas) | Globo terrestre interativo com projeção ortográfica, pontos halftone nos continentes, rotação automática, drag para girar manualmente e suporte a touch. Integrado à seção "Sobre Nós". |
+| Hero | `#topo` | Título animado, CTA e celular com conversa do agente |
+| Números | n/a | 24/7, 5s, 21 dias, 2 produtos (contadores animados) |
+| Problema | `#problema` | Estatística 9× (MIT / InsideSales.com), caixa de entrada com leads perdidos e 3 custos |
+| Solução | `#solucao` | Bento com 4 benefícios |
+| Como funciona | `#como-funciona` | 3 passos que empilham ao rolar |
+| Diagnóstico | `#diagnostico` | Wizard de 5 etapas, ROI estimado e envio por WhatsApp |
+| Produtos | `#produtos` | Lumina (clínicas) e Fechei Imóveis (corretores) |
+| Casos de uso | `#casos` | 6 segmentos, rolagem horizontal fixada no desktop e scroll-snap no mobile |
+| Tecnologias | `#tecnologias` | Faixa com as marcas e ferramentas usadas |
+| FAQ | `#faq` | 8 perguntas em `<details>` |
+| Sobre | `#sobre` | Apresentação do especialista |
+| Contato | `#contato` | CTA final, WhatsApp, Instagram e LinkedIn |
 
-### 🧠 Interações do Usuário
+---
 
-| Funcionalidade | Função JS | Descrição |
-|---|---|---|
-| **Typewriter Effect** | `initTypewriter()` | Digitação animada alternando 6 palavras no hero ("Piloto Automático", "Atendimento", "Suporte ao Cliente", "Agendamentos", "Processos Internos", "Pós-Venda"). |
-| **Loop de Animação** | `initAnimationLoop()` | Simulação de chat multi-canal + CRM no hero com auto-scroll, transição suave e loop de 20s. |
-| **Scroll Reveal** | `initScrollReveal()` | Elementos surgem suavemente ao scrollar via `IntersectionObserver`. |
-| **Indicadores de Digitação** | CSS `typingBubble` | Balões `...` aparecem antes de cada resposta da IA no chat do hero, tornando a simulação mais realista. |
-| **Botão Voltar ao Topo** | `DOMContentLoaded` | Aparece após 300px de scroll, posicionado acima da sticky CTA no mobile. |
-| **Menu Hamburger** | `initHamburger()` | Navegação mobile com animação, bloqueio de scroll e fechamento automático. |
-| **Active Nav Link** | `initActiveNavLink()` | Destaque do link no menu baseado na seção visível (scroll spy). |
-| **Sticky CTA Mobile** | `initStickyCTA()` | Barra fixa de CTA no mobile, desaparece após a calculadora de ROI. |
-| **Calculadora de ROI** | `initROICalculator()` / `calcularROI()` | Formulário comparativo (Hoje vs. Com IA) com projeção de ganhos mensais e anuais. |
+## Design
 
-### 📋 Wizard de Diagnóstico (5 etapas)
+- **Tema:** grafite escuro (`#0b0d0c`) com um único acento verde-lima (`#b5f26b`).
+- **Tipografia:** Geist, com títulos grandes e espaçamento justo.
+- **Formas:** pílula para botões e controles, 28px para painéis, 14px para itens internos. Painéis com moldura dupla (shell e core).
+- **Ícones:** Phosphor Icons (estilo light), via CDN.
+- **Movimento:** reveal com fade e blur, linhas do título com máscara, contadores, menu mobile em tela cheia. Tudo respeita `prefers-reduced-motion`, e a transparência tem fallback para `prefers-reduced-transparency`.
+- **Sem listeners de scroll:** usa `IntersectionObserver` e GSAP ScrollTrigger (apenas no pan dos casos de uso, em telas acima de 960px).
 
-| Etapa | Função | Conteúdo |
-|---|---|---|
-| 1 | `diagShowStep()` | Segmento do negócio + tamanho da equipe |
-| 2 | `diagShowStep()` | Volume de leads e taxa de conversão |
-| 3 | `diagShowStep()` | Ticket médio e principal desafio |
-| 4 | `diagCalcularROI()` | Resultado com projeção de ROI animada |
-| 5 | `diagEnviar()` | Formulário de contato → envio via WhatsApp → tela de confirmação ✅ |
+Tokens de cor, raios e easing ficam no `:root` do `index.css`.
 
-### 💬 Simulador de Chat Multi-canal (Hero)
+---
 
-O painel HUD do hero exibe uma conversa simulada entre um lead e o Agente de IA (conectado em multi-canal + CRM), seguida de uma visão CRM:
+## Dependências externas (CDN)
 
-| Fase | Timing | Descrição |
-|---|---|---|
-| **Chat** | 0s – 12s | 8 mensagens aparecem sequencialmente (delay de 1.5s entre cada), com **indicadores de digitação `...`** antes de cada resposta da IA e **auto-scroll suave** acompanhando a última mensagem visível. |
-| **CRM** | 12.5s – 17s | Painel CRM surge com card do lead, badge de status (LEAD → REUNIÃO) e notificação pop-up, **sem sobrepor o footer de stats**. |
-| **Restart** | 20s | Loop reinicia com clone+replace dos nós DOM e re-setup do auto-scroll. |
-
-**Arquitetura de camadas (z-index):**
-- `z-index: 3` — Footer stats ("24/7" e "5s") — sempre visível
-- `z-index: 2` — CRM view (`bottom: 72px`, `overflow: hidden`) — contida acima do footer
-- `z-index: 1` — Chat messages — área com scroll automático
-
-### 🧊 Hero 3D e Produtos (`hero3d.js` + `premium.css`)
-
-| Recurso | Implementação |
+| Biblioteca | Uso |
 |---|---|
-| **Cena do hero** | Three.js r128: icosaedro wireframe + núcleo pulsante, 3 anéis orbitais, 7 nós em órbita e partículas |
-| **Interação** | Parallax pelo mouse e leve rotação conforme o scroll |
-| **Performance** | Renderiza só quando visível (IntersectionObserver), pixel ratio limitado e menos partículas no mobile |
-| **Fallback** | Sem WebGL, sem Three.js ou com `prefers-reduced-motion`: brilho estático em CSS |
-| **Tilt 3D dos produtos** | Atributo `data-tilt` + `perspective` e `translateZ` em camadas; desativado em dispositivos sem hover |
-| **Contadores** | Atributo `data-count` anima os números da faixa ao entrar na tela |
+| GSAP 3.12.5 + ScrollTrigger (cdnjs, com SRI) | Pan horizontal dos casos de uso |
+| Phosphor Icons 2.1.1 (unpkg) | Ícones |
 
-### 🌍 Globo 3D Wireframe
-
-| Recurso | Implementação |
-|---|---|
-| **Renderização** | Canvas 2D com d3-geo (projeção ortográfica) |
-| **Dados geográficos** | GeoJSON Natural Earth 110m (~15KB, carregado async) |
-| **Pontos halftone** | Gerados via point-in-polygon sobre cada continente |
-| **Rotação automática** | 0.35°/frame, pausa ao arrastar, retoma após 2s |
-| **Interatividade** | Drag (mouse + touch) para rotacionar manualmente |
-| **Performance** | IntersectionObserver pausa quando fora do viewport |
-| **Responsivo** | Adapta tamanho ao container, DPR-aware |
-| **Cores** | Tema neon integrado (cyan borda, purple pontos) |
+Se o GSAP não carregar, os casos de uso continuam navegáveis por scroll horizontal nativo.
 
 ---
 
-## 🎨 Design System e Identidade Visual
+## Como executar
 
-O layout adota estética **dark premium** com destaques neon:
-
-### Paleta de cores
-
-```css
-:root {
-    --bg0: #040814;          /* Fundo principal escuro */
-    --bg1: #050b1a;          /* Fundo secundário */
-    --neonBlue: #2d7dff;     /* Azul vibrante principal */
-    --neonCyan: #25f3ff;     /* Ciano neon de destaque */
-    --neonPurple: #9b5cff;   /* Roxo neon para detalhes */
-    --text: #eaf1ff;         /* Texto principal claro */
-    --glass: rgba(255,255,255,.07);  /* Glassmorphism */
-    --radius: 18px;          /* Border radius padrão */
-    --max: 1120px;           /* Largura máxima do conteúdo */
-}
-```
-
-### Técnicas visuais
-
-- **Dark mode** com gradientes radiais multi-camada no body
-- **Glassmorphism** (`backdrop-filter: blur`) em navbar, CTA mobile e painéis HUD
-- **Animações CSS** — hover effects, transições suaves, glow neon
-- **Painéis HUD** simulados via CSS (chat, CRM, caixa de entrada)
-- **Partículas de fundo** com efeito de rede neural conectada
-- **Globo 3D** com glow radial cyan/purple
-- **Design responsivo** — CSS Grid para desktop, coluna única para mobile
-
----
-
-## 📦 Dependências Externas (CDN)
-
-O projeto não usa Node.js, npm ou bundlers. Todas as dependências são carregadas via CDN:
-
-| Biblioteca | Versão | Tamanho (gzip) | Uso |
-|---|---|---|---|
-| **Three.js** | r128 | ~130 KB | Cena 3D do hero (`defer`, via cdnjs) |
-| **tsParticles** | 2.12.0 | ~80 KB | Animação de partículas de fundo |
-| **d3-array** | 3.x | ~5 KB | Utilitários de array para d3-geo |
-| **d3-geo** | 3.x | ~40 KB | Projeção geográfica do globo 3D |
-
-**Total de dependências:** ~255 KB gzip (estimativa)
-
----
-
-## 🚀 Como Executar
-
-O projeto é 100% estático, sem processos de build ou instalação.
-
-### Opção 1: Abrir diretamente
 ```bash
-# Basta abrir o arquivo no navegador
-xdg-open index.html          # Linux
-open index.html               # macOS
-start index.html              # Windows
-```
+# Abrir direto
+xdg-open index.html
 
-### Opção 2: Servidor local
-```bash
-# Python
-python3 -m http.server 8000
-
-# Node.js
-npx serve .
-
-# PHP
-php -S localhost:8000
-```
-
-### Opção 3: GitHub Pages
-O site está publicado automaticamente via GitHub Pages em:
-```
-https://carnevali1305.github.io/carnevali/index.html
+# Ou servidor local
+python3 -m http.server 8080
 ```
 
 ---
 
-## 🔧 Personalização
+## Personalização
 
 | Arquivo | O que alterar |
 |---|---|
-| `index.html` | Textos, telefone nos links `wa.me/`, metadados SEO (`<title>`, `<meta description>`), logo, links de redes sociais (WhatsApp, Instagram, LinkedIn) e cidade no footer. |
-| `script.js` | Palavras do typewriter (array `phrases` em `initTypewriter` — atualmente 6 frases rotativas), fórmulas da calculadora (`calcularROI()`), configuração das partículas (`initParticles()`), cores do globo (objeto `COLORS` em `initGlobe()`). |
-| `index.css` | Cores e tokens no seletor `:root`, espaçamentos, breakpoints responsivos. |
-| `premium.css` | Estilos do hero 3D, faixa de números, cards de produto (cor de destaque em `--accent`, ex.: `.product--lumina`) e ritmo das seções. |
-| `hero3d.js` | Cores, anéis, nós e partículas da cena 3D em `initHero3D()`; intensidade do tilt em `initTilt()`. |
-| `logo.png` | Substituir pelo logotipo da empresa (recomendado: PNG transparente ≤ 200×60px). |
+| `index.html` | Textos, telefone nos links `wa.me/`, metadados SEO, links sociais e cidade no rodapé |
+| `script.js` | Fórmulas do ROI em `calc()` (ganho de 30% de conversão, 60% de leads com resposta lenta e 40% recuperáveis) e a mensagem do WhatsApp em `send()` |
+| `index.css` | Cores, raios e espaçamentos no `:root` |
 
 ---
 
-## 📊 Performance
+## Histórico
 
-| Métrica | Valor |
-|---|---|
-| **Projeto total** | ~170 KB (sem CDNs) |
-| **CDNs (gzip)** | ~255 KB (estimativa, inclui Three.js) |
-| **Requests externos** | 5 (4 CDNs + 1 GeoJSON async) |
-| **Framework JS** | Nenhum — vanilla JS puro |
-| **Framework CSS** | Nenhum — CSS customizado |
-| **Otimizações** | IntersectionObserver (partículas/globo/scroll reveal), debounce em resize, auto-scroll no chat, camadas z-index para evitar sobreposição |
+A versão anterior (tema azul e roxo neon, hero 3D em Three.js, partículas e globo d3) está no histórico do git, antes do commit `5a37079`.
 
 ---
 
-## 📄 Licença
-
-Todos os direitos reservados © 2026 — **Carnevali Soluções Digitais**
-
-> Desenvolvido com foco absoluto em performance, responsividade avançada, design moderno e automação inteligente de operações. Sem frameworks pesados, rodando puramente na web nativa.
+Todos os direitos reservados © 2026, Carnevali Soluções Digitais.
